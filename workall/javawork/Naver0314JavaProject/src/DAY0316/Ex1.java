@@ -1,4 +1,4 @@
-package DAY0315;
+package DAY0316;
 
 import java.util.Scanner;
 
@@ -43,17 +43,22 @@ public class Ex1 {
                 } else if (score >= 70) {
                     msg = "조금 더 노력하세요";
                 } else {
-                    msg = "많이 노력하세요";
+                    msg = "재시험입니다.";
                 }
                 System.out.println(msg);
-                break; // 올바른 범위의 점수를 입력한 경우 루프 종료
+                
+                if(score >= 70) {
+                break; // 올바른 점수를 입력했거나 재시험이 아닐 때 무한루프 종료
+                }else if(score > 0 && score < 70){
+                	System.out.println("재시험 점수를 입력해 주세요");
+                }
             	} else {
                 System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
             	}
         	}
 
-        		sc.close();
+        sc.close();
     
-     }
-	
-}
+      }
+ }
+
