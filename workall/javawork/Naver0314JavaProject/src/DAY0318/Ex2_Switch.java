@@ -2,7 +2,7 @@ package DAY0318;
 
 import java.util.Scanner;
 
-public class Ex3_Switch {
+public class Ex2_Switch {
 
 	public static void main(String[] args) {
 		

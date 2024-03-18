@@ -2,7 +2,7 @@ package DAY0318;
 
 import java.util.Scanner;
 
-public class Ex4_SwitchString {
+public class Ex3_SwitchString {
 
 	public static void main(String[] args) {
 		
