@@ -40,7 +40,7 @@ public class Q6 {
 			}
 		}
 		
-		System.out.println("입력한 정수 갯수: " + count);
+		System.out.println("입력한 점수 갯수: " + count);
 		System.out.println("총 합계: " + sum);
 		
 		sc.close();
