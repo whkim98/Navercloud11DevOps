@@ -23,6 +23,8 @@ public class Ex5Scanner {
 		
 		System.out.println("입력하신 나이는 " + age + "세 입니다.");
 		
+		sc.close();
+		
 	}
 	
 }
