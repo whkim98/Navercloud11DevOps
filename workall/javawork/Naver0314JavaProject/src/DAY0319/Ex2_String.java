@@ -59,6 +59,19 @@ public class Ex2_String {
 		
 		System.out.println(str1.startsWith("Have")); // Have로 시작이 맞다면 true, 틀리면 false
 		System.out.println(str1.startsWith("Nice"));
+
+		System.out.println("=".repeat(35));
+		
+		System.out.println(str1.endsWith("Day")); // Day로 끝나는게 맞다면 true, 틀리면 false
+		System.out.println(str1.endsWith("day")); // 대소문자 구문해야 함
+		
+		System.out.println(str1.toLowerCase().endsWith("day")); // 소문자로 바꾸고 day로 끝남? true
+		
+		//변경
+		System.out.println(str1.replace('a', '*')); //a를 *로 변경
+		System.out.println(str1.replace("Have a Nice Day", "캬캬캬ㅑㅋ")); 
+		
+		
 		
 	}
 	
