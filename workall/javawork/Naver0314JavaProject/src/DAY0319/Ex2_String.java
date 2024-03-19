@@ -1,5 +1,7 @@
 package DAY0319;
 
+import java.util.StringTokenizer;
+
 public class Ex2_String {
 
 	public static void main(String[] args) {
@@ -57,6 +59,7 @@ public class Ex2_String {
 
 		System.out.println("=".repeat(35));
 		
+		//비교
 		System.out.println(str1.startsWith("Have")); // Have로 시작이 맞다면 true, 틀리면 false
 		System.out.println(str1.startsWith("Nice"));
 
@@ -65,13 +68,60 @@ public class Ex2_String {
 		System.out.println(str1.endsWith("Day")); // Day로 끝나는게 맞다면 true, 틀리면 false
 		System.out.println(str1.endsWith("day")); // 대소문자 구문해야 함
 		
+		System.out.println("=".repeat(35));
+		
 		System.out.println(str1.toLowerCase().endsWith("day")); // 소문자로 바꾸고 day로 끝남? true
+		
+		System.out.println("=".repeat(35));
+		
+		System.out.println(str2.compareTo("apple")); //완전 똑같으면 0
+		System.out.println(str2.compareTo("append"));
+		System.out.println(str2.compareTo("banana"));
+		
+		System.out.println("=".repeat(35));
 		
 		//변경
 		System.out.println(str1.replace('a', '*')); //a를 *로 변경
 		System.out.println(str1.replace("Have a Nice Day", "캬캬캬ㅑㅋ")); 
 		
+		System.out.println("=".repeat(35));
 		
+		//문자열 분리(결과는 배열값)
+		String colors = "red, blue, green, yellow, pink";
+		String []a1 = colors.split(", ");
+		System.out.println(colors);
+		System.out.println("분리된 배열의 갯수: " + a1.length);
+		System.out.println(a1[0] + ", " + a1[4]);
+		
+		System.out.println("=".repeat(35));
+		
+		//분리하는 또 다른 방법
+		StringTokenizer st = new StringTokenizer(colors, ", ");
+		System.out.println("분리된 토큰 수: " + st.countTokens());
+		
+		//분리된 토큰값 출력
+		while(st.hasMoreTokens()) {
+			System.out.println(st.nextToken()); //다음 토큰을 꺼내서 출력
+		}
+		
+		System.out.println("=".repeat(35));
+		
+		String msg = "   hello   ";
+		System.out.println(msg.length());
+		System.out.println(msg.trim().length()); //양쪽 공백 제거 후 길이
+		
+		System.out.println("=".repeat(35));
+		
+		//valueOf: 어떤 타입의 데이터든 모두 String으로 변환
+		System.out.println(String.valueOf(3)); // 정수 3이 문자열 "3"으로 반환
+		System.out.println(3 + ""); // 이것도 문자열임(어디든 문자열과 합쳐지면 문자열로 반환됨)
+		
+		System.out.println("=".repeat(35));
+		
+		System.out.println(str1.isEmpty());
+		System.out.println("".isEmpty());
+		
+		System.out.println("=".repeat(35));
 		
 	}
 	
