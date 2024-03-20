@@ -24,9 +24,11 @@ public class Q5_ArraySearchStartsWith {
 		
 		Scanner sc = new Scanner(System.in);
 		String searchName = "";
+		int count = 0;
 		
 		while(true) {
 			boolean w = true;
+			count = 0;
 			
 			System.out.println("검색할 이름은?");
 			searchName = sc.nextLine();
@@ -39,16 +41,23 @@ public class Q5_ArraySearchStartsWith {
 			for(int i = 0; i < members.length; i++) {
 				if(members[i].startsWith(searchName) == true) {
 					w = false;
+					count += 1;
 					System.out.println((i + 1) + "번쨰: " + members[i]);
 				}
 				
 			}
+			
+
+			System.out.println("총: " + count + "명");
+			
+			
 			
 			if(w == true) {
 				System.out.println(searchName + "로 시작하는 멤버는 없습니다.");
 			}
 			
 		}
+		
 		
 		sc.close();
 		
