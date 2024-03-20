@@ -13,8 +13,6 @@ public class Q6_ArrayRank {
 		 * 번호 점수 등수 순으로 출력
 		 */
 		
-		int max = score[0];
-		
 		for(int i = 0; i < score.length; i++) {
 			rank[i] = 1;
 			
