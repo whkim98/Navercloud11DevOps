@@ -23,7 +23,6 @@ public class Q1_ArrayAlphaCount {
 		System.out.println("영어 문장을 입력하셈");
 		msg = sc.nextLine();
 		
-		
 		for(int i = 0; i < msg.length(); i++) {
 			char ch = msg.toUpperCase().charAt(i);
 			if(ch >= 'A' && ch <= 'Z') {
@@ -37,7 +36,8 @@ public class Q1_ArrayAlphaCount {
 				System.out.println();
 			}
 		}
-
+		
+		sc.close();
 		
 	}
 
