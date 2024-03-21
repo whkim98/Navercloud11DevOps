@@ -23,6 +23,15 @@ public class Ex1_RandomJungbok {
 		}
 		
 		//순차적 정렬(오름차순)
+		for(int i = 0; i < rand.length - 1; i++) {
+			for(int j = i + 1; j < rand.length; j++) {
+				if(rand[i] > rand[j]) {
+					int temp = rand[i];
+					rand[i] = rand[j];
+					rand[j] = temp;
+				}
+			}
+		}
 
 		
 		System.out.println("1 ~ 30 사이 중복되지 않은 난수 구하기");
