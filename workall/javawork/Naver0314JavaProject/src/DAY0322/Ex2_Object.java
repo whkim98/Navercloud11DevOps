@@ -45,6 +45,8 @@ public class Ex2_Object {
 		o.setAge(27);
 		System.out.println(o.getName());
 		System.out.println(o.getAge());
+		
+		//static 메서드 호출도 클래스명으로 호출 가능
 		System.out.println(Orange.getCompany());
 		
 	}
