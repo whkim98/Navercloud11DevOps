@@ -56,13 +56,14 @@ public class Ex6_Array2ChaBingo {
 				bingo++;
 			}
 			
+			System.out.println("=".repeat(35));
+			
 			if(bingo == 0) {
 				System.out.println("꽝");
 			}else {
-				System.out.println("\t빙고 " + bingo + "개");
+				System.out.println("빙고 " + bingo + "개");
 			}
 			
-			System.out.println("=".repeat(35));
 			
 			String ans = sc.nextLine();
 			if(ans.equalsIgnoreCase("x")) {
