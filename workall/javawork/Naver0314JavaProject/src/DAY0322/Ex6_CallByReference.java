@@ -17,7 +17,7 @@ public class Ex6_CallByReference {
 		
 		Stu s = new Stu();
 		System.out.println(s.name + ", " + s.blood + ", " + s.age);
-		changeStu(s); //CallByReference: 주소전달
+		changeStu(s); //Call By Reference: 주소전달
 		System.out.println(s.name + ", " + s.blood + ", " + s.age);
 		
 		
