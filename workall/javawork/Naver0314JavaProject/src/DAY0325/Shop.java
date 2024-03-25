@@ -7,7 +7,7 @@ public class Shop {
 	private int dan;
 
 	public Shop() {
-		
+		this("이름없음", 1, 1000);
 	}
 	
 	public Shop(String sang) {

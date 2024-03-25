@@ -9,7 +9,7 @@ public class Ex1_ClassShop {
 	}
 	
 	public static void showTitle() {
-		System.out.println("제목");
+		System.out.println("제목임 킼ㅋ키켘\n");
 	}
 	
 	public static void main(String[] args) {
