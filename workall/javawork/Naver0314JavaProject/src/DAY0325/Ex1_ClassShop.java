@@ -9,7 +9,8 @@ public class Ex1_ClassShop {
 	}
 	
 	public static void showTitle() {
-		System.out.println("제목임 킼ㅋ키켘\n");
+		System.out.println("제목임 킼ㅋ키켘");
+		System.out.println("=".repeat(60));
 	}
 	
 	public static void main(String[] args) {
@@ -31,6 +32,8 @@ public class Ex1_ClassShop {
 		
 		System.out.println("1번의 상품명, 수량, 단가 변경");
 		myShop[1].setSangpum("오렌지", 5, 12000);
+		
+		System.out.println();
 		
 		System.out.println("** 변경된 값으로 다시 출력 **");
 		showTitle();
