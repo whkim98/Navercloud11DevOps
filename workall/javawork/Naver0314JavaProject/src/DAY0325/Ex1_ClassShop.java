@@ -15,11 +15,16 @@ public class Ex1_ClassShop {
 	
 	public static void main(String[] args) {
 		
-		Shop[] myShop = new Shop[4]; //객체 배열 메모리 할당, 초기값은 null
-		myShop[0] = new Shop();
-		myShop[1] = new Shop("딸기");
-		myShop[2] = new Shop(3, 2000);
-		myShop[3] = new Shop("사과", 5, 3000);
+//		Shop[] myShop = new Shop[4]; //객체 배열 메모리 할당, 초기값은 null
+//		myShop[0] = new Shop();
+//		myShop[1] = new Shop("딸기");
+//		myShop[2] = new Shop(3, 2000);
+//		myShop[3] = new Shop("사과", 5, 3000);
+		
+		//배열 할당시 생성자 호출하는 방식
+		Shop[] myShop = {
+				new Shop(), new Shop("딸기"), new Shop(3, 2000), new Shop("사과", 5, 3000)
+		};
 		
 		showTitle();
 		writeShop(myShop);
