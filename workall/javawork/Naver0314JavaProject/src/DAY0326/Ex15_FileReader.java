@@ -37,7 +37,6 @@ public class Ex15_FileReader {
 				br.close(); //늦게 열린 걸 먼저 닫아줌
 				fr.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
