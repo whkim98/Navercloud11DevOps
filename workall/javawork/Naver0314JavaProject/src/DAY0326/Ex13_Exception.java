@@ -19,9 +19,11 @@ public class Ex13_Exception {
 		try {
 			go1();
 		}catch(NullPointerException e) {
-			System.out.println("Date 클래스 생성을 안 하고 메서드 호출" + e.getMessage());
+			System.out.println("Date 클래스 생성을 안 하고 메서드 호출: " + e.getMessage());
 		}catch(NumberFormatException e1) {
-			System.out.println("문자로 인한 오류 발생" + e1.getMessage());
+			System.out.println("문자로 인한 오류 발생: " + e1.getMessage());
+		}finally {
+			System.out.println("이 곳은 무조건 실행됨");
 		}
 		
 		System.out.println("정상종료");
