@@ -16,7 +16,7 @@ class NewFrame extends JFrame{
 			@Override
 			public void windowClosing(WindowEvent e) {
 				super.windowClosing(e);
-				System.out.println("윈도울르 종료합니다");
+				System.out.println("윈도우를 종료합니다");
 				System.exit(0);
 			}
 		});
