@@ -88,7 +88,7 @@
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item key="pageIndex" value="0"/>
+		<item key="pageIndex" value="3"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.preferences.EditTemplateDialog_dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="4"/>

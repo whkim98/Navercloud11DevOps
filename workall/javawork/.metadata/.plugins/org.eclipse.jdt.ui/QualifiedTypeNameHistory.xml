@@ -5,7 +5,6 @@
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="java.text.NumberFormat"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="DAY0322.Ex1_Object"/>
     <fullyQualifiedTypeName name="DAY0322.Apple"/>
@@ -21,6 +20,19 @@
     <fullyQualifiedTypeName name="DAY0325.subMember"/>
     <fullyQualifiedTypeName name="DAY0325Book.Smartphone"/>
     <fullyQualifiedTypeName name="DAY0326.AbsEx1"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="DAY0326.Hello"/>
+    <fullyQualifiedTypeName name="DAY0326.Kiwi"/>
+    <fullyQualifiedTypeName name="DAY0326.Happy"/>
+    <fullyQualifiedTypeName name="java.awt.event.WindowAdapter"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+    <fullyQualifiedTypeName name="DAY0326.Ex13_Exception"/>
+    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 </qualifiedTypeNameHistroy>

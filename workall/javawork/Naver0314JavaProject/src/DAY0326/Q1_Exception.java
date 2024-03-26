@@ -5,48 +5,61 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Ex15_FileReader {
+/*
+ * 예제.txt를 읽어서 총갯수와 총점, 평균을 구하시오
+ * 단, 점수에 문자가 있는경우 갯수에서 제외하고 총점에서도 제외하고 출력이 되도록 하기
+ */
+
+public class Q1_Exception {
 	
 	static final String FILENAME2 = "/Users/uhyeonge/Desktop/navercloud/workall/naver0314File/0326예제용메모.txt";
+	static int count = 0;
+	static int sum = 0;
+	static double avg = 0;
 	
-	static public void readMemo2(){
-		
+	static public void readMemo3() {
 		FileReader fr = null;
 		BufferedReader br = null;
 		
 		try {
 			fr = new FileReader(FILENAME2);
-			System.out.println("** memo2 파일을 읽습니다 **");
 			br = new BufferedReader(fr);
 			while(true) {
-				//파일의 내용을 한 줄씩 읽어온다
 				String line = br.readLine();
-				//만약 더이상 데이터가 없을 경우 null이 나옴
 				if(line == null) {
-					System.out.println("파일을 끝까지 읽었습니다.");
 					break;
 				}
-				System.out.println(line);
+				try {
+				int su = Integer.parseInt(line);
+				System.out.println(su);
+				count = count + 1;
+				sum = sum + su;
+				
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
 			}
+			avg = (double)sum / count;
+			System.out.println("총 갯수: " + count);
+			System.out.println("총 점수: " + sum);
+			System.out.printf("평균: %.1f", avg);
 		} catch (FileNotFoundException e) {
-			System.out.println("** memo2 파일이 없습니다 **" + e.getMessage());
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
 			try {
-				br.close(); //늦게 열린 걸 먼저 닫아줌
+				br.close();
 				fr.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 		}
-		
 	}
 	
 	public static void main(String[] args) {
 		
-		readMemo2();
+		readMemo3();
 		
 	}
 
