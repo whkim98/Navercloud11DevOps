@@ -17,7 +17,7 @@ public class Q1_Exception {
 	static int sum = 0;
 	static double avg = 0;
 	
-	static public void readMemo3() {
+	static public void readMemo() {
 		FileReader fr = null;
 		BufferedReader br = null;
 		
@@ -39,6 +39,7 @@ public class Q1_Exception {
 					e.printStackTrace();
 				}
 			}
+			System.out.println("=".repeat(30));
 			avg = (double)sum / count;
 			System.out.println("총 갯수: " + count);
 			System.out.println("총 점수: " + sum);
@@ -59,7 +60,7 @@ public class Q1_Exception {
 	
 	public static void main(String[] args) {
 		
-		readMemo3();
+		readMemo();
 		
 	}
 
