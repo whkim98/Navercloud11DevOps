@@ -54,6 +54,24 @@ public class Q1_Vector {
 	
 	public void searchPerson() {
 		
+		boolean f = false;
+		
+		System.out.println("검색할 이름을 입력하세요");
+		
+		String name = sc.nextLine();
+		
+		for(int i = 0; i < list.size(); i++) {
+			String listName = list.get(i);
+			if(listName.equals(name)) {
+				f = true;
+				System.out.println(name + "님은 " + (i + 1) + "번째에 있습니다");
+			}
+		}
+		
+		if(f == false) {
+			System.out.println(name + "님은 명단에 없습니다");
+		}
+		
 	}
 	
 	public static void main(String[] args) {
