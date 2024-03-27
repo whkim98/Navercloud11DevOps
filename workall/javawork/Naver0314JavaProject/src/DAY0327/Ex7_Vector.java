@@ -16,7 +16,7 @@ import java.util.Vector;
  * 처음 생성시 파일에서 읽어올 것
  */
 
-public class Q1_Vector {
+public class Ex7_Vector {
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -24,7 +24,7 @@ public class Q1_Vector {
 	
 	static final String FILENAME = "/Users/uhyeonge/Desktop/navercloud/workall/naver0314File/person.txt";
 	
-	public Q1_Vector() {
+	public Ex7_Vector() {
 		//파일을 읽어 list에 저장된 이름 추가하기
 		try {
 			personRead();
@@ -140,7 +140,7 @@ public class Q1_Vector {
 	
 	public static void main(String[] args) {
 		
-		Q1_Vector v = new Q1_Vector();
+		Ex7_Vector v = new Ex7_Vector();
 		
 		while(true) {
 		
