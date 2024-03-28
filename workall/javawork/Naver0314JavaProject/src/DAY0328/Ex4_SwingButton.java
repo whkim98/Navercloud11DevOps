@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 public class Ex4_SwingButton extends JFrame{
 	
 	JButton btn1, btn2;
+	JButton[] btnArray = new JButton[5];
+	String[] btnLabel = {"초록색", "빨강색", "분홍색", "주황색", "노랑색"};
 	
 	public Ex4_SwingButton(String title) {
 		super(title);
