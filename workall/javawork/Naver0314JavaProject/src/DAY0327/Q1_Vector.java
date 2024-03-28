@@ -91,6 +91,7 @@ public class Q1_Vector {
 	}
 	
 	public void addStudent() {
+		
 		System.out.println("이름을 입력하세요");
 		String name = sc.nextLine();
 		System.out.println("나이를 입력하세요");
@@ -104,6 +105,7 @@ public class Q1_Vector {
 		
 		StudentDTO dto = new StudentDTO(name, age, java, spring, html);
 		list.add(dto);
+		System.out.println(list.size() + "번째 정보 추가완료");
 	}
 	
 	public void deleteStudent() {
@@ -133,7 +135,7 @@ public class Q1_Vector {
 			System.out.println("스프링점수: " + dto.getSpring());
 			System.out.println("html점수: " + dto.getHtml());
 			System.out.println("총점: " + dto.getTotal());
-			System.out.printf("평균: %.1f\n", dto.getAvg());
+			System.out.printf("평균: %.2f\n", dto.getAvg());
 			System.out.println("등급: " + dto.getGrade());
 			System.out.println("=".repeat(30));
 		}
@@ -142,7 +144,8 @@ public class Q1_Vector {
 	public void searchAvg() {
 		
 		System.out.println("평균값을 입력하세요");
-		double avg = Integer.parseInt(sc.nextLine());
+		double avg = sc.nextDouble();
+		sc.nextLine();
 		for(int i = 0; i < list.size(); i++) {
 			StudentDTO dto = list.get(i);
 			if(dto.getAvg() >= avg) {
@@ -152,7 +155,7 @@ public class Q1_Vector {
 				System.out.println("스프링점수: " + dto.getSpring());
 				System.out.println("html점수: " + dto.getHtml());
 				System.out.println("총점: " + dto.getTotal());
-				System.out.printf("평균: %.1f\n", dto.getAvg());
+				System.out.printf("평균: %.2f\n", dto.getAvg());
 				System.out.println("등급: " + dto.getGrade());
 				System.out.println("=".repeat(30));
 			}
@@ -174,7 +177,7 @@ public class Q1_Vector {
 				System.out.println("스프링점수: " + dto.getSpring());
 				System.out.println("html점수: " + dto.getHtml());
 				System.out.println("총점: " + dto.getTotal());
-				System.out.printf("평균: %.1f\n", dto.getAvg());
+				System.out.printf("평균: %.2f\n", dto.getAvg());
 				System.out.println("등급: " + dto.getGrade());
 				System.out.println("=".repeat(30));
 				f = true;
