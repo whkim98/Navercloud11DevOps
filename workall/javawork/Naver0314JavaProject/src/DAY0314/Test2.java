@@ -1,32 +1,27 @@
 package DAY0314;
 
-import java.util.Scanner;
-
 public class Test2 {
+    public int solution(int a, int b, int n) {
+        int answer = 0;
+        int su = 0;
 
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("이름");
-		String name = sc.nextLine();
-		
-		System.out.println("나이");
-		int age = sc.nextInt();
-		
-		System.out.println("사는 곳");
-		String loc = sc.next();
-		
-		sc.nextLine();
-		
-		System.out.println("년도");
-		int year = sc.nextInt();
-		
-		System.out.println("이름: " + name);
-		System.out.println("나이: " + age);
-		System.out.println("사는 곳: " + loc);
-		System.out.println("년도: " + year);
-		
-	}
-	
+        while (n > 0) {
+            if (n % a != 0) {
+                n -= b;
+                su++;
+            } else {
+                n /= a;
+                answer += su;
+                su = 0;
+            }
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Test2 t2 = new Test2();
+        int result = t2.solution(3, 1, 20);
+        System.out.println(result); // 예상 결과값: 6
+    }
 }

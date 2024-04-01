@@ -23,7 +23,7 @@ public class Ex2DataType {
 		char ch1 = 'A';
 		char ch2 = '가';//2바이트라 한글 한글자도 가능
 		
-		System.out.println(ch1);
+		System.out.println(ch1 + 1);
 		System.out.println(ch2);
 		
 		//문자열 지정하는 방법

@@ -11,13 +11,13 @@ public class Ex2_String {
 		String str1 = "Have a Nice Day";
 		String str2 = "apple";
 		String str3 = "Apple";
-		
+		System.out.println(str3.length());
 		System.out.println(str1.charAt(7));
 		System.out.println(str1.charAt(0));
 		
 		System.out.println("=".repeat(35));
 		
-		System.out.println(str1.indexOf('a')); // 첫 번째 위치에 있는 a
+		System.out.println(str1.indexOf('N')); // 첫 번째 위치에 있는 a
 		System.out.println(str1.indexOf('X')); // 없는 글자는 -1 출력
 		System.out.println(str1.lastIndexOf('a')); // 마지막 a의 위치
 		
@@ -55,7 +55,7 @@ public class Ex2_String {
 		
 		//문자열 추출
 		System.out.println(str1.substring(7)); // 7번 인덱스부터 끝까지
-		System.out.println(str1.substring(0, 5)); //0번째부터 4번째 문자 출력
+		System.out.println("substring: " + str1.substring(0, 5)); //0번째부터 4번째 문자 출력
 
 		System.out.println("=".repeat(35));
 		
