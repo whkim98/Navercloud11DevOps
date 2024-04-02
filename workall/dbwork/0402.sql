@@ -68,3 +68,6 @@ select sum(sal) from emp;
 select round(avg(sal), 1) from emp;
 select ceil(avg(sal)) from emp;
 select floor(avg(sal)) from emp;
+
+select job 직업, count(*) 인원수 from emp 
+group by job having count(*) >= 2 order by 2 asc;
