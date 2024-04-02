@@ -86,3 +86,16 @@ select sysdate from dual;
 select sysdate + 30 from dual;
 
 select ename, to_char(hiredate, 'MONTH') from emp;
+
+select to_char(sysdate, 'yyyy') from dual;
+select to_char(sysdate, 'year') from dual; --잘 안 씀
+
+select to_char(sysdate, 'yyyy-mm-dd') from dual;
+select to_char(sysdate, 'YYYY-MM-DD PM HH24:MI') from dual;
+
+select ename from emp where to_char(hiredate, 'yy') = 80;
+select ename from emp where to_char(hiredate, 'mm') = 05;
+
+--서브쿼리
+select empno, ename from emp where sal = (select sal from emp where ename = 'SCOTT');
+select empno, ename, job, sal from emp where sal > (select avg(sal) from emp);
