@@ -1,19 +1,15 @@
 package DAY0314;
 
-public class Test2 {
-    public int solution(int a, int b, int n) {
-        int answer = 0;
-        int su = 0;
+import java.util.Arrays;
 
-        while (n > 0) {
-            if (n % a != 0) {
-                n -= b;
-                su++;
-            } else {
-                n /= a;
-                answer += su;
-                su = 0;
-            }
+public class Test2 {
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = new int[commands.length];
+        
+        for (int i = 0; i < commands.length; i++) {
+            int[] subArray = Arrays.copyOfRange(array, commands[i][0] - 1, commands[i][1]);
+            Arrays.sort(subArray);
+            answer[i] = subArray[commands[i][2] - 1];
         }
 
         return answer;
@@ -21,7 +17,9 @@ public class Test2 {
 
     public static void main(String[] args) {
         Test2 t2 = new Test2();
-        int result = t2.solution(3, 1, 20);
-        System.out.println(result); // 예상 결과값: 6
+        int[] array = {1, 5, 2, 6, 3, 7, 4};
+        int[][] commands = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
+        int[] result = t2.solution(array, commands); 
+        System.out.println(Arrays.toString(result));
     }
 }

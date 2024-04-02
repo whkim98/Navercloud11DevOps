@@ -11,6 +11,7 @@ public class Ex2_String {
 		String str1 = "Have a Nice Day";
 		String str2 = "apple";
 		String str3 = "Apple";
+		
 		System.out.println(str3.length());
 		System.out.println(str1.charAt(7));
 		System.out.println(str1.charAt(0));
@@ -40,6 +41,7 @@ public class Ex2_String {
 		//문자열 비교시(값으로 비교시 equals 사용
 		System.out.println("apple".equals(str2));
 		System.out.println("apple".equals(str3));
+		
 		System.out.println(str2.equals(str3)); // 대소문자가 달라서 false
 		System.out.println(str2.equalsIgnoreCase(str3)); // 대소문자 상관없이 비교
 		
@@ -89,6 +91,7 @@ public class Ex2_String {
 		//문자열 분리(결과는 배열값)
 		String colors = "red, blue, green, yellow, pink";
 		String []a1 = colors.split(", ");
+		
 		System.out.println(colors);
 		System.out.println("분리된 배열의 갯수: " + a1.length);
 		System.out.println(a1[0] + ", " + a1[4]);
