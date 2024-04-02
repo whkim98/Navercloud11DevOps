@@ -71,3 +71,18 @@ select floor(avg(sal)) from emp;
 
 select job 직업, count(*) 인원수 from emp 
 group by job having count(*) >= 2 order by 2 asc;
+
+--직업별 인원수와 최고연봉, 최저연봉, 평균연봉(올림)
+select job 직업, count(*) 인원수, max(sal)최고연봉, min(sal)최저연봉, ceil(avg(sal)) 평균연봉 
+from emp group by job;
+
+--having은 group by절에서 조건에 사용
+--직업별 인원수와 최고연봉을 구하는데 인원수가 3명이상인 경우
+select job 직업, max(sal), count(*) from emp 
+group by job having count(*) >= 3;
+
+--날짜
+select sysdate from dual;
+select sysdate + 30 from dual;
+
+select ename, to_char(hiredate, 'MONTH') from emp;
