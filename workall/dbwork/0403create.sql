@@ -79,7 +79,14 @@ insert into student values(4, '김민종', 100, '2010-12-20');
 insert into student values(5, '곤미나', 56, '2019-05-10');
 insert into student values(6, '강수지', 98, sysdate);
 insert into student values(7, '김진우', 67, '2015-09-12');
+insert into student values(8, '강호동', 66, '2019-05-03');
+
+rollback;
 
 select * from student;
+
+update student set stuname = '손미라', score = 80 where num = 5;
+
+update student set score = 85 where to_char(birthday, 'mm') = 5;
 
 commit;
