@@ -44,8 +44,42 @@ insert into hello(idx, blood, address) values(seq_test.nextval, 'b', '서울 역
 
 insert into hello values(seq_test.nextval, '이진', '제주도 애월읍', 'a', 23);
 
+--수정
 update hello set blood = 'ab' where name = '이진';
 
+--idx가 2인 사람의 이름과 나이를 수정
+update hello set name = '김우형', age = 27 where idx = 2;
+
+update hello set address = '용인', blood = 'o', age = 33 where idx = 1;
+
+--삭제
+delete from hello where idx = 1;
+
+delete from hello where age >= 30;
+
+drop table hello;
+
 select * from hello;
+
+--제약 조건을 추가한 테이블 생성
+create table student(
+num number(3) constraint pk_num primary key,
+stuname varchar2(20) constraint nn_name not null,
+score number(3) constraint ck_score check(score >= 1 and score <= 100),
+birthday date
+);
+
+insert into student(num, stuname) values(1, '김미리');
+insert into student(stuname, score) values ('이미자', 45); --오류
+insert into student(num, stuname) values(1, '홍진주'); --unique 오류
+insert into student(num, stuname, score) values(2, '강호동', 110); --check 오류
+
+insert into student values(3, '이미자', 89, sysdate);
+insert into student values(4, '김민종', 100, '2010-12-20');
+insert into student values(5, '곤미나', 56, '2019-05-10');
+insert into student values(6, '강수지', 98, sysdate);
+insert into student values(7, '김진우', 67, '2015-09-12');
+
+select * from student;
 
 commit;
