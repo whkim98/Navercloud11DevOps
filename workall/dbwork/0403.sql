@@ -17,3 +17,23 @@ select * from emp where job = (select job from emp where ename = 'ALLEN');
 
 --SCOTT의 MGR과 같은 값을 가진 사람의 정보 조회
 select * from emp where mgr = (select mgr from emp where ename = 'SCOTT');
+
+--숫자함수
+select abs(-5) from dual; --절댓값
+
+select ceil(3.0), ceil(3.1), ceil(3.9) from dual; --무조건 올림
+select floor(3.0), floor(3.1), floor(3.9) from dual; -- 무조건 내림
+select mod(7, 3), mod(9, 5) from dual; --나머지
+select power(2, 3), power(3,4) from dual; --제곱
+
+--문자함수
+select concat('HAPPY', 'DAY') from dual;
+select 'HAPPY'||'DAY' from dual;
+select initcap('HAPPY'), initcap('hello') from dual;
+select lower('heLLOdAy'), upper('heLLOdAy') from dual;
+select lpad(sal, 10, '*') from emp; --왼쪽으로 * 채우기
+select rpad(sal, 10, '*') from emp; --오른쪽으로 * 채우기
+select substr('happy day', 2, 3) from dual; --2번 인덱스부터 3글자(자바와 달리 첫 번째 인덱스가 1임)
+select substr('happy day', -5, 3) from dual; -- 뒤에서 5번째 부터 3글자
+select ename, length(ename) 글자수 from emp;
+
