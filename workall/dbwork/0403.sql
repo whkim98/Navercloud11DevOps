@@ -48,3 +48,10 @@ select nvl(comm, 1000) from emp; --comm이 널이면 1000 아니면 그대로 �
 select ename 사원명, deptno 부서코드, 
 decode(deptno, 10, '홍보부', 20, '교육부', 30, '인사부') 부서명 from emp;
 
+select emp.empno, emp.ename, emp.job, dept.dname, dept.loc from emp, dept
+where emp.deptno = dept.deptno;
+
+select empno, ename, job, dname, loc from emp, dept
+where emp.deptno = dept.deptno;
+
+
