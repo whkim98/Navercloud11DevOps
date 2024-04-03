@@ -89,4 +89,18 @@ update student set stuname = '손미라', score = 80 where num = 5;
 
 update student set score = 85 where to_char(birthday, 'mm') = 5;
 
+delete from student where num = 7;
+
+--불필요한 제약조건 제거
+alter table student drop constraint ck_score;
+alter table student drop constraint nn_name;
+
+--새로운 제약조건 추가
+alter table student add constraint uq_name unique(stuname);
+
+insert into student(num, stuname) values(10, '강호동'); --unique 에러
+
+drop sequence seq_test;
+drop table student;
+
 commit;
