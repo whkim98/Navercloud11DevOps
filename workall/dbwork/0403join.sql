@@ -26,5 +26,19 @@ insert into booking values(seq_food.nextval, '홍범자', '010-2222-3333', 101, 
 insert into booking values(seq_food.nextval, '이영자', '010-3434-8899', 301, sysdate+7);
 insert into booking values(seq_food.nextval, '김유정', '010-9999-3333', 400, sysdate);
 insert into booking values(seq_food.nextval, '강호동', '010-3322-4433', 200, sysdate);
-
+commit;
 select * from food f, booking b where f.foodnum = b.foodnum;
+
+--아무도 예약하지 않은 음식
+select * from food f left join booking b on f.foodnum = b.foodnum where b.bnum is null;
+
+delete from food where foodnum = 200;
+delete from food where foodnum = 101;
+delete from food where foodnum = 100;
+delete from food where foodnum = 301;
+
+drop table booking;
+drop table food;
+
+rollback;
+commit;
