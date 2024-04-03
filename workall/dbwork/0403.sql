@@ -36,4 +36,15 @@ select rpad(sal, 10, '*') from emp; --오른쪽으로 * 채우기
 select substr('happy day', 2, 3) from dual; --2번 인덱스부터 3글자(자바와 달리 첫 번째 인덱스가 1임)
 select substr('happy day', -5, 3) from dual; -- 뒤에서 5번째 부터 3글자
 select ename, length(ename) 글자수 from emp;
+select replace('Good Day', 'o', '*') from dual; --o를 *로 변경
+select instr('happy', 'a') from dual; -- happy에 a위치
+select instr('happy', 'x') from dual; -- x가 없을 경우 0
+select instr('have a nice day', 'nice') from dual; -- 8번째에 nice가 있음
+
+--기타 함수
+--NVL
+select nvl(comm, 1000) from emp; --comm이 널이면 1000 아니면 그대로 출력
+--decode: 값에 따라 다른 값 출력
+select ename 사원명, deptno 부서코드, 
+decode(deptno, 10, '홍보부', 20, '교육부', 30, '인사부') 부서명 from emp;
 
