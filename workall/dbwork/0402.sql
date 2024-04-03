@@ -165,3 +165,4 @@ select ename, hiredate, sal
 from emp where to_char(hiredate, 'yy') = 81 
 and sal = (select max(sal) from emp 
 where to_char(hiredate, 'yy') = 81);
+
