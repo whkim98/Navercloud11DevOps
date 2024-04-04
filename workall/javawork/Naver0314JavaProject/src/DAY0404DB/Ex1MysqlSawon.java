@@ -25,7 +25,7 @@ public class Ex1MysqlSawon {
 		
 		static public void showTitle() {
 			System.out.println("=".repeat(40));
-			System.out.println("시퀀스\t이름\t점수\t성별\t부서");
+			System.out.println("부서\t인원수\t최고점수\t평균점수");
 			System.out.println("=".repeat(40));
 		}
 		
@@ -33,7 +33,10 @@ public class Ex1MysqlSawon {
 			Connection conn = null;
 			Statement stmt = null;
 			ResultSet rs = null;
-			String sql = "select * from sawon order by num";
+			String sql = """
+					select buseo, count(*) inwon, max(score) maxscore, 
+					ceil(avg(score)) avgscore from sawon group by buseo;
+					""";
 			
 			try {
 				conn = DriverManager.getConnection(url, user, password);
@@ -48,13 +51,12 @@ public class Ex1MysqlSawon {
 //					String gender = rs.getString(4);
 //					String buseo = rs.getString(5);
 					
-					int num = rs.getInt("num");
-					String name = rs.getString("name");
-					int score = rs.getInt("score");
-					String gender = rs.getString("gender");
 					String buseo = rs.getString("buseo");
+					int inwon = rs.getInt("inwon");
+					int maxscore = rs.getInt("maxscore");
+					double avgscore = rs.getDouble("avgscore");
 					
-					System.out.println(num + "\t" + name + "\t" + score + "\t" + gender + "\t" +  buseo);
+					System.out.println(buseo + "\t" + inwon + "\t" + maxscore + "\t" + avgscore);
 				}
 			} catch (SQLException e) {
 				System.out.println("실패");

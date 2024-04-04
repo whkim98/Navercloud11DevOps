@@ -10,6 +10,7 @@ public class Ex2OraclePerson {
 	
 	static final String ORACLE_DRIVER = "oracle.jdbc.OracleDriver";
 	static final String url = "jdbc:oracle:thin:@localhost:1521:xe";
+//	static final String url = "jdbc:oracle:thin:@192.168.0.59:1521:xe";
 	static final String user = "c##TAA";
 	static final String password = "taa";
 	
