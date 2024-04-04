@@ -2,7 +2,9 @@ package DAY0404DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Ex2OraclePerson {
 	
@@ -31,19 +33,40 @@ public class Ex2OraclePerson {
 	
 	public void writesSawon() {
 		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "select pnum, pname, upper(pblood) pblood, page, to_char(ipsaday, 'yyyy-mm-dd') ipsaday from person";
 		try {
 			conn = DriverManager.getConnection(url, user, password);
 			System.out.println("성공");
+			showTitle();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				int pnum = rs.getInt("pnum");
+				String pname = rs.getString("pname");
+				String pblood = rs.getString("pblood");
+				int page = rs.getInt("page");
+				String ipsaday = rs.getString("ipsaday");
+				System.out.println(pnum + "\t" + pname + "\t" + pblood + "\t" + page + "\t" + ipsaday);
+			}
 		} catch (SQLException e) {
 			System.out.println("실패");
 			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				rs.close();
+				stmt.close();
+			} catch (SQLException|NullPointerException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	public static void main(String[] args) {
 		
 		Ex2OraclePerson ex2 = new Ex2OraclePerson();
-		showTitle();
 		ex2.writesSawon();
 		
 	}
