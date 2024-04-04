@@ -42,13 +42,25 @@ public class Ex1MysqlSawon {
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(sql);
 				while(rs.next()) {
+					int num = rs.getInt(1);
+					String name = rs.getString(2);
+					int score = rs.getInt(3);
+					String gender = rs.getString(4);
+					String buseo = rs.getString(5);
 					
+					System.out.println(num + "\t" + name + "\t" + score + "\t" + gender + "\t" +  buseo);
 				}
 			} catch (SQLException e) {
 				System.out.println("실패");
 				e.printStackTrace();
 			}finally {
-				
+				try {
+					conn.close();
+					rs.close();
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		
