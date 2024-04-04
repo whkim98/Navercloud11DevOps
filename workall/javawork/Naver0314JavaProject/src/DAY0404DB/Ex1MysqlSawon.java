@@ -25,7 +25,7 @@ public class Ex1MysqlSawon {
 		
 		static public void showTitle() {
 			System.out.println("=".repeat(40));
-			System.out.println("시퀀스\t이름\t성별\t부서\t점수");
+			System.out.println("시퀀스\t이름\t점수\t성별\t부서");
 			System.out.println("=".repeat(40));
 		}
 		
@@ -42,11 +42,17 @@ public class Ex1MysqlSawon {
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(sql);
 				while(rs.next()) {
-					int num = rs.getInt(1);
-					String name = rs.getString(2);
-					int score = rs.getInt(3);
-					String gender = rs.getString(4);
-					String buseo = rs.getString(5);
+//					int num = rs.getInt(1);
+//					String name = rs.getString(2);
+//					int score = rs.getInt(3);
+//					String gender = rs.getString(4);
+//					String buseo = rs.getString(5);
+					
+					int num = rs.getInt("num");
+					String name = rs.getString("name");
+					int score = rs.getInt("score");
+					String gender = rs.getString("gender");
+					String buseo = rs.getString("buseo");
 					
 					System.out.println(num + "\t" + name + "\t" + score + "\t" + gender + "\t" +  buseo);
 				}
@@ -58,7 +64,7 @@ public class Ex1MysqlSawon {
 					conn.close();
 					rs.close();
 					stmt.close();
-				} catch (SQLException e) {
+				} catch (SQLException|NullPointerException e) {
 					e.printStackTrace();
 				}
 			}
