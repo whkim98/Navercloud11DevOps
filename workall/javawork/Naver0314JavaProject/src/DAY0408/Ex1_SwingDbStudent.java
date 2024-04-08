@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -135,6 +136,46 @@ public class Ex1_SwingDbStudent extends JFrame{
 					tfSpring.setText("");
 					
 					//다시 출력
+					writeStudent();					
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}finally {
+					db.dbClose(pstmt, conn);
+				}
+			}
+		});
+		
+		//삭제 이벤트
+		btnDel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				//테이블의 선택한 행번호 row를 얻는다
+				int row=table.getSelectedRow();
+				//row가 -1이면 경고메세지후 이벤트 종료
+				if(row==-1) {
+					JOptionPane.showMessageDialog(Ex1_SwingDbStudent.this, "삭제할 행을 선택해주세요");
+					return;
+				}
+				//row행의 0번열에 있는 시퀀스값을 얻는다 getValueAt
+				String num=table.getValueAt(row, 0).toString();
+				
+				//그 시퀀스에 해당하는 db데이타를 삭제하는 sql문 작성
+				String sql="delete from student where num=?";
+				
+				//Connection,PreparedStatement 생성후 sql 문 실행
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				
+				try {
+					pstmt=conn.prepareStatement(sql);
+					pstmt.setString(1, num);
+					pstmt.execute();//db 에서 삭제
+					
+					//db 다시 불러오기
 					writeStudent();					
 					
 				} catch (SQLException e1) {
