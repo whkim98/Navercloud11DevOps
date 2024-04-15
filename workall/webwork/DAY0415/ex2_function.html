@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload=function(){
+        let b3 = document.getElementById("btn3"); //해당 아이디가 존재하면 요소값을 얻음, 없으면 null
+        b3.onclick=function(){
+        alert("함수3 호출");
+    }
+    }
+
+    function test2(){
+        alert("함수2 호출");
+    }
+</script>
+<body>
+    <button type="button" onclick="test()">함수호출 #1</button>
+    <!-- body안에서 함수를 구현할 경우 호출하는 위치보다 아래에 함수를 구현해야 함 -->
+    <script>
+        function test(){
+            alert("함수 호출");
+        }
+    </script>
+    <button type="button" onclick="test2()">함수호출 #2</button>
+    <button type="button" id="btn3">함수호출 #3</button>
+    <button type="button" id="btn4">함수호출 #4</button>
+    <script>
+        let b4 = document.getElementById("btn4");
+        b4.onclick = function(){
+            alert("함수4 호출");
+        }
+    </script>
+</body>
+</html>
