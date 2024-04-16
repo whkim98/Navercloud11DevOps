@@ -27,10 +27,15 @@
             color: #c71585;
             border-bottom: 4px double green;
         }
+        div.dateview table thead th{
+            border-right: 1px solid green;
+        }
 
         div.dateview table tbody tr,div.dateview table tbody td{
             height: 50px;
             border:1px solid green;
+            text-align: center;
+            font-size: 25px;
         }
     </style>
     <script>
@@ -72,16 +77,53 @@
 
             //요일 숫자 구하기
             let week;
-            //요일숫자만큼 td반복
-
+            week=newdate.getDay();
+        
             //해당년도의 월이 몇일까지 있는지 구하기
             let endday;
+            switch(curmonth){
+                case 2:
+                    endday=curyear%4==0&&curyear%100!=0||curyear%400==0?29:28;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    endday=30;
+                    break;
+                default:
+                    endday=31;
+            }
 
+            //요일숫자만큼 td반복
+            tag+="<tr>";
+            for(let i=1;i<=week;i++){
+                tag+="<td></td>";
+            }
 
             //1일부터 endday까지 출력
             //단 토요일이 되면 출력후 tr닫고 다시 열기
+            for(let i=1;i<=endday;i++){
+                week++;//7의 배수가 나오면 토요일이다
+                tag+=`<td style="color:${week%7==1?'red':'black'}">${i}</td>`;
+                if(week%7==0){
+                    if(i==endday)
+                      tag+="</tr>";
+                    else
+                        tag+="</tr><tr>";
+                }
+            }
 
-
+            if(week%7!=0){//토욜일에서 끝나지 않은경우
+                while(true){
+                    week++;
+                    tag+=`<td></td>`;
+                    if(week%7==0){//토요일이 되면 행을닫고 반복문을 끝낸다
+                        tag+="</tr>";
+                        break;
+                    }
+                }
+            }
             tag+="</tbody></table>";
             dview.innerHTML=tag;
         }
