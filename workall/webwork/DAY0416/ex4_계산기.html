@@ -70,42 +70,98 @@
             su1=Number(numview.innerText);
             op=oper;
             bFirst=true;
+            bDot=false;
         }
 
         //. 클릭시 호출되는 함수
         function fnDot()
         {
-
+            if(!bDot){
+                numview.innerText+=".";
+                bDot=true;
+            }
         }
 
         //back 을 클릭시 호출되는 함수
         function fnBack()
         {
-
+            //substring ,length,charAt 사용해서 한글자씩 지우기
+            //마지막 글자가 . 면 bDot =false 로
+            //모두 지워지면 0
+            //numview 의 숫자를 얻는다
+            let n=numview.innerText;
+            //길이를 구한다
+            let len=n.length;
+            //마지막 글자를 구한다
+            let lastChar=n.charAt(len-1);
+            //전체길이-1개만큼 추출
+            let s=n.substring(0,len-1);
+            //다시 numview 에 추출한 글자 출력
+            //그런데 비어있을경우 0을 출력
+            if(s.length==0){
+                numview.innerText="0";
+                bFirst=true;//다지워진후 클릭하는 숫자는 새로 찍혀야한다
+            }else
+                numview.innerText=s;
+            //방금 지운 마지막 문자가 도트라면 bDot =false
+            if(lastChar=="."){
+                bDot=false;
+            }
         }
 
         //= 을 클릭시 호출되는 함수
         function fnEqual()
         {
+            //현재창의 숫자를 su2 에 저장한다
+            su2=Number(numview.innerText);
+            
+            if(op=='+')
+                su1+=su2;
+            else if(op=='-')
+                su1-=su2;
+            else if(op=='*')
+                su1*=su2;
+            else if(op=='/'){
+                su1/=su2;  
+                su1=su1.toFixed(2);//소숫점 두자리까지만
+            }  
+           
 
+           //eval("5*6")=30 수식을 문자열로 넣으면 결과가 나온다 
+           //su1=eval(su1+op+su2);
+
+            //결과 su1 을 다시 출력
+            numview.innerText= su1;
+            op="";
+            bDot=false;
+            bFirst=true;
         }
 
         //+/- 클릭시 호출되는 함수
         function fnSign()
         {
-
+            let su=Number(numview.innerText)*-1;
+            numview.innerText=su;
         }
 
         //ce 클릭시 호출되는 함수
         function fnCE()
         {
-
+            su2=0;
+            numview.innerText="0";
+            bFirst=true;
+            bDot=false;
         }
 
         //c 클릭시 호출되는 함수
         function fnC()
         {
-
+            su1=0;
+            su2=0;
+            op="";
+            numview.innerText="0";
+            bFirst=true;
+            bDot=false;
         }
     </script>
 </head>
