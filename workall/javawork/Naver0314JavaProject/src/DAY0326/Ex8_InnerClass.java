@@ -6,13 +6,13 @@ class OuterClass{
 	
 	class InnerClass{
 		int c = 30;
-		static int d = 40; //JDK17부터 내부클래스에 static 변수 가능
+//		static int d = 40; //JDK17부터 내부클래스에 static 변수 가능
 		
 		public void show() {
 			System.out.println("a = " + a);
 			System.out.println("b = " + b);
 			System.out.println("c = " + c);
-			System.out.println("d = " + d);
+//			System.out.println("d = " + d);
 		}
 	}
 	
