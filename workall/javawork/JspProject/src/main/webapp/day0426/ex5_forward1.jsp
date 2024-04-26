@@ -1,3 +1,5 @@
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,6 +19,20 @@
     </style>
 </head>
 <body>
+<!-- 
+	redirect:
+	1. url주소 바뀜
+	2. response, request 새로 생성(request를 통해 데이터를 못 보냄)
+	
+	forward:
+	1. url주소 안 바뀜
+	2. response, request 생성 x, 그대로 전달(request를 통해 데이터를 보냄)
+ -->
+ <%
+ 	//request에 List 저장
+ 	List<String> list = Arrays.asList("벤츠", "아우디", "현대", "BMW");
+ 	request.setAttribute("list", list);
+ %>
 <h1>여기는 ex5_forward1 파일입니다</h1>
 <jsp:forward page="./ex5_forward2.jsp"/>
 </body>

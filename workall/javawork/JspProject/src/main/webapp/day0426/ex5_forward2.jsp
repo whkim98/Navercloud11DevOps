@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +17,16 @@
         }
     </style>
 </head>
+<%
+	//request에 저장된 list 꺼내기
+	List<String> list = (List<String>)request.getAttribute("list");
+%>
 <body>
 <h1>여기는 ex5_forward2 파일입니다</h1>
+<%
+	for(String s : list){%>
+		<h3><%=s %></h3>
+	<%}
+%>
 </body>
 </html>
