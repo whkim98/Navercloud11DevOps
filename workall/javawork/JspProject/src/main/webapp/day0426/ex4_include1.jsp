@@ -18,6 +18,9 @@
 </head>
 <body>
 	<h5>include1 파일에서 include2 결과 포함시키기</h5>
+	<%
+		request.setCharacterEncoding("utf-8");
+	%>
 	<div>
 		<jsp:include page="./ex4_include2.jsp">
 			<jsp:param value="Happy Day!@!" name ="msg"/>
