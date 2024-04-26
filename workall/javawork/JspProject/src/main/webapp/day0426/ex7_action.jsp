@@ -16,7 +16,27 @@
         }
     </style>
 </head>
+<%
+	//post방식
+	String home = request.getParameter("home");
+	String email = request.getParameter("email");
+	
+	//체크박스는 배열 (여러 개)
+	//선택 안 하면 null값 반환
+	String[] hobby = request.getParameterValues("hobby");
+%>
 <body>
-
+	<h5>나의 주거지: <%=home %></h5>
+	<h5>이메일 주소: <%=email %></h5>
+	<h5>취미: <%
+		if(hobby == null){%>
+			<b>취미가 없어요</b>
+		<%}else{
+			for(String h : hobby){%>
+			<b>[<%=h %>]</b>
+		<%}
+		}
+		%>
+		</h5>
 </body>
 </html>
