@@ -17,6 +17,8 @@
     </style>
 </head>
 <%
+	//post방식으로 읽을 경우 데이터를 읽기 전에 encoding 추가
+	request.setCharacterEncoding("utf-8");
 	//post방식
 	String home = request.getParameter("home");
 	String email = request.getParameter("email");

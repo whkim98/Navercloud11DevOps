@@ -35,7 +35,7 @@
 		<b>이메일: </b>
 		<input type="email" name="email" required="required">
 		<br><br>
-		<h5>추미ㅣ 선택</h5>
+		<h5>취미 선택</h5>
 		<label>
 			<input type="checkbox" name="hobby" value="게임">게임
 		</label>
