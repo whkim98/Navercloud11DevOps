@@ -16,21 +16,13 @@
         }
     </style>
 </head>
+<%
+	String name = request.getParameter("name");
+	String photo = request.getParameter("photo");
+%>
 <body>
-	<h5>JSP로 폼태그 읽기</h5>
-	<form action="./ex6_action.jsp" method="get">
-		<b>이름</b>
-		<input type="text" name="name" required="required">
-		<br><br>
-		<b>사진</b>
-		<select name = "photo">
-			<option value="../image/shinminah.jpg">신민아</option>
-			<option value="../image/seolhyeon.jpg">설현</option>
-			<option value="../image/shinsekyeong.jpg">신세경</option>
-			<option value="../image/soojee.jpg">수지</option>
-		</select>
-		<br><br>
-		<button type="submit">서버전송</button>
-	</form>
+<h2>이름: <%=name %></h2>
+<hr>
+<img src="<%=photo %>" width="300">
 </body>
 </html>

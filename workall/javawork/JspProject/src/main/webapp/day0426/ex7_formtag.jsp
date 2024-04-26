@@ -17,20 +17,39 @@
     </style>
 </head>
 <body>
-	<h5>JSP로 폼태그 읽기</h5>
-	<form action="./ex6_action.jsp" method="get">
-		<b>이름</b>
-		<input type="text" name="name" required="required">
+	<form action="./ex7_action.jsp" method="post">
+		<h5>주거지역</h5>
+		<label>
+			<input type="radio" name="home" value="서울" checked="checked">서울
+		</label>
+		<label>
+			<input type="radio" name="home" value="경기">경기
+		</label>
+		<label>
+			<input type="radio" name="home" value="제주">제주
+		</label>
+		<label>
+			<input type="radio" name="home" value="부산">부산
+		</label>
 		<br><br>
-		<b>사진</b>
-		<select name = "photo">
-			<option value="../image/shinminah.jpg">신민아</option>
-			<option value="../image/seolhyeon.jpg">설현</option>
-			<option value="../image/shinsekyeong.jpg">신세경</option>
-			<option value="../image/soojee.jpg">수지</option>
-		</select>
+		<b>이메일: </b>
+		<input type="email" name="email" required="required">
 		<br><br>
-		<button type="submit">서버전송</button>
+		<h5>추미ㅣ 선택</h5>
+		<label>
+			<input type="checkbox" name="hobby" value="게임">게임
+		</label>
+		<label>
+			<input type="checkbox" name="hobby" value="낚시">낚시
+		</label>
+		<label>
+			<input type="checkbox" name="hobby" value="여행">여행
+		</label>
+		<label>
+			<input type="checkbox" name="hobby" value="먹방">먹방
+		</label>
+		<br><br>
+		<button type="submit">서버 전송</button>
 	</form>
 </body>
 </html>
