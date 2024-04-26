@@ -37,7 +37,10 @@
 	생년월일은 <%=birth %><br>
 	색은 <div class="box" style="background-color: <%=color %>"><%=color %></div>
 	숨겨진 메세지는 <%=message %><br>
-	하고픈 말 <%=content %><br>
+	하고픈 말 <br>
+	<%=content.replace("\n", "<br>") %><br>
+	<hr>
+	<pre><%=content %></pre>
 </div>
 </body>
 </html>
