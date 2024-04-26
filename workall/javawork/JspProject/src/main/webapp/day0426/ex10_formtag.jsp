@@ -40,8 +40,19 @@
 				 width="60" height="60" style="margin-left: 10px;">
 				 
 				 <!-- 제이쿼리 이벤트는 요기에 -->
-				 
-			</td>
+				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$("#foodphoto").change(function() {
+							var option = $(this).val();
+							console.log(option);
+							var img = option.split(",")[0];
+							console.log(img);
+							$("#photo").attr("src", img);
+						});
+					});
+				</script>
+		</td>
 		</tr>
 		<tr>
 			<th class="table-info" width="100">만족도</th>
