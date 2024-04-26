@@ -59,12 +59,17 @@
 		<tr>
 			<th class="table-info" width="100">Skills</th>
 			<td>
-				<select name="IT Lang" class="form-select" multiple="multiple" size="4">
+				<select name="ITLang" class="form-select" multiple="multiple" size="4">
 					<option value="자바">자바</option>
 					<option value="스프링">스프링</option>
 					<option value="자바스크립트">자바스크립트</option>
 					<option value="파이썬">파이썬</option>
 				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="image" src="../image/mycar11.png" style="width: 150px">
 			</td>
 		</tr>
 		</table>

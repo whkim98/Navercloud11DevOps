@@ -16,7 +16,33 @@
         }
     </style>
 </head>
+<%
+	//한글 encoding
+	request.setCharacterEncoding("utf-8");
+	String name = request.getParameter("name");
+	String pass = request.getParameter("pass");
+	String gender = request.getParameter("gender");
+	String lic = request.getParameter("lic");
+	String blood = request.getParameter("blood");
+	String[] ITLang = request.getParameterValues("ITLang");
+%>
 <body>
-
+	<div style="font-size: 20px">
+		이름: <%=name %><br>
+		비밀번호: <%=pass %><br>
+		성별: <%=gender %><br>
+		운전면허: <%=lic==null ? "없음":"있음" %><br>
+		혈액형: <%=blood %><br>
+		취미: <%
+		if(ITLang == null){%>
+			<b>스킬이 없어요</b>
+		<%}else{
+			for(String h : ITLang){%>
+			<b>[<%=h %>]</b>
+		<%}
+		}
+		%>
+		
+	</div>
 </body>
 </html>
