@@ -37,6 +37,9 @@
 		%>
 			<tr>
 			<td align="center"><%=i+1 %></td>
+			<td><%=flowers[i] %></td>
+			<td><%=list.get(i) %>
+			<td style="background-color: <%=colors[i] %>"><%=colors[i] %></td>
 			</tr>
 		<%} %>
 		
