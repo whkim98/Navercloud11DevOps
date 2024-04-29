@@ -86,7 +86,7 @@
 			<tr>
 				<td colspan="2" align="center">
 					<button type="submit" class="btn btn-secondary">DB수정</button>
-					<button type="button" class="btn btn-secondary" onclick="">이전으로</button>
+					<button type="button" class="btn btn-secondary" onclick="history.back();">이전으로</button>
 				</td>
 			</tr>
 		</table>
