@@ -1,3 +1,6 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="data.dto.ShopDto"%>
+<%@page import="data.dao.ShopDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +19,29 @@
         }
     </style>
 </head>
+<%
+	//shopidx int 타입 읽기
+	int shopidx = Integer.parseInt(request.getParameter("shopidx"));
+	ShopDao dao = new ShopDao();
+	ShopDto dto = dao.getSangpum(shopidx);
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
+%>
 <body>
-
+	<div style="margin: 10px; width: 500px;">
+		<h2><b>상품명: <%=dto.getSname() %></b></h2>
+		<span style="font-size: 14px; color: gray;">
+			등록일: <%=sdf.format(dto.getWriteday()) %>
+		</span>
+		<table>
+			<tr>
+				<td width="300">
+					<img src="<%=dto.getSphoto() %>" style="border: 10px groove orange; margin: 10px; width:230px;">
+				</td>
+				<td>
+					<h5>가격: <%=dto.getSprice() %>원</h5>
+				</td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>
