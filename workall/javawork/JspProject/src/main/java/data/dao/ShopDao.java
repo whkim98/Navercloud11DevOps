@@ -69,5 +69,34 @@ public class ShopDao {
 		}
 		return list;
 	}
+	
+	public ShopDto getSangpum(int shopidx) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from myshop where shopidx=?";
+		ShopDto dto = new ShopDto();
+		conn = connect.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, shopidx);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				dto.setShopidx(rs.getInt("shopidx"));
+				dto.setSname(rs.getString("sname"));
+				dto.setSprice(rs.getInt("sprice"));
+				dto.setScount(rs.getInt("scount"));
+				dto.setScolor(rs.getString("scolor"));
+				dto.setSphoto(rs.getString("sphoto"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			connect.dbClose(rs, pstmt, conn);
+		}
+		return dto;
+	}
 
 }
