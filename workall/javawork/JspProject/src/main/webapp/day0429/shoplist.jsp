@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dao.ShopDao"%>
 <%@page import="data.dto.ShopDto"%>
 <%@page import="java.util.List"%>
@@ -17,18 +18,52 @@
         body *{
             font-family: 'Jua';
         }
+        .smallphoto{
+        	width: 50px;
+        	height: 50px;
+        	border: 1px solid gray;
+        	margin-right: 5px;
+        }
     </style>
 </head>
 <%
 	ShopDao dao = new ShopDao();
 	List<ShopDto> list = dao.getShopDatas();
+	//날짜 형식
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 %>
 <body>
 	<div style="margin: 10px; width: 400px;">
 		<h5 class="alert alert-danger">
 			<b>총 <%=list.size() %>개의 상품의 등록되어 있습니다</b>
 		</h5>
-		<button type="button" class="btn btn-outline-primary" style="marign-top: 10px; margin-left: 300px;" onclick></button>
+		<button type="button" class="btn btn-outline-primary" style="marign-top: 10px; margin-left: 300px;" 
+		onclick="location.href='./shopform.jsp'">상품추가</button>
+		<table class="table table-bordered">
+			<tr class="table-danger">
+				<th width="200">상품명</th>
+				<th width="100">가격</th>
+				<th>등록일</th>
+			</tr>
+			<%
+				for(ShopDto dto: list){%>
+					<tr>
+						<td>
+							<a href="./shopdetail.jsp?shopidx=<%=dto.getShopidx() %>" style="text-decoration: none; color: black;">
+							<img src="<%=dto.getSphoto() %>" class="smallphoto">
+							<%=dto.getSname() %>
+							</a>
+						</td>
+						<td>
+							<%=dto.getSprice() %>원
+						</td>
+						<td>
+							<%=sdf.format(dto.getWriteday()) %>
+						</td>
+					</tr>
+				<%}
+			%>
+		</table>
 	</div>
 </body>
 </html>
