@@ -50,7 +50,7 @@
 				<td colspan="2" align="center">
 					<button type="button" class="btn btn-outline-danger" style="width: 80px;" onclick="location.href='shoplist.jsp'">목록</button>
 					<button type="button" class="btn btn-outline-danger" style="width: 80px;" onclick="location.href='shopupdateform.jsp?shopidx=<%=dto.getShopidx() %>'">수정</button>
-					<button type="button" class="btn btn-outline-danger" style="width: 80px;">삭제</button>
+					<button type="button" class="btn btn-outline-danger" style="width: 80px;" onclick="location.href='shopdelete.jsp?shopidx=<%=dto.getShopidx() %>'">삭제</button>
 					<button type="button" class="btn btn-outline-danger" style="width: 80px;" onclick="location.href='shopform.jsp'">추가</button>
 				</td>
 			</tr>

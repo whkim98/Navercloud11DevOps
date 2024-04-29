@@ -34,6 +34,7 @@
 %>
 <body>
 <form action="./shopupdateaction.jsp" method="post">
+<input type="hidden" name = "shopidx" value="<%=dto.getShopidx() %>">
 	<div style="margin: 10px; width: 300px;">
 		<table class="table table-bordered">
 		<caption align="top"><b>상품수정</b></caption>

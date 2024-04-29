@@ -98,5 +98,47 @@ public class ShopDao {
 		}
 		return dto;
 	}
+	
+	public ShopDto update(ShopDto dto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		conn = connect.getConnection();
+		
+		String sql = "update myshop set sname=?, sprice=?, scount=?, scolor=?, sphoto=? where shopidx=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getSname());
+			pstmt.setInt(2, dto.getSprice());
+			pstmt.setInt(3, dto.getScount());
+			pstmt.setString(4, dto.getScolor());
+			pstmt.setString(5, dto.getSphoto());
+			pstmt.setInt(6, dto.getShopidx());
+			pstmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			connect.dbClose(pstmt, conn);
+		}
+		return dto;
+	}
+	
+	public ShopDto delete(int shopidx) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete from myshop where shopidx=?";
+		ShopDto dto = new ShopDto();
+		conn = connect.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, shopidx);
+			pstmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			connect.dbClose(pstmt, conn);
+		}
+		return dto;
+	}
 
 }
