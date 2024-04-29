@@ -39,6 +39,19 @@
 				</td>
 				<td>
 					<h5>가격: <%=dto.getSprice() %>원</h5>
+					<h5 style="background-color: <%=dto.getScolor() %>">
+						색상: <%=dto.getScolor() %>
+					</h5>
+					<h5>수량: <%=dto.getScount() %>개</h5>
+					<h5>총금액: <%=dto.getScount() * dto.getSprice() %>원</h5>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button type="button" class="btn btn-outline-danger" style="width: 80px;" onclick="location.href='shoplist.jsp'">목록</button>
+					<button type="button" class="btn btn-outline-danger" style="width: 80px;">수정</button>
+					<button type="button" class="btn btn-outline-danger" style="width: 80px;">삭제</button>
+					<button type="button" class="btn btn-outline-danger" style="width: 80px;" onclick="location.href='shopform.jsp'">추가</button>
 				</td>
 			</tr>
 		</table>
