@@ -54,7 +54,7 @@
 			</tr>
 			<tr>
 				<th width="100" class="table-danger">상품사진</th>
-				<td class="input-group">
+				<td>
 					<select name="sphoto" id="sphoto" class="form-select">
 						<%
 							for(int i = 1; i <= 34; i++){%>
@@ -65,6 +65,16 @@
 						%>
 					</select>
 					<img src="../shop/1.jpg" class="photo">
+					<script tyoe="text/javascript">
+						$('#sphoto').change(function(){
+							$(".photo").attr("src",$(this).val());
+						});
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button type="submit" class="btn btn-secondary">DB저장</button>
 				</td>
 			</tr>
 		</table>
