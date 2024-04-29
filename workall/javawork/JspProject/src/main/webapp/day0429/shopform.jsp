@@ -14,9 +14,18 @@
         body *{
             font-family: 'Jua';
         }
+        
+        img.photo{
+        	position: absolute;
+        	left: 320px;
+        	top: 100px;
+        	width: 150px;
+        	border: 3px solid gray;
+        }
     </style>
 </head>
 <body>
+<form action="./shopaction.jsp" method="post">
 	<div style="margin: 10px; width: 300px;">
 		<table class="table table-bordered">
 		<caption align="top"><b>상품등록</b></caption>
@@ -25,8 +34,41 @@
 				<td>
 					<input type="text" name="sname" class="form-control" required="required">
 				</td>
+			<tr>
+				<th width="100" class="table-danger">상품가격</th>
+				<td>
+					<input type="text" name="sprice" class="form-control" required="required">
+				</td>
+			</tr>
+			<tr>
+				<th width="100" class="table-danger">상품갯수</th>
+				<td>
+					<input type="number" name="scount" class="form-control" min="1" max="5" value="1">
+				</td>
+			</tr>
+			<tr>
+				<th width="100" class="table-danger">상품색상</th>
+				<td>
+					<input type="color" name="scolor" class="form-control" value="#ccffff">
+				</td>
+			</tr>
+			<tr>
+				<th width="100" class="table-danger">상품사진</th>
+				<td class="input-group">
+					<select name="sphoto" id="sphoto" class="form-select">
+						<%
+							for(int i = 1; i <= 34; i++){%>
+								<option value="../shop/<%=i %>.<%=i == 24 ? "gif" : "jpg" %>">
+								상품번호<%=i %>
+								</option>
+							<%}
+						%>
+					</select>
+					<img src="../shop/1.jpg" class="photo">
+				</td>
 			</tr>
 		</table>
 	</div>
+</form>
 </body>
 </html>
