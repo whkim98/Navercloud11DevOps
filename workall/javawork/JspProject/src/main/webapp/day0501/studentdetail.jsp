@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dto.StudentDto"%>
 <%@page import="data.dao.StudentDao"%>
 <%@page import="data.dto.SawonDto"%>
@@ -28,7 +29,7 @@
 	//dto
 	StudentDto dto=dao.getData(num);
 	String license = String.valueOf(dto.getLicense());
-	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
 %>
 <body>
 <div style="margin: 20px;width: 500px">
@@ -44,8 +45,9 @@
 				<h5>자바점수: <%=dto.getJava() %></h5>
 				<h5>스프링점수: <%=dto.getSpring() %></h5>				
 				<h5>HTML점수: <%=dto.getHtml() %></h5>
+				<h5>총점: <%=dto.getJava() + dto.getSpring() + dto.getHtml() %></h5>
 				<h5>평균: <%=(dto.getJava() + dto.getSpring() + dto.getHtml()) / 3 %></h5>
-				<h5>등록일: <%=dto.getWriteday() %></h5>				
+				<h5>등록일: <%=sdf.format(dto.getWriteday()) %></h5>				
 			</td>
 		</tr>
 		<tr height="60">
