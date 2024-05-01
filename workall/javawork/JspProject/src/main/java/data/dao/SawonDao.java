@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 import data.dto.SawonDto;
@@ -143,11 +145,12 @@ public class SawonDao {
 	}
 	
 	public void updateSawon(SawonDto dto) {
-		String sql="""
-				update mysawon set name=?, buseo=?, age=?, addr=?, photo=?, gender=?, birthday=?, where num=?
-				""";
-		Connection conn = db.getConnection();
+		Connection conn = null;
 		PreparedStatement pstmt = null;
+		String sql="""
+				update mysawon set name=?, buseo=?, age=?, addr=?, photo=?, gender=?, birthday=? where num=?
+				""";
+		conn = db.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getName());
@@ -165,6 +168,68 @@ public class SawonDao {
 		}finally {
 			db.dbClose(pstmt, conn);
 		}
+	}
+	
+	//성별 분석 데이터 반환
+	public List<Map<String, String>> getGenderAnalysis(){
+		List<Map<String, String>> list = new Vector<Map<String,String>>();
+		String sql = """
+				select gender, count(*) count, round(avg(age),1) age from mysawon group by gender
+				""";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Map<String, String> map = new HashMap<String, String>();
+				String gender = rs.getString("gender");
+				String count = rs.getString("count");
+				String age = rs.getString("age");
+				map.put("gender", gender);
+				map.put("count", count);
+				map.put("age", age);
+				list.add(map);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	public List<Map<String, String>> getBuseoAnalysis(){
+		List<Map<String, String>> list = new Vector<Map<String,String>>();
+		String sql = """
+				select buseo, count(*) count, round(avg(age),1) age from mysawon group by buseo
+				""";
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Map<String, String> map = new HashMap<String, String>();
+				String buseo = rs.getString("buseo");
+				String count = rs.getString("count");
+				String age = rs.getString("age");
+				map.put("buseo", buseo);
+				map.put("count", count);
+				map.put("age", age);
+				list.add(map);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
 	}
 
 }

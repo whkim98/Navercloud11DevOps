@@ -33,7 +33,8 @@
 %>
 <body>
 <div style="margin: 20px;width: 300px;">
-	<form action="./sawoninsert.jsp" method="post">
+	<form action="./sawonupdate.jsp" method="post">
+		<input type="hidden" name="num" value="<%=dto.getNum() %>">
 		<table class="table table-bordered">
 			<caption align="top">
 				<h5 class="alert alert-warning">사원정보수정</h5>
@@ -111,13 +112,13 @@
 				<th width="100" class="table-danger">입사일</th>
 				<td>
 					<input type="date" class="form-control" name="birthday"
-					value="2024-04-30">
+					value="<%=dto.getBirthday() %>">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
 					<button type="submit" class="btn btn-outline-secondary btn-sm"
-					style="width: 80px;">사원저장</button>
+					style="width: 80px;">정보수정</button>
 					
 					<button type="button" class="btn btn-outline-secondary btn-sm"
 					style="width: 80px;"
