@@ -1,8 +1,7 @@
+<%@page import="java.text.NumberFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dto.StudentDto"%>
 <%@page import="data.dao.StudentDao"%>
-<%@page import="data.dto.SawonDto"%>
-<%@page import="data.dao.SawonDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,58 +18,62 @@
         body *{
             font-family: 'Jua';
         }
+        div.box{
+        	margin: 20px 100px;
+        	border: 2px solid gray;
+        	padding: 10px;
+        	background-color: #ffffcc;
+        	width: 400px;
+        	height: auto;
+        }
     </style>
 </head>
 <%
-	//num
+	//num int 타입
 	int num=Integer.parseInt(request.getParameter("num"));
-	//dao
+	//dao 선언
 	StudentDao dao=new StudentDao();
-	//dto
+	//dto 얻기
 	StudentDto dto=dao.getData(num);
-	String license = String.valueOf(dto.getLicense());
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
+	//날짜 출력 양식
+	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	
+	//총점
+	int sum=dto.getJava()+dto.getSpring()+dto.getHtml();
+	//평균
+	double avg=sum/3.0;
+	//소숫점이하 2자리
+	NumberFormat nf=NumberFormat.getInstance();
+	nf.setMaximumFractionDigits(2);
 %>
 <body>
-<div style="margin: 20px;width: 500px">
-	<table>
-		<caption align="top">
-			<h2><b><%=dto.getName() %> 학생정보</b></h2>
-		</caption>
-		<tr>
-			<td>
-				<h5>이름: <%=dto.getName() %></h5>
-				<h5>혈액형: <%=dto.getBlood() %></h5>
-				<h5>운전면혀: <%=String.valueOf(dto.getLicense()).equals("o")?"있음":"없음"%></h5>
-				<h5>자바점수: <%=dto.getJava() %></h5>
-				<h5>스프링점수: <%=dto.getSpring() %></h5>				
-				<h5>HTML점수: <%=dto.getHtml() %></h5>
-				<h5>총점: <%=dto.getJava() + dto.getSpring() + dto.getHtml() %></h5>
-				<h5>평균: <%=(dto.getJava() + dto.getSpring() + dto.getHtml()) / 3 %></h5>
-				<h5>등록일: <%=sdf.format(dto.getWriteday()) %></h5>				
-			</td>
-		</tr>
-		<tr height="60">
-			<td colspan="2" align="center">
-				<button type="button" class="btn btn-sm btn-warning"
-				style="width: 80px;"
-				onclick="location.href='studentform.jsp'">학생추가</button>
-				
-				<button type="button" class="btn btn-sm btn-warning"
-				style="width: 80px;"
-				onclick="location.href='studentlist.jsp'">학생목록</button>
-				
-				<button type="button" class="btn btn-sm btn-warning"
-				style="width: 80px;"
-				onclick="location.href='studentupdateform.jsp?num=<%=dto.getNum()%>'">정보수정</button>
-				
-				<button type="button" class="btn btn-sm btn-warning"
-				style="width: 80px;"
-				id="delstudent" num="<%=dto.getNum()%>"
-				 studentname="<%=dto.getName()%>">학생삭제</button>
-			</td>
-		</tr>
-	</table>
+<div class="box">
+	<h5>이름 : <%=dto.getName() %></h5>
+	<h5>혈액형 : <%=dto.getBlood() %>형</h5>
+	<h5>운전면허: <%=dto.getLicense()=='y'?"있음":"없음" %></h5>
+	<h5>Java점수 : <%=dto.getJava() %>점</h5>
+	<h5>Spring점수 : <%=dto.getSpring() %>점</h5>
+	<h5>HTML점수 : <%=dto.getHtml() %>점</h5>
+	<h5>총점 : <%=sum %>점</h5>
+	<h5>평균 : <%=nf.format(avg) %>점</h5>
+	<hr>
+	<button type="button" class="btn btn-sm btn-outline-secondary"
+	onclick="location.href='studentform.jsp'"
+	style="width: 100px;">학생정보추가</button>
+	
+	<button type="button" class="btn btn-sm btn-outline-secondary"
+	onclick="location.href='studentlist.jsp'"
+	style="width: 100px;">학생목록</button>
+	
+	<br>
+	
+	<button type="button" class="btn btn-sm btn-outline-secondary"
+	onclick="location.href='studentupdateform.jsp?num=<%=dto.getNum() %>'"
+	style="width: 100px;">학생정보수정</button>
+	
+	<button type="button" class="btn btn-sm btn-outline-secondary"
+	id="delstudent" num="<%=dto.getNum() %>" sname="<%=dto.getName()%>"
+	style="width: 100px;">학생삭제</button>
 </div>
 <script type="text/javascript">
 	//사원삭제버튼 이벤트
