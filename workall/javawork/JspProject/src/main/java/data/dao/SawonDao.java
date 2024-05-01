@@ -141,5 +141,30 @@ public class SawonDao {
 			db.dbClose(pstmt, conn);
 		}
 	}
+	
+	public void updateSawon(SawonDto dto) {
+		String sql="""
+				update mysawon set name=?, buseo=?, age=?, addr=?, photo=?, gender=?, birthday=?, where num=?
+				""";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getBuseo());
+			pstmt.setInt(3, dto.getAge());
+			pstmt.setString(4, dto.getAddr());
+			pstmt.setString(5, dto.getPhoto());
+			pstmt.setString(6, dto.getGender());
+			pstmt.setString(7, dto.getBirthday());
+			pstmt.setInt(8, dto.getNum());
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
 
 }
