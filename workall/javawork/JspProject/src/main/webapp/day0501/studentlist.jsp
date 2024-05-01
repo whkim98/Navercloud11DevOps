@@ -39,7 +39,7 @@
 			<br><%=dto.getName()%>
 			<br>
 			<button type="button" class="btn btn-sm btn-outline-danger"
-			onclick="location.href='sawondetail.jsp?num=<%=dto.getNum()%>'">상세보기</button>
+			onclick="location.href='studentdetail.jsp?num=<%=dto.getNum()%>'">상세보기</button>
 		</div>  
 	  <%}
 	  
