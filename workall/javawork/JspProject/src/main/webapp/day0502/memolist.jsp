@@ -45,7 +45,7 @@
 				<tr>
 				<td align="center"><%=no %></td>
 				<td>
-					<a href="memodetail?num=<%=dto.getNum() %>" style="text-decoration: none; color: black;">
+					<a href="memodetail.jsp?num=<%=dto.getNum() %>" style="text-decoration: none; color: black;">
 					<%=dto.getTitle() %></a>
 				</td>
 				<td><%=sdf.format(dto.getWriteday()) %></td>
