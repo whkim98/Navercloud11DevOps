@@ -1,3 +1,7 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="data.dto.MemoDto"%>
+<%@page import="java.util.List"%>
+<%@page import="data.dao.MemoDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +20,39 @@
         }
     </style>
 </head>
+<%
+	MemoDao dao = new MemoDao();
+	List<MemoDto> list = dao.getAllMemo();
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+%>
 <body>
-
+<div style="margin: 10px; width: 500px;">
+	<table class="table table-striped">
+		<caption align="top">
+			<h5><b><%=list.size() %>개의 메모가 있습니다.</b></h5>
+			<button type="button" class="btn btn-success btn-sm" style="float: right" onclick="location.href='memoform.jsp'">메모추가</button>
+		</caption>
+		<tr class="table-info">
+			<th width="60">번호</th>
+			<th width="300">제목</th>
+			<th>작성일</th>
+		</tr>
+		<%
+			int n = 0;
+			for(MemoDto dto:list){
+				int no = list.size()-n++;
+				%>
+				<tr>
+				<td align="center"><%=no %></td>
+				<td>
+					<a href="memodetail?num=<%=dto.getNum() %>" style="text-decoration: none; color: black;">
+					<%=dto.getTitle() %></a>
+				</td>
+				<td><%=sdf.format(dto.getWriteday()) %></td>
+				</tr>
+			<%}
+		%>
+	</table>
+</div>
 </body>
 </html>
