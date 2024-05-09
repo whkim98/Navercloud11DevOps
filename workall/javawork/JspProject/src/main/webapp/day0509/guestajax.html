@@ -13,6 +13,63 @@
             font-family: 'Jua';
         }
     </style>
+    <script type="text/javascript">
+    	$(function(){
+    		list();//처음 로딩시 일단 목록 출력
+    		
+    		//db저장 버튼 이벤트
+    		$("#btnsave").click(function(){
+    			//입력체크
+    			let avata=$("#selavata").val();
+    			let nickname=$("#nickname").val();
+    			let content=$("#content").val();
+    			
+    			if(nickname.length==0){
+    				alert("닉네임을 입력해주세요");
+    				return;
+    			}
+    			if(content.length==0){
+    				alert("내용을 입력해주세요");
+    				return;
+    			}
+    			
+    			$.ajax({
+    				type:"post",
+    				dataType:"html",
+    				url:"./data/insertdata.jsp",
+    				//data:"avata="+avata+"&nickname="+nickname+"&content="+content,
+    				data:{"avata":avata,"nickname":nickname,"content":content},
+    				success:function(){
+    					//데이타 추가 성공후 해야할일들
+    					list();//목록 다시 출력
+    					//입력값들 초기화
+    					$("#selavata").val("../image/s1.JPG");
+    					$(".avata").attr("src","../image/s1.JPG");
+    					$("#nickname").val("");
+    					$("#content").val("");   					
+    				}
+    			});
+    		});
+    	});
+    	
+    	function list()
+    	{
+    		$("div.guestlist").empty();
+    		$.ajax({
+    			type:"get",
+    			dataType:"json",
+    			url:"./data/listdata.jsp",
+    			success:function(data){
+    				let s="";
+    				s=`총 ${data.length}개의 방명록 글이 있습니다<br>`;
+    				$.each(data,function(idx,ele){
+    					
+    				});
+    				$("div.guestlist").html(s);
+    			}
+    		});
+    	}
+    </script>
 </head>
 <body>
 <div style="margin: 10px;width:400px;">
@@ -22,7 +79,8 @@
 			<select class="form-select" id="selavata">
 			<script>
 			  for(let i=1;i<=10;i++){
-				  document.write(`<option value="../image/s${i}.JPG">아바타 #${i}</option>`);
+				  document.write(`<option value="../image/s${i}.JPG">
+				  아바타 #${i}</option>`);
 			  }	
 			</script>
 			</select>
@@ -32,7 +90,17 @@
 					$(".avata").attr("src",$(this).val());
 				});
 			</script>
+			
+			<input type="text" id="nickname" class="form-control"
+			placeholder="닉네임입력">
+			
+			<button type="button" class="btn btn-sm btn-success" id="btnsave">
+			DB저장</button>
 		</div>
+		<textarea id="content" style="width: 100%;height: 100px;" 
+		placeholder="내용을 입력하세요"></textarea>
+		<hr>
+		<div class="guestlist">111</div>
 	</div>
 </div>
 </body>

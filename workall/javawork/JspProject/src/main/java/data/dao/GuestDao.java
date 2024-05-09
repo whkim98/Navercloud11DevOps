@@ -18,7 +18,7 @@ public class GuestDao {
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql="insert into Guest (nickname,avata,content,writeday) values (?,?,?,now())";
+		String sql="insert into guest (nickname,avata,content,writeday) values (?,?,?,now())";
 
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -42,7 +42,7 @@ public class GuestDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from Guest order by num desc";
+		String sql="select * from guest order by num desc";
 
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -74,7 +74,7 @@ public class GuestDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from Guest where nickname like ? order by num desc";
+		String sql="select * from guest where nickname like ? order by num desc";
 
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -108,7 +108,7 @@ public class GuestDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from Guest where num=?";
+		String sql="select * from guest where num=?";
 
 		try {
 			pstmt=conn.prepareStatement(sql);
