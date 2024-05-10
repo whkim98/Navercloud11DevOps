@@ -63,7 +63,7 @@
     		localStorage.idx=4;
     		list();
     	});
-    });
+    });//end function
     
     //idx:1->등록순, 2:낮은가격순,3:높은가격순,4:상품명순
     function list()
@@ -73,6 +73,30 @@
     		idx=1;//등록이 안되어있는경우는 1번 등록순으로 보기
     	
     	console.log("idx="+idx);
+    	
+    	$("div.shoplist").empty();
+    	if(idx==1)
+    		$("div.shoplist").append(`<h6 class="alert alert-danger">등록순 상품</h6>`);
+    	if(idx==2)
+    		$("div.shoplist").append(`<h6 class="alert alert-success">낮은가격순 상품</h6>`);
+    	if(idx==3)
+    		$("div.shoplist").append(`<h6 class="alert alert-warning">높은가격순 상품</h6>`);
+    	if(idx==4)
+    		$("div.shoplist").append(`<h6 class="alert alert-info">상품명순 상품</h6>`);
+    	
+    	
+    	$.ajax({
+    		type:"get",
+    		data:{"idx":idx},
+    		dataType:"json",
+    		url:"./data/listshop.jsp",
+    		success:function(data){
+    			let s=`<b>총 ${data.length}개의 상품이 있습니다</b>`;
+    			
+    			
+    			$("div.shoplist").append(s);
+    		}
+    	});    	
     		
     }
     </script>
