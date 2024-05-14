@@ -62,9 +62,16 @@ onclick="location.href='./form'">
 	</c:if>
 </table>
 <div style="width: 600px; text-align: center; font-size: 22px;">
+	<c:if test="${startPage > 1 }">
+		<a href="./list?currentPage=${startPage - 1 }" style="text-decoration: none; color: black;">&lt;</a>
+	</c:if>
+	&nbsp;
 	<c:forEach var="pp" begin="${startPage }" end="${endPage }">
 		<a href="./list?currentPage=${pp}" style="text-decoration: none; color: ${currentPage == pp ? 'red' : 'black'}">${pp}</a>&nbsp;
 	</c:forEach>
+	<c:if test="${endPage < totalPage }">
+		<a href="./list?currentPage=${endPage+1 }" style="text-decoration: none; color: black;">&gt;</a>
+	</c:if>
 </div>
 </body>
 </html>
