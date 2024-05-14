@@ -22,7 +22,7 @@ dto.setScount(scount);
 dto.setSphoto(sphoto);
 
 ShopDao dao = new ShopDao();
-dao.update(dto);
+/* dao.update(dto); */
 
 
 response.sendRedirect("shoplist.jsp");

@@ -4,7 +4,7 @@
 <%
 	int shopidx = Integer.parseInt(request.getParameter("shopidx"));
 	ShopDao dao = new ShopDao();
-	dao.delete(shopidx);
+/* 	dao.delete(shopidx); */
 
 	response.sendRedirect("shoplist.jsp");
 %>
