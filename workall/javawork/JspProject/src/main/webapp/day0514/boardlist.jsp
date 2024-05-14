@@ -32,7 +32,7 @@ onclick="location.href='./form'">
 		<th width="50">번호</th>
 		<th width="280">제목</th>
 		<th width="100">작성자</th>
-		<th width="100">작성일</th>
+		<th width="130">작성일</th>
 		<th>조회</th>
 	</tr>
 	<c:if test="${totalCount == 0 }">
@@ -55,7 +55,7 @@ onclick="location.href='./form'">
 				<td>
 					<fmt:formatDate value="${dto.writeday }" pattern="yyyy-MM-dd"/>
 				</td>
-				<td>${dto.readCount }</td>
+				<td>${dto.readcount }</td>
 			</tr>
 		</c:forEach>
 	</c:if>
