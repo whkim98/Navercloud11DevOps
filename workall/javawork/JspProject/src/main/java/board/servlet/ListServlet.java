@@ -16,11 +16,11 @@ import data.dto.SimpleBoardDto;
 @WebServlet("/board/list")
 public class ListServlet extends HttpServlet {
 	
-	SimpleBoardDao dao = new SimpleBoardDao();
+	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int totalCount = dao.getTotalcount();
+		SimpleBoardDao dao = new SimpleBoardDao();
+		int totalCount = dao.getTotalCount();
 		List<SimpleBoardDto> list = null;
 		list = dao.getAllDatas(0, 10);
 		

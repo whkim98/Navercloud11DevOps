@@ -19,6 +19,46 @@
     </style>
 </head>
 <body>
-boardlist
+<button type="button" class="btn btn-sm btn-outline-success"
+onclick="location.href='./form'">
+	<i class="bi bi-pencil-fill"></i>
+	글쓰기
+</button>
+<div style="margin: 20px; font-size: 25px;">
+	총 ${totalCount}개의 게시글이 있습니다.
+</div>
+<table class="table table-striped" style="width: 600px;">
+	<tr class="table-danger">
+		<th width="50">번호</th>
+		<th width="280">제목</th>
+		<th width="100">작성자</th>
+		<th width="100">작성일</th>
+		<th>조회</th>
+	</tr>
+	<c:if test="${totalCount == 0 }">
+		<tr height="70">
+			<td colspan="5" align="center" valign="middle">
+				<h4>등록된 게시글이 없습니다</h4>
+			</td>
+		</tr>
+	</c:if>
+	<c:if test="${totalCount > 0 }">
+		<c:forEach var="dto" items="${list }">
+			<tr>
+				<td>1</td>
+				<td>
+					<a href="./detail?num=${dto.num }" style="text-decoration: none; color: black;">
+						${dto.subject}
+					</a>
+				</td>
+				<td>${dto.writer }</td>
+				<td>
+					<fmt:formatDate value="${dto.writeday }" pattern="yyyy-MM-dd"/>
+				</td>
+				<td>${dto.readCount }</td>
+			</tr>
+		</c:forEach>
+	</c:if>
+</table>
 </body>
 </html>
