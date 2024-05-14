@@ -18,8 +18,8 @@ public class ListServlet extends HttpServlet {
 	
 	
 	
+	SimpleBoardDao dao = new SimpleBoardDao();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SimpleBoardDao dao = new SimpleBoardDao();
 		int totalCount = dao.getTotalCount();
 		List<SimpleBoardDto> list = null;
 		list = dao.getAllDatas(0, 10);

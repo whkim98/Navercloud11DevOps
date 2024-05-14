@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import data.dao.SimpleBoardDao;
+
 /**
  * Servlet implementation class InsertServlet
  */
 @WebServlet("/board/insert")
 public class InsertServlet extends HttpServlet {
-	
+	SimpleBoardDao dao = new SimpleBoardDao();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//목록으로 리다이렉트
 		response.sendRedirect("./list");
