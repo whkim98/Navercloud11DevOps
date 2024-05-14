@@ -50,7 +50,7 @@
 			<tr>
 				<th class="table-success" width=100>아바타</th>
 				<td>
-					<input type="text" name="avata" id="avata" value="1">
+					<input type="hidden" name="avata" id="avata" value="1">
 					<c:forEach var="a" begin="1" end="10">
 						<img src="../image/s${a }.JPG" width="40" height="40" border="1" class="avata" style="cursor: pointer;"
 						n="${a }">
