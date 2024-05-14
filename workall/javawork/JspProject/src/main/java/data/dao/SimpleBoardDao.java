@@ -88,9 +88,114 @@ public class SimpleBoardDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			db.dbClose(pstmt, conn);
+			db.dbClose(rs, pstmt, conn);
 		}
 		return list;
+	}
+	
+	public int getTotalcount() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = """
+				select count(*) from simpleboard
+				""";
+		int n = 0;
+		conn = db.getConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				n = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return n;
+	}
+	
+	public SimpleBoardDto getData(int num) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		SimpleBoardDto dto = new SimpleBoardDto();
+		String sql = """
+				select * from simpleboard where num = ?
+				""";
+		conn = db.getConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				dto.setNum(rs.getInt("num"));
+				dto.setWriter(rs.getString("writer"));
+				dto.setAvata(rs.getString("avata"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setContent(rs.getString("content"));
+				dto.setReadcount(rs.getInt("readcount"));
+				dto.setChu(rs.getInt("chu"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return dto;
+	}
+	
+	public void deleteBoard(int num) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		String sql = """
+				delete from simpleboard where num=?
+				""";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
+	public void updateReadcount(int num) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		String sql = """
+				update simpleboard set readcount=readcount+1 where num = ?
+				""";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
+	public void updateChu(int num) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		String sql = """
+				update simpleboard set chu=chu+1 where num = ?
+				""";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
 	}
 
 }
