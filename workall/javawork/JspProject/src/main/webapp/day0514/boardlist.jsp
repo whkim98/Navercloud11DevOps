@@ -32,7 +32,7 @@ onclick="location.href='./form'">
 		<th width="50">번호</th>
 		<th width="280">제목</th>
 		<th width="100">작성자</th>
-		<th width="130">작성일</th>
+		<th width="110">작성일</th>
 		<th>조회</th>
 	</tr>
 	<c:if test="${totalCount == 0 }">
@@ -45,7 +45,8 @@ onclick="location.href='./form'">
 	<c:if test="${totalCount > 0 }">
 		<c:forEach var="dto" items="${list }">
 			<tr>
-				<td>1</td>
+				<td>${no }</td>
+				<c:set var="no" value="${no-1 }"/>
 				<td>
 					<a href="./detail?num=${dto.num }" style="text-decoration: none; color: black;">
 						${dto.subject}
@@ -60,5 +61,10 @@ onclick="location.href='./form'">
 		</c:forEach>
 	</c:if>
 </table>
+<div style="width: 600px; text-align: center; font-size: 22px;">
+	<c:forEach var="pp" begin="${startPage }" end="${endPage }">
+		<a href="./list?currentPage=${pp}" style="">${pp}</a>&nbsp;
+	</c:forEach>
+</div>
 </body>
 </html>

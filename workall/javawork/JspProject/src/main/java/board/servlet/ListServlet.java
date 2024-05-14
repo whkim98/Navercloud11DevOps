@@ -22,10 +22,44 @@ public class ListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int totalCount = dao.getTotalCount();
 		List<SimpleBoardDto> list = null;
-		list = dao.getAllDatas(0, 10);
+		
+		int perPage = 5;
+		int perBlock = 3;
+		
+		int start;
+		int startPage;
+		int totalPage;
+		int endPage;
+		int currentPage;
+		int no;
+		
+		if(request.getParameter("currentPage") == null) {
+			currentPage = 1;
+		}else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
+		totalPage = totalCount / perPage + (totalCount % perPage > 0 ? 1 : 0);
+		
+		startPage = (currentPage - 1) / perBlock * perBlock + 1;
+		endPage = startPage + perBlock - 1;
+		if(endPage > totalPage) {
+			endPage = totalPage;
+		}
+		
+		start = (currentPage - 1) * perPage;
+		
+		no = totalCount - (currentPage - 1) * perPage;
+				
+		list = dao.getAllDatas(start, perPage);
 		
 		request.setAttribute("totalCount", totalCount);
 		request.setAttribute("list", list);
+		request.setAttribute("currentPage", currentPage);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("totalPage", totalPage);
+		request.setAttribute("no", no);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("../day0514/boardlist.jsp");
 		rd.forward(request, response);
