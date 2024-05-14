@@ -63,7 +63,7 @@ onclick="location.href='./form'">
 </table>
 <div style="width: 600px; text-align: center; font-size: 22px;">
 	<c:forEach var="pp" begin="${startPage }" end="${endPage }">
-		<a href="./list?currentPage=${pp}" style="">${pp}</a>&nbsp;
+		<a href="./list?currentPage=${pp}" style="text-decoration: none; color: ${currentPage == pp ? 'red' : 'black'}">${pp}</a>&nbsp;
 	</c:forEach>
 </div>
 </body>
