@@ -25,7 +25,7 @@
     </style>
     <script type="text/javascript">
     	$(function(){
-    		$("img.avata").eq(0).addClass("selectavata");
+    		$("img.avata").eq(${dto.avata} - 1).addClass("selectavata");
     		$("img.avata").click(function(){
     			$(this).siblings().removeClass("selectavata");
     			$(this).addClass("selectavata");
@@ -36,21 +36,23 @@
 </head>
 <body>
 <div style="margin: 30px;">
-	<form action="./insert" method="post">
+	<form action="./update" method="post">
+		<input type="hidden" name="num" value="${dto.num }">
+		<input type="hidden" name="currentPage" value="${currentPage }">
 		<table class="table table-bordered" style="width: 400px;">
 			<caption align="top">
-				<b>새글쓰기</b>
+				<b>글수정</b>
 			</caption>
 			<tr>
 				<th class="table-success" width=100>작성자</th>
 				<td>
-					<input type="text" class="form-control" name="writer" required="required">
+					<input type="text" class="form-control" name="writer" required="required" value="${dto.writer }">
 				</td>
 			</tr>
 			<tr>
 				<th class="table-success" width=100>아바타</th>
 				<td>
-					<input type="hidden" name="avata" id="avata" value="1">
+					<input type="hidden" name="avata" id="avata" value="${dto.avata }">
 					<c:forEach var="a" begin="1" end="10">
 						<c:if test="${a==6 }"><br></c:if>
 						<img src="../image/s${a }.JPG" width="40" height="40" border="1" class="avata" style="cursor: pointer;"
@@ -61,18 +63,18 @@
 			<tr>
 				<th class="table-success" width=100>제목</th>
 				<td>
-					<input type="text" class="form-control" name="subject" required="required">
+					<input type="text" class="form-control" name="subject" required="required" value="${dto.subject }">
 				</td>
 			</tr>
 			<tr>
 				<th class="table-success" width=100>내용</th>
 				<td>
-					<textarea style="width: 100%; height: 120px;" name="content" required="required"></textarea>
+					<textarea style="width: 100%; height: 120px;" name="content" required="required">${dto.content }</textarea>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<button type="submit" class="btn btn-sm btn-success">게시글저장</button>
+					<button type="submit" class="btn btn-sm btn-success">게시글수정</button>
 					<button type="button" class="btn btn-sm btn-success" onclick="history.back()">이전으로</button>
 				</td>
 			</tr>
