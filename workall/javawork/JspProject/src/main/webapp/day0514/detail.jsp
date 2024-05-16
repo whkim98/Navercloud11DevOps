@@ -80,6 +80,19 @@
 			location.href=`./delete?num=\${num}&currentPage=\${cp}`;
 		}
 	}
+	
+	$(".mychu").click(function(){
+		let num = ${dto.num};
+		$.ajax({
+			type:"get",
+			dataType:"json",
+			data: {"num":num},
+			url: "./updatechu",
+			success:function(data){
+				$("span.chu").text(data.chu);
+			}
+		});
+	});
 </script>
 </body>
 </html>
