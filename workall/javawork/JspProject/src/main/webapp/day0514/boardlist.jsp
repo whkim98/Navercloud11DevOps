@@ -48,7 +48,7 @@ onclick="location.href='./form'">
 				<td>${no }</td>
 				<c:set var="no" value="${no-1 }"/>
 				<td>
-					<a href="./detail?num=${dto.num }" style="text-decoration: none; color: black;">
+					<a href="./detail?num=${dto.num }&currentPage=${currentPage}" style="text-decoration: none; color: black;">
 						${dto.subject}
 					</a>
 				</td>

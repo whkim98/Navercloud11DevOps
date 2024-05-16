@@ -19,6 +19,8 @@
     </style>
 </head>
 <body>
-detail
+
+${dto.writer }
+
 </body>
 </html>
