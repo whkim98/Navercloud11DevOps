@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="java.util.Iterator"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="DAY0327.Ex8_MemberList"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
@@ -52,12 +49,15 @@
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="data.dto.StudentDto"/>
+    <fullyQualifiedTypeName name="data.dto.MemoDto"/>
     <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="db.common.MySqlConnect"/>
-    <fullyQualifiedTypeName name="data.dto.MemoDto"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.util.Vector"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="data.dto.SimpleBoardDto"/>
+    <fullyQualifiedTypeName name="data.dao.SimpleBoardDao"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 </qualifiedTypeNameHistroy>
