@@ -22,7 +22,7 @@ public class UpdateChuServlet extends HttpServlet {
 		dao.updateChu(num);
 		int chu = dao.getData(num).getChu();
 		
-		String s = "{\"num\":"+chu+"}";
+		String s = "{\"chu\":"+chu+"}";
 		
 		request.setAttribute("s", s);
 		RequestDispatcher rd = request.getRequestDispatcher("../day0514/jsonchu.jsp");
