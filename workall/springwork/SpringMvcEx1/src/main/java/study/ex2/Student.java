@@ -1,8 +1,14 @@
 package study.ex2;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
+@RequiredArgsConstructor
+@Setter
 public class Student {
 	private String schoolName;
+	@NonNull
 	Myinfo myInfo;
 	
 //	//MyInfo 정보는 생성자 주입
