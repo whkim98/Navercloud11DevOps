@@ -1,15 +1,22 @@
 package study.ex3;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public class MyCart {
 	
 	Person person;
+	
+	@NonNull
 	private String sangpum;
+	@NonNull
 	private int price;
 	
-	public MyCart(String sangpum, int price) {
-		this.sangpum = sangpum;
-		this.price = price;
-	}
+//	public MyCart(String sangpum, int price) {
+//		this.sangpum = sangpum;
+//		this.price = price;
+//	}
 	
 	public void setPerson(Person person) {
 		this.person = person;
