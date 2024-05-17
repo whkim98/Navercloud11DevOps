@@ -7,17 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@NoArgsConstructor
-@AllArgsConstructor
-//@Getter
+@NoArgsConstructor  //디폴트 생성자
+@AllArgsConstructor  //모든멤버변수를 인자로 받는 생성자
 //@Setter
+//@Getter
 //@ToString
-@Data
+@Data  //Setter+Getter+ToString
 public class ShopDto {
-
 	private String sang;
 	private String photo;
 	private int price;
 	private int su;
-	
 }
