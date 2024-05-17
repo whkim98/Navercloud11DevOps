@@ -5,6 +5,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+	<!-- <bean id="ktire" class="anno.study.ex4.KoreaTire"/>
+	<bean id="ctire" class="anno.study.ex4.CanadaTire"/>
+	
+	<bean id="car" class="anno.study.ex4.Car">
+		<constructor-arg ref="ktire"/>
+		<property name="carName" value="벤츠"/>
+	</bean> -->
+
 <!-- <bean id="hello" class="anno.study.ex4.Hello"/> -->
 	<context:component-scan base-package="anno.study.ex4"></context:component-scan>
 </beans>

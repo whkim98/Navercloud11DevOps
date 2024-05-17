@@ -10,6 +10,9 @@ public class Ex4Main {
 		ApplicationContext context = new ClassPathXmlApplicationContext("appex4.xml");
 		Hello h = (Hello)context.getBean("hello");
 		h.showMessage();
+		
+		Car car = (Car)context.getBean("car");
+		car.carInfo();
 	}
 
 }
