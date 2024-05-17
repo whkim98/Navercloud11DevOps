@@ -40,7 +40,7 @@ public class HomeController {
 		return "start";
 	}
 	
-	@GetMapping("/board/list")
+	@GetMapping("/board/list.do")
 	public String hello2(Model model) {
 		model.addAttribute("msg", "ㅎㅇㅎㅇ");
 		return "result1";
