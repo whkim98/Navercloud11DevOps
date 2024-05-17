@@ -8,7 +8,7 @@
 	<property name="phone" value="01077772222"></property>
 </bean>
 
-<bean id="cart" class="study.ex3.MyCart">
+<bean id="cart" class="study.ex3.MyCart" scope="prototype">
 	<constructor-arg value="에어팟맥스"/>
 	<constructor-arg value="600000"/>
 	<property name="person">

@@ -10,6 +10,12 @@ public class Ex3Main {
 		ApplicationContext context=new ClassPathXmlApplicationContext("appex3.xml");
 		MyCart mc = (MyCart)context.getBean("cart");
 		mc.showInfo();
+		
+		MyCart mc2 = (MyCart)context.getBean("cart");
+		mc2.showInfo();
+		
+		System.out.println(mc.hashCode());
+		System.out.println(mc2.hashCode());
 	}
 
 }
