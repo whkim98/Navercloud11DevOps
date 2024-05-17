@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-<bean id="per" class="study.ex3.Person">
-	<constructor-arg value="김우형"/>
-	<property name="phone" value="01077772222"></property>
-</bean>
-
-<bean id="cart" class="study.ex3.MyCart">
-	<constructor-arg value="에어팟맥스"/>
-	<constructor-arg value="600000"/>
-	<property name="person">
-		<ref bean="per"></ref>
-	</property>
-</bean>
+<context:component-scan base-package="anno.study.ex5"></context:component-scan>
 
 </beans>
