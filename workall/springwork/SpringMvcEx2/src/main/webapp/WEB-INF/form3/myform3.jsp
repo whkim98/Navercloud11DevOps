@@ -31,7 +31,7 @@
 		<tr>
 			<th width="100">사진</th>
 			<td class="input-group">
-				<select name="foodphoto">
+				<select name="foodphoto" id="fphoto">
 					<c:forEach var="s" begin="1" end="12">
 						<option>${s}.jpg</option>
 					</c:forEach>
