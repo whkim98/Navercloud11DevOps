@@ -20,5 +20,20 @@
 </head>
 <body>
 <h3 class="alert alert-danger">Post방식으로 데이터 읽기 - 각각</h3>
+<form action="./read2" method="post">
+	<div class="input-group" style="width: 300px;">
+		<h4>이름</h4>
+		<input type="text" name="name" class="form-control">
+	</div>
+	<div class="input-group" style="width: 300px;">
+		<h4>주소</h4>
+		<input type="text" name="addr" class="form-control">
+	</div>
+	<div class="input-group" style="width: 300px;">
+		<h4>나이</h4>
+		<input type="text" name="age" class="form-control">
+	</div>
+	<button type="submit" class="btn btn-success">서버 전송</button>
+</form>
 </body>
 </html>

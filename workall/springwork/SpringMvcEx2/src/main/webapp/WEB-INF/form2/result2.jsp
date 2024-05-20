@@ -19,5 +19,9 @@
    </style>
 </head>
 <body>
+<h3>form2로부터 post방식으로 읽은 데이터</h3>
+<h4>이름: ${name }</h4>
+<h4>주소: ${addr }</h4>
+<h4>나이: ${age }</h4>
 </body>
 </html>
