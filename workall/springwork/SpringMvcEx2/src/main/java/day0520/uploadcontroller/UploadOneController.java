@@ -2,6 +2,7 @@ package day0520.uploadcontroller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,11 +31,12 @@ public class UploadOneController {
 			)
 	{
 		//톰켓서버에 배포된 프로젝트에서 이미지가 업로드될 경로구하기
-		String realFolder=request.getSession().getServletContext().getRealPath("/resources");
+		String realFolder=request.getSession().getServletContext().getRealPath("/resources/upload");
 		System.out.println(realFolder);//콘솔로 출력후 탐색기를 열어서 이미지를 확인해주세요
 		
 		//업로드할 파일명
 		String fileName=upload.getOriginalFilename();
+		fileName=UUID.randomUUID()+".jpg";
 		
 		//위의 경로에 해당 파일명으로 업로드해보자
 		try {
