@@ -19,5 +19,10 @@
    </style>
 </head>
 <body>
+<h3>폼3으로부터 dto로 읽은 결과</h3>
+<h4>메뉴명: ${fname }</h4>
+<h4>가격: ${fprice }원</h4>
+<h4>갯수: ${fcnt }개</h4>
+<img src="./image/${fphoto }" width="200" border="3">
 </body>
 </html>
