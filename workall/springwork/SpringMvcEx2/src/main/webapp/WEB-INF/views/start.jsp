@@ -16,8 +16,27 @@
        body *{
            font-family: 'Jua';
        }
+       a:link, a:visited{
+       		text-decoration: none;
+       		color:black;
+       }
    </style>
 </head>
 <body>
+	<h3>폼태그를 읽는 다양한 방법</h3>
+	<ul>
+		<li>
+			<a href="./form1">get방식 폼 데이터 읽기 - 각각</a>
+		</li>
+		<li>
+			<a href="./form1">post방식 폼 데이터 읽기 - 각각</a>
+		</li>
+		<li>
+			<a href="./form1">post방식 폼 데이터 읽기 - dto</a>
+		</li>
+		<li>
+			<a href="./form1">get방식 폼 데이터 읽기 - map</a>
+		</li>
+	</ul>
 </body>
 </html>
