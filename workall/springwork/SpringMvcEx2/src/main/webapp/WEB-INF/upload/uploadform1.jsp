@@ -19,14 +19,14 @@
    </style>
 </head>
 <body>
-<h3>제목과 원하는 사진 한 개 업로드</h3>
+<h3>제목과 원하는 사진 한개만 업로드하세요</h3>
 <form action="./upload1" method="post" enctype="multipart/form-data">
-	<h4>제목 입력</h4>
+	<h4>제목을 입력해주세요</h4>
 	<input type="text" name="title">
-	<h4>사진 업로드</h4>
+	<h4>사진 한장을 업로드해주세요</h4>
 	<input type="file" name="upload">
 	<br>
-	<button type="submit">업로드</button>
+	<button type="submit">제목과사진 업로드</button>
 </form>
 </body>
 </html>

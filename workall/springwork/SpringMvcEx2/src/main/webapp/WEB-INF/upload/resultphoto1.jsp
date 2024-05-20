@@ -19,5 +19,7 @@
    </style>
 </head>
 <body>
+<h1>${title }</h1>
+<img src="./resources/${photo}" style="max-width: 300px;">
 </body>
 </html>
