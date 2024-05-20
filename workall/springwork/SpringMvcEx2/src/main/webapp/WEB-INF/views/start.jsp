@@ -29,13 +29,13 @@
 			<a href="./form1">get방식 폼 데이터 읽기 - 각각</a>
 		</li>
 		<li>
-			<a href="./form1">post방식 폼 데이터 읽기 - 각각</a>
+			<a href="./form2">post방식 폼 데이터 읽기 - 각각</a>
 		</li>
 		<li>
-			<a href="./form1">post방식 폼 데이터 읽기 - dto</a>
+			<a href="./form3">post방식 폼 데이터 읽기 - dto</a>
 		</li>
 		<li>
-			<a href="./form1">get방식 폼 데이터 읽기 - map</a>
+			<a href="./form4">Post방식 폼 데이터 읽기 - map</a>
 		</li>
 	</ul>
 </body>

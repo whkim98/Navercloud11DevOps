@@ -21,4 +21,9 @@ public class FormReadController {
 		return "form3/myform3";
 	}
 	
+	@GetMapping("/form4")
+	public String form4() {
+		return "form4/myform4";
+	}
+	
 }

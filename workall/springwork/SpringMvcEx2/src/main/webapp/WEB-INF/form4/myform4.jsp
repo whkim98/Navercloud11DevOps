@@ -19,6 +19,6 @@
    </style>
 </head>
 <body>
-<h3 class="alert alert-danger">Post방식으로 데이터 읽기 - 각각</h3>
+<h3 class="alert alert-danger">Post방식으로 데이터 읽기 - map</h3>
 </body>
 </html>
