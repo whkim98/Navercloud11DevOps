@@ -19,5 +19,12 @@
    </style>
 </head>
 <body>
+<h2>총 ${len }장의 사진 업로드</h2>
+<h2>제목: ${title }</h2>
+<c:forEach var="photo" items="${photolist }">
+	<h4>${photo }</h4>
+	<img src="./upload/${photo }" width="200" border="3">
+	<br>
+</c:forEach>
 </body>
 </html>
