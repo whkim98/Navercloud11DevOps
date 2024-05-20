@@ -19,5 +19,12 @@
    </style>
 </head>
 <body>
+<h4>form1으로부터 읽은 데이터 출력</h4>
+<pre style="font-size: 22px;">
+	이름: ${name }
+	주소: ${addr }
+	나이: ${age }세
+	기본정보: ${info }
+</pre>
 </body>
 </html>

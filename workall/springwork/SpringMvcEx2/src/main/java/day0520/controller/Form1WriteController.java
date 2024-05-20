@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Form1WriteController {
 
 	@GetMapping("/read1")
-	public String read1(@RequestParam("name") String name, @RequestParam("addr") String addr, @RequestParam("age") int age, Model model) {
-		
+	public String read1(@RequestParam("name") String name, @RequestParam("addr") String a, @RequestParam("age") int myage, Model model) {
+		model.addAttribute("name", name);
+		model.addAttribute("addr", a);
+		model.addAttribute("age", myage);
+		model.addAttribute("info", myage>=20 ? "성인입니다" : "미성년자입니다");
 		return "form1/result1";
 	}
 	
