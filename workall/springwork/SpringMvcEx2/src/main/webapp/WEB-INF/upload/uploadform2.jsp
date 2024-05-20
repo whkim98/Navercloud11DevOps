@@ -16,33 +16,17 @@
        body *{
            font-family: 'Jua';
        }
-       a:link, a:visited{
-       		text-decoration: none;
-       		color:black;
-       }
    </style>
 </head>
 <body>
-	<h3>폼태그를 읽는 다양한 방법</h3>
-	<ul style="font-size: 1.5em;">
-		<li>
-			<a href="./form1">get방식 폼 데이터 읽기 - 각각</a>
-		</li>
-		<li>
-			<a href="./form2">post방식 폼 데이터 읽기 - 각각</a>
-		</li>
-		<li>
-			<a href="./form3">post방식 폼 데이터 읽기 - dto</a>
-		</li>
-		<li>
-			<a href="./form4">Post방식 폼 데이터 읽기 - map</a>
-		</li>
-		<li>
-			<a href="./uploadform1">이미지 1개 업로드</a>
-		</li>
-		<li>
-			<a href="./uploadform2">이미지 여러 개 업로드</a>
-		</li>
-	</ul>
+<h3>제목과 원하는 사진 여러 개 업로드</h3>
+<form action="./upload2" method="post" enctype="multipart/form-data">
+	<h4>제목 입력</h4>
+	<input type="text" name="title">
+	<h4>사진 업로드</h4>
+	<input type="file" name="upload" multiple="multiple">
+	<br>
+	<button type="submit">업로드</button>
+</form>
 </body>
 </html>
