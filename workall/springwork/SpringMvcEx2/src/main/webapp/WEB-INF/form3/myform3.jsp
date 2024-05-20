@@ -20,5 +20,48 @@
 </head>
 <body>
 <h3 class="alert alert-danger">Post방식으로 데이터 읽기 - dto</h3>
+<form action="./read3" method="post">
+	<table class="table" style="width: 300px;">
+		<tr>
+			<th width="100">메뉴명</th>
+			<td>
+				<input type="text" name="foodname" class="form-control">
+			</td>
+		</tr>
+		<tr>
+			<th width="100">사진</th>
+			<td class="input-group">
+				<select name="foodphoto">
+					<c:forEach var="s" begin="1" end="12">
+						<option>${s}.jpg</option>
+					</c:forEach>
+				</select>
+				<img src="./image/1.jpg" width="40" border="1" id="foodphoto">
+				<script type="text/javascript">
+				$("#fphoto").change(function(){
+					$("#foodphoto").attr("src", "./image/"+$(this).val());
+				});
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<th width="100">가격</th>
+			<td>
+				<input type="text" name="price" class="form-control">
+			</td>
+		</tr>
+		<tr>
+			<th width="100">갯수</th>
+			<td>
+				<input type="text" name="cnt" class="form-control">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<button type="submit">폼 전체 전송</button>
+			</td>
+		</tr>
+	</table>
+</form>
 </body>
 </html>

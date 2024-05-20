@@ -19,5 +19,10 @@
    </style>
 </head>
 <body>
+<h3>폼3으로부터 dto로 읽은 결과</h3>
+<h4>메뉴명: ${foodDto.foodname }</h4>
+<h4>가격: ${foodDto.price }원</h4>
+<h4>갯수: ${foodDto.cnt }개</h4>
+<img src="./image/${foodDto.foodphoto }" width="200" border="3">
 </body>
 </html>
