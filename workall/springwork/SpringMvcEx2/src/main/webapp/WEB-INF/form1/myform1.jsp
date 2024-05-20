@@ -33,7 +33,7 @@
 		<h4>나이</h4>
 		<input type="text" name="age" class="form-control">
 	</div>
-	<button type="submit" class="btn-btn-success">서버 전송</button>
+	<button type="submit" class="btn btn-success">서버 전송</button>
 </form>
 </body>
 </html>
