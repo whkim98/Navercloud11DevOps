@@ -6,13 +6,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import member.service.MemberService;
 
 @Controller
 @RequestMapping("/member")  
+@RequiredArgsConstructor
 public class MemberListController {
 	
-	@Autowired
+	//@Autowired
+	@NonNull
 	private MemberService memberService;
 	
 	@GetMapping("/list")

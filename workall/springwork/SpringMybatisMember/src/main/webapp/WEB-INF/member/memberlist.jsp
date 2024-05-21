@@ -19,8 +19,11 @@
    </style>
 </head>
 <body>
-<h2 class="alert alert-danger">
+<h2 class="alert alert-danger" style="width: 500px;">
 	총${totalCount }명의 회원이 있습니다.
+	<span style="float: right;">
+		<button type="button" class="btn btn-sm btn-success" onclick="location.href='./form'">멤버등록</button>
+	</span>
 </h2>
 </body>
 </html>
