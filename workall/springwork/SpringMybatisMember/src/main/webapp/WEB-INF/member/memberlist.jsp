@@ -19,6 +19,8 @@
    </style>
 </head>
 <body>
-<h1>MemberList</h1>
+<h2 class="alert alert-danger">
+	총${totalCount }명의 회원이 있습니다.
+</h2>
 </body>
 </html>
