@@ -20,7 +20,6 @@
 		<beans:property name="prefix" value="/WEB-INF/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
 	<!-- file upload setting -->
 	<beans:bean id="multipartResolver"
 	   class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
