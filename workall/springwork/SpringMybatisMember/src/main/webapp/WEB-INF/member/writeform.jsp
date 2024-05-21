@@ -61,12 +61,47 @@
 			</td>
 		</tr>
 		<tr>
+			<th width="100" class="table-info">사진</th>
+			<td width="200">
+				<input type="file" name="myfile" id="myfile" class="form-control" required="required">
+			</td>
+			<td rowspan="2">
+				<img src="" id="showimg1" style="width: 100%;" onerror="this.src='../image/noimage1.png'">
+			</td>
+		<tr>
 			<th width="100" class="table-info">비밀번호</th>
 			<td width="200">
 				<input type="password" name="passwd" class="form-control" required="required" maxlength="8">
 			</td>
-			<td rowspan="3">
-				<img src="" id="showimg1" style="width: 100%;" onerror="this.src='../image/noimage1.png'">
+		</tr>
+		<tr>
+			<th width="100" class="table-info">핸드폰</th>
+			<td width="200" colspan="2">
+				<input type="number" name="hp" class="form-control" required="required" placeholder="숫자만 입력">
+			</td>
+		</tr>
+		<tr>
+			<th width="100" class="table-info">이메일</th>
+			<td width="200" colspan="2">
+				<input type="email" name="email" class="form-control">
+			</td>
+		</tr>
+		<tr>
+			<th width="100" class="table-info">주소</th>
+			<td width="200" colspan="2">
+				<input type="text" name="addr" class="form-control" required="required">
+			</td>
+		</tr>
+		<tr>
+			<th width="100" class="table-info">생년월일</th>
+			<td width="200" colspan="2">
+				<input type="date" name="birthday" class="form-control" value="2024-01-01">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<button type="submit" class="btn btn-outline-danger" style="width: 100px;">회원가입</button>
+				<button type="reset" class="btn btn-outline-danger" style="width: 100px;">초기화</button>
 			</td>
 		</tr>
 	</table>
