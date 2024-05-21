@@ -39,6 +39,37 @@
    </script>
 </head>
 <body>
-<h1>입력폼</h1>
+<form action="./insert" method="post" enctype="multipart/form-data">
+	<table class="table table-bordered" style="width: 500px;">
+		<caption align="top">
+			<h3><b>회원가입</b></h3>
+		</caption>
+		<tr>
+			<th width="100" class="table-info">이름</th>
+			<td colspan="2">
+				<input type="text" name="name" class="form-control" required="required">
+			</td>
+		</tr>
+		<tr>
+			<th width="100" class="table-info">아이디</th>
+			<td colspan="2">
+				<div class="input-group">
+				<input type="text" name="myid" id="myid" class="form-control" required="required">
+				&nbsp;
+				<button type="button" class="btn btn-sm btn-danger" id="btncheckid">중복확인</button>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th width="100" class="table-info">비밀번호</th>
+			<td width="200">
+				<input type="password" name="passwd" class="form-control" required="required" maxlength="8">
+			</td>
+			<td rowspan="3">
+				<img src="" id="showimg1" style="width: 100%;" onerror="this.src='../image/noimage1.png'">
+			</td>
+		</tr>
+	</table>
+</form>
 </body>
 </html>
