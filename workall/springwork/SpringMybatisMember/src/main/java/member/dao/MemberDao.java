@@ -1,5 +1,7 @@
 package member.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,6 +26,10 @@ public class MemberDao {
 	
 	public void insertMember(MemberDto dto) {
 		session.insert(namespace + "insertMember", dto);
+	}
+	
+	public List<MemberDto> selectAllMembers() {
+		return session.selectList(namespace + "selectAllMembers");
 	}
 
 }
