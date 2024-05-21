@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import member.dto.MemberDto;
+
 @Repository
 public class MemberDao {
 	
@@ -18,6 +20,10 @@ public class MemberDao {
 	
 	public int getSearchId(String searchid) {
 		return session.selectOne(namespace + "selectIdCheck", searchid);
+	}
+	
+	public void insertMember(MemberDto dto) {
+		session.insert(namespace + "insertMember", dto);
 	}
 
 }

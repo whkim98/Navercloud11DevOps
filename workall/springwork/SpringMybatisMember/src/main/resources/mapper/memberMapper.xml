@@ -7,4 +7,8 @@
 	<select id="selectIdCheck" parameterType="String" resultType="int">
 		select count(*) from memberdb where myid=#{searchid}
 	</select>
+	<insert id="insertMember" parameterType="MemberDto">
+		insert into memberdb (name, myid, passwd, addr, hp, email, photo, birthday, gaipday) 
+		values(#{name}, #{myid}, #{passwd}, #{addr}, #{hp}, #{email}, #{photo}, #{birthday}, now())
+	</insert>
 </mapper>

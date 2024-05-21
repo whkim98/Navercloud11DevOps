@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import member.dao.MemberDao;
+import member.dto.MemberDto;
 
 @Service
 public class MemberService {
@@ -18,4 +19,9 @@ public class MemberService {
 	public int getSearchId(String searchid) {
 		return memberDao.getSearchId(searchid);
 	}
+	
+	public void insertMember(MemberDto dto) {
+		memberDao.insertMember(dto);
+	}
+	
 }
