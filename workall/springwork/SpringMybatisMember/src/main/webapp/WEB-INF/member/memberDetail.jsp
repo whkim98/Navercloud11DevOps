@@ -19,22 +19,21 @@
    </style>
 </head>
 <body>
-<h2 class="alert alert-danger" style="width: 500px;">
-	총${totalCount }명의 회원이 있습니다.
-	<span style="float: right;">
-		<button type="button" class="btn btn-sm btn-success" onclick="location.href='./form'">멤버등록</button>
-	</span>
-</h2>
 <table class="table table-bordered">
+	<c:forEach var="dto" items="${list }">
 	<tr>
-		<th colspan="5" align="center">회원명단</th>
+		<th colspan="8" align="center">[${dto.name }]님의 정보임 ㅋㅋ</th>
 	</tr>
+	</c:forEach>
 	<tr>
 		<th>번호</th>
 		<th>회원명</th>
 		<th>아이디</th>
 		<th>핸드폰</th>
-		<th>상세보기</th>
+		<th>주소</th>
+		<th>이메일</th>
+		<th>생일</th>
+		<th>비밀번호</th>
 	</tr>
 	<c:forEach var="dto" items="${list }">
 	<tr>
@@ -42,9 +41,15 @@
 		<td><img src="../image/${dto.photo }" style="width: 100px;">${dto.name }</td>
 		<td>${dto.myid }</td>
 		<td>${dto.hp }</td>
-		<td><button type="button" onclick="location.href='./detail?num=${dto.num}'">detail</button></td>
+		<td>${dto.addr }</td>
+		<td>${dto.email }</td>
+		<td>${dto.birthday }</td>
+		<td>${dto.passwd }</td>
 	</tr>
-		</c:forEach>
+	<tr>
+		<td colspan="8" align="center"><button type="button" onclick="history.back()">뒤로가기</button></td>
+	</tr>
+	</c:forEach>
 </table>
 </body>
 </html>

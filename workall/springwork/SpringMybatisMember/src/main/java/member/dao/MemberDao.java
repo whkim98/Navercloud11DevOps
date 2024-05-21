@@ -31,5 +31,9 @@ public class MemberDao {
 	public List<MemberDto> selectAllMembers() {
 		return session.selectList(namespace + "selectAllMembers");
 	}
+	
+	public List<MemberDto> selectDetail(int num){
+		return session.selectList(namespace + "selectDetail", num);
+	}
 
 }

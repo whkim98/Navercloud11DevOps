@@ -30,4 +30,8 @@ public class MemberService {
 		return memberDao.selectAllMembers();
 	}
 	
+	public List<MemberDto> selectDetail(int num){
+		return memberDao.selectDetail(num);
+	}
+	
 }

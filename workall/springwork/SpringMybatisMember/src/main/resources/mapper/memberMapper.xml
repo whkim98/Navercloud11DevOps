@@ -14,4 +14,7 @@
 	<select id="selectAllMembers" resultType="MemberDto">
 		select * from memberdb order by num
 	</select>
+	<select id="selectDetail" parameterType="int" resultType="MemberDto">
+		select * from memberdb where num = #{num}
+	</select>
 </mapper>
