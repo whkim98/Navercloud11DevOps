@@ -4,4 +4,7 @@
 	<select id="memberTotalCount" resultType="int">
 		select count(*) from memberdb
 	</select>
+	<select id="selectIdCheck" parameterType="String" resultType="int">
+		select count(*) from memberdb where myid=#{searchid}
+	</select>
 </mapper>

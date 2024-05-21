@@ -15,5 +15,9 @@ public class MemberDao {
 	public int getTotalCount(){
 		return session.selectOne(namespace+"memberTotalCount");
 	}
+	
+	public int getSearchId(String searchid) {
+		return session.selectOne(namespace + "selectIdCheck", searchid);
+	}
 
 }

@@ -14,4 +14,8 @@ public class MemberService {
 	public int getTotalCount(){
 		return memberDao.getTotalCount();
 	}
+	
+	public int getSearchId(String searchid) {
+		return memberDao.getSearchId(searchid);
+	}
 }
