@@ -19,14 +19,14 @@
    </style>
 </head>
 <body>
-<table class="table table-bordered">
+<table class="table table-bordered" style="width: 800px;">
 	<c:forEach var="dto" items="${list }">
 	<tr>
 		<th colspan="8" align="center">[${dto.name }]님의 정보임 ㅋㅋ</th>
 	</tr>
 	</c:forEach>
 	<tr>
-		<th>번호</th>
+		<th>#</th>
 		<th>회원명</th>
 		<th>아이디</th>
 		<th>핸드폰</th>
@@ -38,7 +38,7 @@
 	<c:forEach var="dto" items="${list }">
 	<tr>
 		<td>${dto.num }</td>
-		<td><img src="../image/${dto.photo }" style="width: 100px;" class="rounded-circle">${dto.name }</td>
+		<td><img src="../image/${dto.photo }" style="width: 40px; height: 40px;" class="rounded-circle">${dto.name }</td>
 		<td>${dto.myid }</td>
 		<td>${dto.hp }</td>
 		<td>${dto.addr }</td>
