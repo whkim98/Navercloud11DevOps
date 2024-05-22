@@ -42,7 +42,6 @@ public class MemberDetailController {
 			)
 	{
 		Map<String, String> map=new HashMap<String, String>();
-		System.out.println("num="+num);
 		
 		map.put("photoname", upload.getOriginalFilename());
 		return map;

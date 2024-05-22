@@ -45,5 +45,14 @@ public class MemberDao {
 	public int updateMember(MemberDto dto) {
 		return session.update(namespace+"updateMember", dto);
 	}
+	
+	public boolean isEqualPassCheck(Map<String, Object> map) {
+		int n = session.selectOne(namespace+"equalPassCheck", map);
+		return n == 1 ? true : false;
+	}
+	
+	public void deleteMember(int num) {
+		session.delete(namespace+"deleteMember", num);
+	}
 
 }

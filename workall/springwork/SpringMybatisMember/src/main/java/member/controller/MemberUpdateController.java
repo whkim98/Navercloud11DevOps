@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import member.dto.MemberDto;
 import member.service.MemberService;
@@ -40,6 +42,18 @@ public class MemberUpdateController {
 		memberService.updateMember(dto);
 		System.out.println("dto: " + dto);
 		return "redirect:/member/detail?num="+num;
+	}
+	
+	@ResponseBody
+	@GetMapping("/member/delete")
+	public Map<String, String> delete(@RequestParam int num, @RequestParam String passwd){
+		Map<String, String> map = new HashMap<String, String>();
+		boolean b = memberService.isEqualPassCheck(num, passwd);
+		if(b) {
+			memberService.deleteMember(num);
+		}
+		map.put("status", b ? "success":"fail");
+		return map;
 	}
 
 }
