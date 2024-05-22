@@ -20,7 +20,7 @@
    <script type="text/javascript">
    $(function(){
 	  //사진변경 이벤트
-	  $("#photoupload").chacnge(function(){
+	  $("#photoupload").change(function(){
 		 let form=new FormData();
 		 form.append("upload",$("#photoupload")[0].files[0]);
 		 form.append("num",${dto.num});
