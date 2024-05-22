@@ -1,6 +1,7 @@
 package member.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,12 @@ public class MemberDao {
 		return session.selectList(namespace + "selectAllMembers");
 	}
 	
-	public List<MemberDto> selectDetail(int num){
-		return session.selectList(namespace + "selectDetail", num);
+	public MemberDto selectDetail(int num){
+		return session.selectOne(namespace + "selectDetail", num);
+	}
+	
+	public void updatePhoto(Map<String, Object> map) {
+		session.update(namespace+"updatePhoto", map);
 	}
 
 }

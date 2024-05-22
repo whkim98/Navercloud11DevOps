@@ -17,4 +17,7 @@
 	<select id="selectDetail" parameterType="int" resultType="MemberDto">
 		select * from memberdb where num = #{num}
 	</select>
+	<update id="updatePhoto" parameterType="Map">
+		update memberdb set photo=#{photo} where num=#{num}
+	</update>
 </mapper>

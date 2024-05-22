@@ -126,7 +126,9 @@ onsubmit="return check()">
 			<th width="100"  class="table-info">핸드폰</th>
 			<td width="200" colspan="2"> 
 				<input type="tel" name="hp" class="form-control"
-				required="required" placeholder="000-0000-0000"  pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}">
+			       required="required" placeholder="000-0000-0000" 
+			       pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" 
+			       title="올바른 형식을 입력해 주세요. 예: 000-0000-0000">
 			</td>			
 		</tr>
 		<tr>

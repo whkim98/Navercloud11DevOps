@@ -20,11 +20,9 @@
 </head>
 <body>
 <table class="table table-bordered" style="width: 800px;">
-	<c:forEach var="dto" items="${list }">
 	<tr>
 		<th colspan="8" align="center">[${dto.name }]님의 정보임 ㅋㅋ</th>
 	</tr>
-	</c:forEach>
 	<tr>
 		<th>#</th>
 		<th>회원명</th>
@@ -35,7 +33,6 @@
 		<th>생일</th>
 		<th>비밀번호</th>
 	</tr>
-	<c:forEach var="dto" items="${list }">
 	<tr>
 		<td>${dto.num }</td>
 		<td><img src="../image/${dto.photo }" style="width: 40px; height: 40px;" class="rounded-circle">${dto.name }</td>
@@ -49,7 +46,6 @@
 	<tr>
 		<td colspan="8" align="center"><button type="button" onclick="history.back()">뒤로가기</button></td>
 	</tr>
-	</c:forEach>
 </table>
 </body>
 </html>
