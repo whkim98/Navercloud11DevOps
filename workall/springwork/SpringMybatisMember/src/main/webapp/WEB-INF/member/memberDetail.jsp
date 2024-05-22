@@ -38,7 +38,7 @@
 	<c:forEach var="dto" items="${list }">
 	<tr>
 		<td>${dto.num }</td>
-		<td><img src="../image/${dto.photo }" style="width: 100px;">${dto.name }</td>
+		<td><img src="../image/${dto.photo }" style="width: 100px;" class="rounded-circle">${dto.name }</td>
 		<td>${dto.myid }</td>
 		<td>${dto.hp }</td>
 		<td>${dto.addr }</td>
