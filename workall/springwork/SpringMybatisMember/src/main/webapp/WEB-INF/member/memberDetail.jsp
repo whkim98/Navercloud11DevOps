@@ -17,34 +17,79 @@
            font-family: 'Jua';
        }
    </style>
+   <script type="text/javascript">
+   $(function(){
+	  //사진변경 이벤트
+	  $("#photoupload").chacnge(function(){
+		 let form=new FormData();
+		 form.append("upload",$("#photoupload")[0].files[0]);
+		 form.append("num",${dto.num});
+		 /*
+			processData:false : 서버에 전달하는 데이타는 query string이라는 형태로 전달된다
+			파일전송의 경우 이를 하지 않아야하는데 그설정이 false ,
+			contentType:false : enctype 이 원래 기본값이 application/x-www..... 이거인데
+			multipart/form-data로 변경해준다
+		*/
+		 $.ajax({
+			type:"post",
+			dataType:"json",
+			data:form,
+			url:"./upload",
+			processData:false,
+			contentType:false,
+			success:function(data){
+				//스프링에서 {"photoname":"파일명"} 이렇게 보낼것임
+				//프로필 사진 변경(db 변경후 업로드된 사진파일명을 반환받은것으로 변경)
+				$("#photo").attr("src","../image/"+data.photoname);
+			}
+		 });
+	  });
+   });
+   </script>
 </head>
 <body>
-<table class="table table-bordered" style="width: 800px;">
+<table class="table" style="width: 500px;margin:20px;">
+	<caption align="top">
+		<h2><b>${dto.name} 회원님의 정보확인</b></h2>
+	</caption>
 	<tr>
-		<th colspan="8" align="center">[${dto.name }]님의 정보임 ㅋㅋ</th>
+		<td width="200" align="center">
+			<img src="../image/${dto.photo}" id="photo"
+			class="rounded-circle" style="width:150px;border:1px solid black;">
+			<br><br>
+			<input type="file" id="photoupload" style="display: none;">
+			
+			<button type="button" class="btn btn-success btn-sm"
+			onclick="$('#photoupload').trigger('click')">
+			사진수정</button>
+			
+		</td>
+		<td valign="middle">
+			아이디 : ${dto.myid}<br>
+			핸드폰 : ${dto.hp }<br>
+			이메일 : ${dto.email }<br>
+			주  소 : ${dto.addr }<br>
+			생년월일 : ${dto.birthday}<br>
+			가입일 : 
+			<fmt:formatDate value="${dto.gaipday }"
+			pattern="yyyy-MM-dd HH:mm"/>
+		</td>		
 	</tr>
 	<tr>
-		<th>#</th>
-		<th>회원명</th>
-		<th>아이디</th>
-		<th>핸드폰</th>
-		<th>주소</th>
-		<th>이메일</th>
-		<th>생일</th>
-		<th>비밀번호</th>
-	</tr>
-	<tr>
-		<td>${dto.num }</td>
-		<td><img src="../image/${dto.photo }" style="width: 40px; height: 40px;" class="rounded-circle">${dto.name }</td>
-		<td>${dto.myid }</td>
-		<td>${dto.hp }</td>
-		<td>${dto.addr }</td>
-		<td>${dto.email }</td>
-		<td>${dto.birthday }</td>
-		<td>${dto.passwd }</td>
-	</tr>
-	<tr>
-		<td colspan="8" align="center"><button type="button" onclick="history.back()">뒤로가기</button></td>
+		<td colspan="2" align="center">
+			<button type="button" class="btn btn-sm btn-outline-secondary"
+			style="width: 80px;"
+			onclick="location.href='./list'">목록</button>
+			
+			<button type="button" class="btn btn-sm btn-outline-secondary"
+			style="width: 80px;"
+			onclick="location.href='./updateform?num=${dto.num}'">수정</button>
+			
+						<button type="button" class="btn btn-sm btn-outline-secondary"
+			style="width: 80px;"
+			onclick="">삭제</button>
+			
+		</td>
 	</tr>
 </table>
 </body>
