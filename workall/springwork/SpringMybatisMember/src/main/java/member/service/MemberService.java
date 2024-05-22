@@ -32,8 +32,9 @@ public class MemberService {
 		return memberDao.selectAllMembers();
 	}
 	
-	public MemberDto selectDetail(int num){
-		return memberDao.selectDetail(num);
+	public MemberDto getData(int num)
+	{
+		return memberDao.getData(num);
 	}
 	
 	public void updatePhoto(int num, String photo) {
@@ -41,6 +42,10 @@ public class MemberService {
 		map.put("num", num);
 		map.put("photo", photo);
 		memberDao.updatePhoto(map);
+	}
+	
+	public int updateMember(MemberDto dto) {
+		return memberDao.updateMember(dto);
 	}
 	
 }

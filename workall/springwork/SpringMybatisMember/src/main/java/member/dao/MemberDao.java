@@ -33,12 +33,17 @@ public class MemberDao {
 		return session.selectList(namespace + "selectAllMembers");
 	}
 	
-	public MemberDto selectDetail(int num){
-		return session.selectOne(namespace + "selectDetail", num);
+	public MemberDto getData(int num)
+	{
+		return session.selectOne(namespace+"selectByNumData", num);
 	}
 	
 	public void updatePhoto(Map<String, Object> map) {
 		session.update(namespace+"updatePhoto", map);
+	}
+	
+	public int updateMember(MemberDto dto) {
+		return session.update(namespace+"updateMember", dto);
 	}
 
 }
