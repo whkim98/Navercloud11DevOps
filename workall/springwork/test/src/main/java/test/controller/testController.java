@@ -10,10 +10,12 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.test.football.TeamInfo;
+import com.test.football.MatchInfo;
 import com.test.football.ScorerInfo;
 
 @Controller
@@ -22,6 +24,8 @@ public class testController {
     private static final String API_KEY = "0e1ee7035c024df991b91a5917050506";
     private static final String URL_TEMPLATE = "https://api.football-data.org/v4/competitions/PL/standings?season=%d";
     private static final String TOP_SCORERS_URL = "https://api.football-data.org/v4/competitions/PL/scorers?season=%d";
+    private static final String MATCHES_URL_TEMPLATE = "https://api.football-data.org/v4/teams/%d/matches";
+
 
     @GetMapping("/test/list")
     public String home(Model model) {
@@ -101,5 +105,43 @@ public class testController {
             e.printStackTrace();
         }
         return "/test/score";
+    }
+    
+    @GetMapping("/test/teamMatches")
+    public String teamMatches(@RequestParam("teamId") int teamId, Model model) {
+        String url = String.format(MATCHES_URL_TEMPLATE, teamId);
+
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .header("X-Auth-Token", API_KEY)
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            String responseBody = response.body();
+
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonNode = mapper.readTree(responseBody);
+
+            List<MatchInfo> matchInfoList = new ArrayList<>();
+            JsonNode matchesNode = jsonNode.get("matches");
+            for (JsonNode matchNode : matchesNode) {
+                String homeTeam = matchNode.get("homeTeam").get("name").asText();
+                String awayTeam = matchNode.get("awayTeam").get("name").asText();
+                int homeScore = matchNode.get("score").get("fullTime").get("homeTeam").asInt();
+                int awayScore = matchNode.get("score").get("fullTime").get("awayTeam").asInt();
+                boolean isHomeTeam = homeTeam.equals(matchNode.get("team").get("name").asText());
+
+                MatchInfo matchInfo = new MatchInfo(homeTeam, awayTeam, homeScore, awayScore, isHomeTeam);
+                matchInfoList.add(matchInfo);
+            }
+
+            model.addAttribute("matchInfoList", matchInfoList);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "/test/teamMatches";
     }
 }

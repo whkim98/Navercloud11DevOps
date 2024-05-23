@@ -19,6 +19,8 @@
    </style>
 </head>
 <body>
-memberlist
+<h3 class="alert alert-success">
+	총 ${totalCount}명의 회원이 있습니다
+</h3>
 </body>
 </html>

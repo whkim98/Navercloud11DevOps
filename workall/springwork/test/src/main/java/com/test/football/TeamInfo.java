@@ -8,6 +8,7 @@ public class TeamInfo {
     private int draws;
     private int goalsFor;
     private int goalsAgainst;
+    private String teamId;
 
     // Constructors, getters and setters
     public TeamInfo() {}
@@ -85,4 +86,14 @@ public class TeamInfo {
     public int getPoints() {
         return wins * 3 + draws;
     }
+
+	public String getTeamId() {
+		return teamId;
+	}
+
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
+	}
+    
+    
 }
