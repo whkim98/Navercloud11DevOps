@@ -40,6 +40,11 @@
                 </tr>
             </c:forEach>
         </tbody>
+        <tr>
+        	<td colspan="8">
+        		<button type="button" onclick="loction.href='/topscore'">자세히보기</button>
+        	</td>
+        </tr>
     </table>
 </body>
 </html>

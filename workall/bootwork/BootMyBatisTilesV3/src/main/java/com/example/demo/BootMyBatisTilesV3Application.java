@@ -2,8 +2,10 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan({"*.member"})
 public class BootMyBatisTilesV3Application {
 
 	public static void main(String[] args) {

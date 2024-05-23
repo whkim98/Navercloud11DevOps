@@ -1,4 +1,4 @@
-package com.study.bit;
+package com.test.football;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +29,7 @@ public class test {
             for (JsonNode scorer : scorers) {
                 String playerName = scorer.get("player").get("name").asText();
                 int goals = scorer.get("goals").asInt();
-                System.out.println(playerName + " - Goals: " + goals);
+                System.out.println(playerName + " - 득점수: " + goals);
             }
         } catch (Exception e) {
             e.printStackTrace();
