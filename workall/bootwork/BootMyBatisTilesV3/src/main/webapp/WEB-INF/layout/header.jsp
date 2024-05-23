@@ -19,9 +19,5 @@
    </style>
 </head>
 <body>
-<img src="${pageContext.request.contextPath }/mycar/mycar13.png" width="100">
-<h3 class="alert alert-success">
-	총 ${totalCount}명의 회원이 있습니다
-</h3>
 </body>
 </html>
