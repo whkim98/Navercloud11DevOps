@@ -11,16 +11,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap" rel="stylesheet">
    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <body>
-    <h1>${season }-${season+1 }시즌 프리미어리그</h1>
+    <h1>${season-2000 }-${season-1999 }시즌 프리미어리그</h1>
 
-    <table class="table table-striped" style="width: 500px; font-size: 10px;" border="1">
+    <table class="table table-striped" style="width: 800px; font-size: 10px;" border="1">
         <thead>
-            <tr>
+            <tr class="table-danger">
                 <th>팀</th>
                 <th>경기</th>
                 <th>승</th>
-                <th>패</th>
                 <th>무</th>
+                <th>패</th>
                 <th>+/-</th>
                 <th>득실차</th>
                 <th>승점</th>
@@ -32,8 +32,8 @@
                     <td>${teamInfo.teamName}</td>
                     <td>${teamInfo.playedGames}</td>
                     <td>${teamInfo.wins}</td>
-                    <td>${teamInfo.losses}</td>
                     <td>${teamInfo.draws}</td>
+                    <td>${teamInfo.losses}</td>
                     <td>${teamInfo.goalsFor} / ${teamInfo.goalsAgainst}</td>
                     <td>${teamInfo.goalDifference}</td>
                     <td>${teamInfo.points}</td>
