@@ -21,7 +21,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {
-        int season = 2022;  // 원하는 시즌 ID
+        int season = 2023;  // 원하는 시즌 ID
         String url = String.format(URL_TEMPLATE, season);
 
         try {
@@ -53,6 +53,7 @@ public class HomeController {
             }
 
             model.addAttribute("teamInfoList", teamInfoList);
+            model.addAttribute("season", season);
 
         } catch (Exception e) {
             e.printStackTrace();
