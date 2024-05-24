@@ -1,6 +1,8 @@
 package data.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +33,12 @@ public class MemberService {
 	
 	public MemberDto getData(int num) {
 		return memInter.getData(num);
+	}
+	
+	public void updatePhoto(int num, String photo) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("num", num);
+		map.put("photo", photo);
+		memInter.updatePhoto(map);
 	}
 }

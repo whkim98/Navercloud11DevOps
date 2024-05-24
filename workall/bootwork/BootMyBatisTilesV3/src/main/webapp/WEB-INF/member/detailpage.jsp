@@ -40,7 +40,7 @@
 			success:function(data){
 				//스프링에서 {"photoname":"파일명"} 이렇게 보낼것임
 				//프로필 사진 변경(db 변경후 업로드된 사진파일명을 반환받은것으로 변경)
-				$("#photo").attr("src","../image/"+data.photoname);
+				$("#photo").attr("src","../save/"+data.photoname);
 			}
 		 });
 	  });
