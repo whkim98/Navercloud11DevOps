@@ -20,11 +20,42 @@
        
        div.mainlayout div{
        		border: 1px solid gray;
+       		position: absolute;
        }
        
-       div.mainlayout div a{
+       div.mainlayout>div a{
        		text-decoration: none;
        		color:black;
+       }
+       
+       div.mainlayout>div.header{
+       		width: 100%;
+       		height: 100px;
+       		line-height: 100px;
+       		font-size: 35px;
+       		text-align: center;
+       }
+       
+       div.mainlayout>div.menu{
+       		top:100px;
+       		width: 100%;
+       		height: 80px;
+       		line-height: 80px;
+       }
+       
+       div.mainlayout>div.info{
+       		top:250px;
+       		left: 50px;
+       		width: 200px;
+       		height: 200px;
+       		border: 2px solid gray;
+       }
+       
+       div.mainlayout>div.main{
+       		top: 210px;
+       		left: 300px;
+       		width: 70%;
+       		height: auto;
        }
    </style>
 </head>
