@@ -2,10 +2,10 @@ server:
   port: 9000
   
 spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/
-      suffix: .jsp
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/
+#      suffix: .jsp
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

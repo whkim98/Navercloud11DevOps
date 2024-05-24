@@ -17,20 +17,29 @@
        body *{
            font-family: 'Jua';
        }
+       
+       div.mainlayout div{
+       		border: 1px solid gray;
+       }
+       
+       div.mainlayout div a{
+       		text-decoration: none;
+       		color:black;
+       }
    </style>
 </head>
 <body>
 <div class="mainlayout">
-	<div>
+	<div class="header">
 		<tiles:insertAttribute name="header"/>
 	</div>
-	<div>
+	<div class="menu">
 		<tiles:insertAttribute name="menu"/>
 	</div>
-	<div>
+	<div class="info">
 		<tiles:insertAttribute name="info"/>
 	</div>
-	<div>
+	<div class="main">
 		<tiles:insertAttribute name="main"/>
 	</div>
 </div>
