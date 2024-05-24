@@ -3833,3 +3833,90 @@ java.lang.InterruptedException
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 14:48:22.064
 !MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:11:33.499
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:12:30.321
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:12:38.968
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:12:43.686
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.eclipse.lsp4e 4 0 2024-05-24 15:12:44.303
+!MESSAGE Marker id 646 not found.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/BootMyBatisTilesV3/pom.xml)[376]: java.lang.IllegalStateException
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:63)
+	at org.eclipse.core.internal.resources.Marker.getAttributes(Marker.java:163)
+	at org.eclipse.lsp4e.operations.diagnostics.LSPDiagnosticsToMarkers.updateMarker(LSPDiagnosticsToMarkers.java:195)
+	at org.eclipse.lsp4e.operations.diagnostics.LSPDiagnosticsToMarkers$1.runInWorkspace(LSPDiagnosticsToMarkers.java:170)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2024-05-24 15:12:44.317
+!MESSAGE Marker id 646 not found.
+!STACK 0
+java.lang.IllegalStateException
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:63)
+	at org.eclipse.core.internal.resources.Marker.getAttributes(Marker.java:163)
+	at org.eclipse.lsp4e.operations.diagnostics.LSPDiagnosticsToMarkers.updateMarker(LSPDiagnosticsToMarkers.java:195)
+	at org.eclipse.lsp4e.operations.diagnostics.LSPDiagnosticsToMarkers$1.runInWorkspace(LSPDiagnosticsToMarkers.java:170)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:15:21.277
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:22:47.073
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:23:14.947
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:23:34.367
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.eclipse.lsp4e 4 0 2024-05-24 15:23:34.992
+!MESSAGE Marker id 660 not found.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/BootMyBatisTilesV3/pom.xml)[376]: java.lang.IllegalStateException
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:63)
+	at org.eclipse.core.internal.resources.Marker.getAttributes(Marker.java:163)
+	at org.eclipse.lsp4e.operations.diagnostics.LSPDiagnosticsToMarkers.updateMarker(LSPDiagnosticsToMarkers.java:195)
+	at org.eclipse.lsp4e.operations.diagnostics.LSPDiagnosticsToMarkers$1.runInWorkspace(LSPDiagnosticsToMarkers.java:170)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2024-05-24 15:23:35.000
+!MESSAGE Marker id 660 not found.
+!STACK 0
+java.lang.IllegalStateException
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:63)
+	at org.eclipse.core.internal.resources.Marker.getAttributes(Marker.java:163)
+	at org.eclipse.lsp4e.operations.diagnostics.LSPDiagnosticsToMarkers.updateMarker(LSPDiagnosticsToMarkers.java:195)
+	at org.eclipse.lsp4e.operations.diagnostics.LSPDiagnosticsToMarkers$1.runInWorkspace(LSPDiagnosticsToMarkers.java:170)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:23:39.177
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:23:57.522
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:24:22.351
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:24:30.891
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:24:46.995
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:24:57.427
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-24 15:25:03.240
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3

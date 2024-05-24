@@ -1,40 +1,68 @@
 package com.test.football;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class test {
-    private static final String API_KEY = "0e1ee7035c024df991b91a5917050506";  // 실제 API 키로 교체하세요.
-    private static final String URL_TEMPLATE = "http://api.football-data.org/v4/competitions/2003/matches?matchday=1";
+    private static final String API_KEY = "0e1ee7035c024df991b91a5917050506";
+    private static final String MATCH_URL = "https://api.football-data.org/v4/matches/330299";
 
     public static void main(String[] args) {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(URL_TEMPLATE))
-                    .header("X-Unfold-Goals", "true")
+                    .uri(URI.create(MATCH_URL))
                     .header("X-Auth-Token", API_KEY)
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             String responseBody = response.body();
 
-            // Print the entire JSON response
-            System.out.println("JSON 응답 전체: ");
-            System.out.println(responseBody);
-
             ObjectMapper mapper = new ObjectMapper();
-            JsonNode jsonNode = mapper.readTree(responseBody);
+            JsonNode matchData = mapper.readTree(responseBody);
 
-            // Pretty print the JSON tree for better readability
-            String prettyJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
-            System.out.println("Pretty JSON 응답: ");
-            System.out.println(prettyJson);
+            // Extracting and printing match information
+            System.out.println("Match Information:");
+            System.out.println("Date: " + matchData.get("utcDate").asText());
+            System.out.println("Venue: " + matchData.get("venue").asText());
+            System.out.println("Status: " + matchData.get("status").asText());
+//            System.out.println("Attendance: " + matchData.get("attendance").asText());
 
+            // Extracting and printing home team information
+            JsonNode homeTeam = matchData.get("homeTeam");
+            System.out.println("\nHome Team:");
+            System.out.println("Name: " + homeTeam.get("name").asText());
+//            System.out.println("Formation: " + homeTeam.get("formation").asText());
+
+            // Extracting and printing away team information
+            JsonNode awayTeam = matchData.get("awayTeam");
+            System.out.println("\nAway Team:");
+            System.out.println("Name: " + awayTeam.get("name").asText());
+//            System.out.println("Formation: " + awayTeam.get("formation").asText());
+
+            // Extracting and printing score information
+            JsonNode score = matchData.get("score");
+            System.out.println("\nScore:");
+            System.out.println("Full Time: " + score.get("fullTime").get("home").asInt() + " - " + score.get("fullTime").get("away").asInt());
+            System.out.println("Response Body: " + responseBody);
+
+            // Extracting and printing goals
+            JsonNode goals = matchData.get("goals");
+            System.out.println("\nGoals:");
+            for (JsonNode goal : goals) {
+                System.out.println("Minute: " + goal.get("minute").asText());
+                System.out.println("Scorer: " + goal.get("scorer").get("name").asText());
+                JsonNode assist = goal.get("assist");
+                if (assist != null && !assist.isNull()) { // Check if assist is not null and not "null" string
+                    System.out.println("Assist: " + assist.get("name").asText());
+                }
+                System.out.println("Type: " + goal.get("type").asText());
+                System.out.println("---");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

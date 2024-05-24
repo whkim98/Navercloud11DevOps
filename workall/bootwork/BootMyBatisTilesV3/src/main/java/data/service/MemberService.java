@@ -1,5 +1,7 @@
 package data.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +23,13 @@ public class MemberService {
 	}
 	public void insertMember(MemberDto dto) {
 		memInter.insertMember(dto);
+	}
+	
+	public List<MemberDto> getAllMembers(){
+		return memInter.getAllMembers();
+	}
+	
+	public MemberDto getData(int num) {
+		return memInter.getData(num);
 	}
 }
