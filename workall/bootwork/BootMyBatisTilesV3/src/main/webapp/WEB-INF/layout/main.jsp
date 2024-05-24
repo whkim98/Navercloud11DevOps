@@ -18,18 +18,22 @@
        }
        
        div.mainphoto img{
-       width: 500px;
-       	width:300px;
-       	height: 300px;
+        width:500px;
+       	width: 200px;
+       	height: 200px;
        	border: 1px solid gray;
+       	margin: 10px;
        }
    </style>
 </head>
 <div class="mainphoto">
-	<marquee direction="left" behavior="alternate">
-		<img src="./image/mainImg.png">
-		<img src="./image/K-039.png">
-		<img src="./image/K-036.png">
-		<img src="./image/K-048.png">
-	</marquee>
+  <!-- <marquee direction="right" behavior="scroll"> -->
+	<img src="./image/mainImg.png">
+	<img src="./image/K-039.png">
+	<br>
+    <img src="./image/K-036.png">
+    <img src="./image/K-048.png">
+
 </div>
+</body>
+</html>
