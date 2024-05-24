@@ -18,20 +18,19 @@
            font-family: 'Jua';
        }
        
-       div.mainlayout div{
-       		border: 1px solid gray;
+       div.mainlayout>div{
+       		border: 0px solid gray;/*레이아웃 확인후 나중에 0으로 변경*/
        		position: absolute;
        }
-       
        div.mainlayout>div a{
        		text-decoration: none;
-       		color:black;
+       		color: black;
        }
        
        div.mainlayout>div.header{
        		width: 100%;
        		height: 100px;
-       		line-height: 100px;
+       		line-height:100px;
        		font-size: 35px;
        		text-align: center;
        }
@@ -39,23 +38,22 @@
        div.mainlayout>div.menu{
        		top:100px;
        		width: 100%;
-       		height: 80px;
-       		line-height: 80px;
+       		height: 6px;
+       		line-height: 60px;
        }
        
        div.mainlayout>div.info{
        		top:250px;
-       		left: 50px;
-       		width: 200px;
+       		left:50px;
+       		width: 180px;
        		height: 200px;
-       		border: 2px solid gray;
        }
        
        div.mainlayout>div.main{
-       		top: 210px;
-       		left: 300px;
-       		width: 70%;
-       		height: auto;
+	       	top:210px;
+	       	left:300px;
+	       	width: 70%;
+	       	height:auto;
        }
    </style>
 </head>
@@ -67,10 +65,10 @@
 	<div class="menu">
 		<tiles:insertAttribute name="menu"/>
 	</div>
-	<div class="info">
+	<div  class="info">
 		<tiles:insertAttribute name="info"/>
 	</div>
-	<div class="main">
+	<div  class="main">
 		<tiles:insertAttribute name="main"/>
 	</div>
 </div>
