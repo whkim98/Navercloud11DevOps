@@ -16,9 +16,20 @@
        body *{
            font-family: 'Jua';
        }
+       
+       div.mainphoto img{
+       width: 500px;
+       	width:300px;
+       	height: 300px;
+       	border: 1px solid gray;
+       }
    </style>
 </head>
-<body>
-메인
-</body>
-</html>
+<div class="mainphoto">
+	<marquee direction="left" behavior="alternate">
+		<img src="./image/mainImg.png">
+		<img src="./image/K-039.png">
+		<img src="./image/K-036.png">
+		<img src="./image/K-048.png">
+	</marquee>
+</div>

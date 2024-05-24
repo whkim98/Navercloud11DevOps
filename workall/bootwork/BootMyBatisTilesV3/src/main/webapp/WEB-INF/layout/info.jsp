@@ -16,9 +16,22 @@
        body *{
            font-family: 'Jua';
        }
+       pre.info{
+       		font-size: 16px;
+       		border: 3px solid orange;
+       		/* padding: 10px; */
+       		border-radius: 40px;
+       		background-color: #b0e0e6;
+       }
    </style>
 </head>
 <body>
-인포
+<pre class="info">
+	<i class="bi bi-shop-window"></i>비트캠프
+	<i class="bi bi-person-circle"></i>대표: 김우형
+	<i class="bi bi-phone-fill"></i>&nbsp;010-1234-5678
+	<i class="bi bi-cart4"></i>&nbsp;당일배송
+	<i class="bi bi-apple"></i>&nbsp;아이폰도 팔아요
+</pre>
 </body>
 </html>
