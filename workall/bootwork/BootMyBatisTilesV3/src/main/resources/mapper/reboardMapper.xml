@@ -9,4 +9,13 @@
 		<!-- update reboard set restep = restep + 1 where regroup = #{regroup} and restep > #{restep} -->
 		update reboard set restep = restep + 1 where regroup = #{regroup} and restep &gt; #{restep}
 	</update>
+	
+	<insert id="insertBoard" parameterType="ReBoardDto">
+		insert into reboard(writer, myid, subject, uploadphoto, content, regroup, restep, relevel, writeday) 
+		values(#{writer}, #{myid}, #{subject}, #{uploadphoto}, #{content}, #{regroup}, #{restep}, #{relevel}, now())
+		
+		<selectKey keyProperty="num" resultType="int" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
 </mapper>
