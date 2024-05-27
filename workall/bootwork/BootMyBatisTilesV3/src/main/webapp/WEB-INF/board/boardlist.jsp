@@ -37,9 +37,49 @@
 			</td>
 		</tr>
 	</c:if>
+	<c:forEach var="dto" items="${list }">
+		<tr>
+			<td>
+				${no }
+				<c:set var="no" value="${no-1 }"/>
+			</td>
+			<td>
+				<a href="./detail?num=${dto.num }">
+					<c:forEach begin="1" end="${dto.relevel }">
+						&nbsp;&nbsp;
+					</c:forEach>
+					<c:if test="${dto.restep > 0 }">
+						<img src="../image/re.png">
+					</c:if>
+					${dto.subject }
+				</a>
+			</td>
+			<td>
+				${dto.writer }
+			</td>
+			<td>
+				<fmt:formatDate value="${dto.writeday }" pattern="yyyy-MM-dd"/>
+			</td>
+			<td>
+				${dto.readcount }
+			</td>
+		</tr>
+	</c:forEach>
 </table>
 <c:if test="${sessionScope.loginok != null }">
 	<button type="button" class="btn btn-outline-success" style="width: 100px; margin-left: 100px;" onclick="location.href='./form'">글쓰기</button>
 </c:if>
+<div style="width: 600px; text-align: center; font-size: 22px;">
+	<c:if test="${startPage > 1 }">
+		<a href="./list?currentPage=${startPage - 1 }" style="text-decoration: none; color: black;">&lt;</a>
+	</c:if>
+	&nbsp;
+	<c:forEach var="pp" begin="${startPage }" end="${endPage }">
+		<a href="./list?currentPage=${pp}" style="text-decoration: none; color: ${currentPage == pp ? 'red' : 'black'}">${pp}</a>&nbsp;
+	</c:forEach>
+	<c:if test="${endPage < totalPage }">
+		<a href="./list?currentPage=${endPage+1 }" style="text-decoration: none; color: black;">&gt;</a>
+	</c:if>
+</div>
 </body>
 </html>
