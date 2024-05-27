@@ -41,4 +41,27 @@ public class MemberService {
 		map.put("photo", photo);
 		memInter.updatePhoto(map);
 	}
+	
+	public void updateData(int num, String name, String hp, String email, String addr, String birthday) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("name", name);
+		map.put("email", email);
+		map.put("hp", hp);
+		map.put("birthday", birthday);
+		map.put("addr", addr);
+		map.put("num", num);
+		memInter.updateData(map);
+	}
+	
+	public void deleteMember(int num) {
+		memInter.deleteMember(num);
+	}
+	
+	public int isEqualPassCheck(int num, String passwd) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("num", num);
+		map.put("passwd", passwd);
+		int n = memInter.isEqualPassCheck(map);
+		return n;
+	}
 }

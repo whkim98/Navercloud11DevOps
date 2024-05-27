@@ -37,7 +37,7 @@
 			url:"./upload",
 			processData:false,
 			contentType:false,
-			success:function(data){
+			success:function(data){				
 				//스프링에서 {"photoname":"파일명"} 이렇게 보낼것임
 				//프로필 사진 변경(db 변경후 업로드된 사진파일명을 반환받은것으로 변경)
 				$("#photo").attr("src","../save/"+data.photoname);
@@ -54,8 +54,10 @@
 	</caption>
 	<tr>
 		<td width="200" align="center">
-			<img src="<%=request.getContextPath() %>/save/${dto.photo}" id="photo"
-			class="rounded-circle" style="width:150px;border:1px solid black;" onerror="this.src='../image/noimage1.png'">
+			<img src="../save/${dto.photo}" id="photo"
+			class="rounded-circle" 
+			style="width:150px;border:1px solid black;"
+			onerror="this.src='../image/noimage1.png'">
 			<br><br>
 			<input type="file" id="photoupload" style="display: none;">
 			
@@ -85,29 +87,36 @@
 			style="width: 80px;"
 			onclick="location.href='./updateform?num=${dto.num}'">수정</button>
 			
-						<button type="button" class="btn btn-sm btn-outline-secondary"
+			<button type="button" class="btn btn-sm btn-outline-secondary"
 			style="width: 80px;"
 			onclick="del(${dto.num})">삭제</button>
+			
 			<script type="text/javascript">
-				function del(num){
+				function del(num)
+				{
+					console.log(num);
 					//alert(num);
-					let passwd = prompt("비밀번호를 입력해 주세요");
+					//비밀번호 입력받기
+					let passwd=prompt("비밀번호를 입력해주세요");
 					$.ajax({
 						type:"get",
 						dataType:"json",
 						url:"./delete",
-						data:{"num":num, "passwd":passwd},
+						data:{"num":num,"passwd":passwd},
 						success:function(data){
-							if(data.status=="success"){
+							if(data.status=='success'){
 								alert("삭제되었습니다");
+								//목록으로 이동
 								location.href="./list";
 							}else{
-								alert("비밀번호가 맞지 않습니다")
+								alert("비밀번호가 맞지 않습니다");
 							}
 						}
-					})
+					});
 				}
+			
 			</script>
+			
 		</td>
 	</tr>
 </table>

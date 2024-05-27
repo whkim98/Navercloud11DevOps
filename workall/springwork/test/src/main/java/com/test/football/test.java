@@ -30,38 +30,38 @@ public class test {
             System.out.println("Date: " + matchData.get("utcDate").asText());
             System.out.println("Venue: " + matchData.get("venue").asText());
             System.out.println("Status: " + matchData.get("status").asText());
-//            System.out.println("Attendance: " + matchData.get("attendance").asText());
 
             // Extracting and printing home team information
             JsonNode homeTeam = matchData.get("homeTeam");
             System.out.println("\nHome Team:");
             System.out.println("Name: " + homeTeam.get("name").asText());
-//            System.out.println("Formation: " + homeTeam.get("formation").asText());
 
             // Extracting and printing away team information
             JsonNode awayTeam = matchData.get("awayTeam");
             System.out.println("\nAway Team:");
             System.out.println("Name: " + awayTeam.get("name").asText());
-//            System.out.println("Formation: " + awayTeam.get("formation").asText());
 
             // Extracting and printing score information
             JsonNode score = matchData.get("score");
             System.out.println("\nScore:");
             System.out.println("Full Time: " + score.get("fullTime").get("home").asInt() + " - " + score.get("fullTime").get("away").asInt());
-            System.out.println("Response Body: " + responseBody);
 
             // Extracting and printing goals
-            JsonNode goals = matchData.get("goals");
-            System.out.println("\nGoals:");
-            for (JsonNode goal : goals) {
-                System.out.println("Minute: " + goal.get("minute").asText());
-                System.out.println("Scorer: " + goal.get("scorer").get("name").asText());
-                JsonNode assist = goal.get("assist");
-                if (assist != null && !assist.isNull()) { // Check if assist is not null and not "null" string
-                    System.out.println("Assist: " + assist.get("name").asText());
+            if (matchData.has("goals") && matchData.get("goals").isArray()) {
+                JsonNode goals = matchData.get("goals");
+                System.out.println("\nGoals:");
+                for (JsonNode goal : goals) {
+                    System.out.println("Minute: " + goal.get("minute").asText());
+                    System.out.println("Scorer: " + goal.get("scorer").get("name").asText());
+                    JsonNode assist = goal.get("assist");
+                    if (assist != null && !assist.isNull()) {
+                        System.out.println("Assist: " + assist.get("name").asText());
+                    }
+                    System.out.println("Type: " + goal.get("type").asText());
+                    System.out.println("---");
                 }
-                System.out.println("Type: " + goal.get("type").asText());
-                System.out.println("---");
+            } else {
+                System.out.println("No goals data available.");
             }
         } catch (Exception e) {
             e.printStackTrace();

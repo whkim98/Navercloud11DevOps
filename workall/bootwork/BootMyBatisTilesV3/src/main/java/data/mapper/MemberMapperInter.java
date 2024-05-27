@@ -3,6 +3,7 @@ package data.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -32,4 +33,13 @@ public interface MemberMapperInter {
 	
 	@Update("update memberdb set photo=#{photo} where num=#{num}")
 	public void updatePhoto(Map<String, Object> map);
+	
+	@Update("update memberdb set name=#{name}, hp=#{hp}, email=#{email}, addr=#{addr}, birthday=#{birthday} where num=#{num}")
+	public void updateData(Map<String, Object> map);
+	
+	@Delete("delete from memberdb where num=#{num}")
+	public void deleteMember(int num);
+	
+	@Select("select count(*) from memberdb where num=#{num} and passwd=#{passwd}")
+	public int isEqualPassCheck(Map<String, Object> map);
 }
