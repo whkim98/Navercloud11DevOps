@@ -30,6 +30,7 @@
 		onclick="location.href='./form'">멤버등록</button>
 	</span>
 </h2>
+<c:if test="${loginok == 'yes' and loginid == 'admin' }">
 <table class="table table-striped" style="width: 500px;">
 	<caption align="top">
 		<h3><b>회원명단</b></h3>
@@ -58,5 +59,6 @@
 		</tr>
 	</c:forEach>
 </table>
+</c:if>
 </body>
 </html>

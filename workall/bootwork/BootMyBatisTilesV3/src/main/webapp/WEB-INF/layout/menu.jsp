@@ -122,12 +122,12 @@ div.loginarea button {
 							</caption>
 							<tr>
 								<th class="table-success" width="80">아이디</th>
-								<td><input type="text" name="myid" id="myid"
+								<td><input type="text" name="myid"
 									class="form-control" required="required" value=${sessionScope.saveid != null and sessionScope.saveid == 'yes' ? sessionScope.loginid : "" }></td>
 							</tr>
 							<tr>
 								<th class="table-success" width="80">비밀번호</th>
-								<td><input type="text" name="pass" id="pass"
+								<td><input type="text" name="pass"
 									class="form-control" required="required"></td>
 							</tr>
 						</table>
