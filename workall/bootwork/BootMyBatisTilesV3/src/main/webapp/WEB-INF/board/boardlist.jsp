@@ -19,6 +19,27 @@
    </style>
 </head>
 <body>
-보드리스트
+<c:if test="${sessionScope.loginok != null }">
+	<button type="button" class="btn btn-outline-success" style="width: 100px; margin-left: 100px;" onclick="location.href='./form'">글쓰기</button>
+</c:if>
+<h5>총 ${totalCount }개의 글이 있습니다</h5>
+<table class="table table-striped" style="width: 600px;">
+	<tr class="table-danger">
+		<th width="50">번호</th>
+		<th width="270">제목</th>
+		<th width="100">작성자</th>
+		<th width="120">작성일</th>
+		<th>조회</th>
+	</tr>
+	<c:if test="${totalCount==0 }">
+		<tr height="60">
+			<td colspan="5" align="center" valign="middle">
+				<b style="font-size: 20px;">
+					등록된 글이 없습니다
+				</b>
+			</td>
+		</tr>
+	</c:if>
+</table>
 </body>
 </html>

@@ -35,8 +35,8 @@ public class MemberService {
 		return memInter.getData(num);
 	}
 	
-	public MemberDto getData(String myid) {
-		return memInter.getData(myid);
+	public MemberDto getDataById(String myid) {
+		return memInter.getDataById(myid);
 	}
 	
 	public void updatePhoto(int num, String photo) {
