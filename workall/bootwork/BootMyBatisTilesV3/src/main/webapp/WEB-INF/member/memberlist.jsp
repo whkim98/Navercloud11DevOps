@@ -19,10 +19,6 @@
    </style>
 </head>
 <body>
-<img src="<%=request.getContextPath() %>/mycar/mycar13.png" width="100">
-<h3 class="alert alert-success">
-	총 ${totalCount}명의 회원이 있습니다
-</h3>
 <h2 class="alert alert-danger" style="width: 500px;">
 	총 ${totalCount}명의 회원이 있습니다
 	<span style="float: right;">
@@ -30,6 +26,13 @@
 		onclick="location.href='./form'">멤버등록</button>
 	</span>
 </h2>
+<c:if test="${sessionScope.loginok == null or sessionScope.loginid != 'admin' }">
+	<h2>
+		<b>
+			전체 회원 명단은 관리자만 확인 가능
+		</b>
+	</h2>
+</c:if>
 <c:if test="${loginok == 'yes' and loginid == 'admin' }">
 <table class="table table-striped" style="width: 500px;">
 	<caption align="top">
