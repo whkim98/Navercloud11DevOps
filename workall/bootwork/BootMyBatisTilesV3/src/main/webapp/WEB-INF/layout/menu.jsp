@@ -42,6 +42,15 @@
        		color: white;
        }
        
+       div.loginarea{
+       		position: fixed;
+       		right: 50px;
+       		top: 100px;
+       }
+       
+       div.loginarea button{
+       		width: 100px;
+       }
    </style>
 </head>
 <body>
@@ -63,5 +72,63 @@
 		<a href="${root}/guest/list">방명록</a>
 	</li>
 </ul>
+<div class="modal" id="myLoginModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">회원 로그인</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+		<form id="loginfrm">
+			<table class="table table-bordered">
+				<caption align="top">
+					<label>
+						<input type="checkbox" name="saveid">&nbsp;아이디저장
+					</label>
+				</caption>
+				<tr>
+					<th class="table-success" width="80">아이디</th>
+					<td>
+						<input type="text" name="myid" id="myid" class="form-control"
+						required="required">
+					</td>
+				</tr>
+				<tr>
+					<th class="table-success" width="80">비밀번호</th>
+					<td>
+						<input type="text" name="pass" id="pass" class="form-control"
+						required="required">
+					</td>
+				</tr>
+			</table>
+		</form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btnmemberlogin">Login</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="loginarea">
+	<c:if test="${sessionScope.loginok == null }">
+		<button type="button" id="btnlogin" class="btn btn-success" 
+		data-bs-toggle="modal" data-bs-target="#myLoginModal">로그인</button>
+	</c:if>
+	
+	<c:if test="${sessionScope.login != null }">
+		<b style="font-size: 20px;">[${sessionScope.loginid }]님</b>
+		
+		<button type="button" id="btnlogout" style="margin-left: 20px;" class="btn btn-success">로그아웃</button>
+	</c:if>
+</div>
 </body>
 </html>
