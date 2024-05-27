@@ -59,18 +59,31 @@ div.loginarea button {
 	width: 100px;
 }
 </style>
+<c:set var="root" value="<%=request.getContextPath()%>" />
 <script type="text/javascript">
 	$(function(){
 		$("#loginfrm").submit(function(e){
 			e.preventDefault();
 			let fdata = $(this).serialize();
-			alert(fdata);
+			$.ajax({
+				type: "get",
+				dataType: "json",
+				url: '${root}/member/login',
+				data: fdata,
+				success: function(data){
+					if(data.status == 'success'){
+						location.reload();
+					}else{
+						alert("아이디 또는 비밀번호가 맞지 않습니다.");
+					}
+				}
+			})
+			/* alert(fdata); */
 		});
 	});
 </script>
 </head>
 <body>
-	<c:set var="root" value="<%=request.getContextPath()%>" />
 	<ul class="menu">
 		<li><a href="${root}/">Home</a></li>
 		<li><a href="${root}/member/form">회원가입</a></li>
@@ -126,7 +139,7 @@ div.loginarea button {
 				data-bs-toggle="modal" data-bs-target="#myLoginModal">로그인</button>
 		</c:if>
 
-		<c:if test="${sessionScope.login != null }">
+		<c:if test="${sessionScope.loginok != null }">
 			<b style="font-size: 20px;">[${sessionScope.loginid }]님</b>
 
 			<button type="button" id="btnlogout" style="margin-left: 20px;"
