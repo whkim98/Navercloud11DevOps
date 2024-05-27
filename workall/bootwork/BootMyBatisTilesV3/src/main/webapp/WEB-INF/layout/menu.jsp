@@ -59,6 +59,15 @@ div.loginarea button {
 	width: 100px;
 }
 </style>
+<script type="text/javascript">
+	$(function(){
+		$("#loginfrm").submit(function(e){
+			e.preventDefault();
+			let fdata = $(this).serialize();
+			alert(fdata);
+		});
+	});
+</script>
 </head>
 <body>
 	<c:set var="root" value="<%=request.getContextPath()%>" />
@@ -102,9 +111,8 @@ div.loginarea button {
 
 					<!-- Modal footer -->
 					<div class="modal-footer">
+						<button type="submit" class="btn btn-sm btn-danger">Login</button>
 						<button type="submit" class="btn btn-sm btn-danger"
-							id="btnmemberlogin">Login</button>
-						<button type="submit" class="btn btn-danger"
 							data-bs-dismiss="modal" class="btnclose">Close</button>
 					</div>
 				</form>

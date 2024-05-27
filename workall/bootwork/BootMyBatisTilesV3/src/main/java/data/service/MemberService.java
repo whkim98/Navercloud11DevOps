@@ -64,4 +64,8 @@ public class MemberService {
 		int n = memInter.isEqualPassCheck(map);
 		return n;
 	}
+	
+	public boolean isLoginCheck(String myid, String pass) {
+		return memInter.isLoginCheck(myid, pass) == 1 ? true : false;
+	}
 }
