@@ -1,6 +1,7 @@
 package data.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,25 @@ public class ReBoardService {
 		dto.setRelevel(relevel);
 		
 		boardMapper.insertBoard(dto);
+	}
+	
+	public int getTotalCount() {
+		return boardMapper.getTotalCount();
+	}
+	
+	public List<ReBoardDto> getPagingList(int start, int perpage){
+		Map<String, Integer> map = new HashMap<>();
+		map.put("start", start);
+		map.put("perpage", perpage);
+		return boardMapper.getPagingList(map);
+	}
+	
+	public void updateReadCount(int num) {
+		boardMapper.updateReadCount(num);
+	}
+	
+	public ReBoardDto getData(int num) {
+		return boardMapper.getData(num);
 	}
 	
 }

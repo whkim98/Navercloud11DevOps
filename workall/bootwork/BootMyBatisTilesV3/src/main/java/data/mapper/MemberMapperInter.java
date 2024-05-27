@@ -31,6 +31,9 @@ public interface MemberMapperInter {
 	@Select("select * from memberdb where num=#{num}")
 	public MemberDto getData(int num);
 	
+	@Select("select * from memberdb where myid=#{myid}")
+	public MemberDto getData(String myid);
+	
 	@Update("update memberdb set photo=#{photo} where num=#{num}")
 	public void updatePhoto(Map<String, Object> map);
 	
