@@ -80,6 +80,16 @@ div.loginarea button {
 			})
 			/* alert(fdata); */
 		});
+		$("#btnlogout").click(function(){
+			$.ajax({
+				type: "get",
+				dataType: "text",
+				url: '${root}/member/logout',
+				success: function(){
+					location.reload();
+				}
+			})
+		});
 	});
 </script>
 </head>
@@ -106,13 +116,14 @@ div.loginarea button {
 					<div class="modal-body">
 						<table class="table table-bordered">
 							<caption align="top">
-								<label> <input type="checkbox" name="saveid">&nbsp;아이디저장
+								<label> <input type="checkbox" name="saveid"
+								${sessionScope.saveid == null or sessionScope.saveid == 'no' ? "" : "checked" }>&nbsp;아이디저장
 								</label>
 							</caption>
 							<tr>
 								<th class="table-success" width="80">아이디</th>
 								<td><input type="text" name="myid" id="myid"
-									class="form-control" required="required"></td>
+									class="form-control" required="required" value=${sessionScope.saveid != null and sessionScope.saveid == 'yes' ? sessionScope.loginid : "" }></td>
 							</tr>
 							<tr>
 								<th class="table-success" width="80">비밀번호</th>

@@ -29,13 +29,19 @@ public class LoginController {
 		boolean loginStatus = memberService.isLoginCheck(myid, pass);
 		if(loginStatus) {
 			map.put("status", "success");
-			session.setAttribute("saveid", saveid);
+			session.setAttribute("saveid", saveid.equals("no")?"no":"yes");
 			session.setAttribute("loginok", "yes");
 			session.setAttribute("loginid", myid);
 		}else {
 			map.put("status", "fail");
 		}
 		return map;
+	}
+	
+	@ResponseBody
+	@GetMapping("/member/logout")
+	public void memberLogout(HttpSession session) {
+		session.removeAttribute("loginok");
 	}
 
 }
