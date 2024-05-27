@@ -1,10 +1,13 @@
 package data.mapper;
 
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ReBoardMapperInter {
 	
-	
+	public int getMaxNum();
+	public void updateRestep(Map<String, Integer> map);
 
 }
