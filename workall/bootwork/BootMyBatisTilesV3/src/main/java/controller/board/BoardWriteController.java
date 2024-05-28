@@ -52,7 +52,7 @@ public class BoardWriteController {
 		return "board/writeform";
 	}
 	
-	@PostMapping("/insert")
+	@PostMapping("/board/insert")
 	public String insert(@ModelAttribute ReBoardDto dto, @RequestParam("upload") MultipartFile upload, 
 			@RequestParam int currentPage, HttpServletRequest request, HttpSession session) {
 		
@@ -82,6 +82,7 @@ public class BoardWriteController {
 		
 		boardService.insertBoard(dto);
 		
+		System.out.println("num: " + dto.getNum());
 		
 		
 		return "redirect:./list?currentPage=" + currentPage;

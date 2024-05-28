@@ -90,8 +90,7 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<textarea name="content" required="required" style="width: 100%; height: 150px;" placeholder="내용 입력하셈">
-				</textarea>
+				<textarea name="content" required="required" style="width: 100%; height: 150px;" placeholder="내용 입력하셈"></textarea>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
