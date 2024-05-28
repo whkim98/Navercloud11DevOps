@@ -30,7 +30,7 @@
 		<h4><img src="../image/noimage1.png" width="30">${dto.myid }</h4>
 		</c:if>
 		<h5><fmt:formatDate value="${dto.writeday }" pattern="yyyy-MM-dd HH:mm"/>&nbsp;조회: ${dto.readcount }</h5>
-		<h6 align="right"><i class="bi bi-send" style="color: gray;"></i>&nbsp;댓글</h6>
+		<h6 align="right"><i class="bi bi-send" style="color: gray;"></i>&nbsp;댓글&nbsp;&nbsp;URL 복사</h6>
 		<hr>
 	</caption>
 	<tr>
@@ -38,13 +38,19 @@
 	</tr>
 	<c:if test="${dto.myid == sessionScope.loginid and loginok == 'yes' }">
 	<tr>
-		<td><button type="button" class="btn btn-sm btn-info" onclick="location.href='${root}/board/form'">글쓰기</button>&nbsp;<button type="button" class="btn btn-sm btn-info">답글</button>&nbsp;<button type="button" class="btn btn-sm btn-info">삭제</button>&nbsp;<button type="button" class="btn btn-sm btn-info">수정</button>&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="history.back()">목록</button></td>
+		<td><button type="button" class="btn btn-sm btn-info" onclick="location.href='${root}/board/form'">글쓰기</button>
+		&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="location.href='${root }/board/form?num=${dto.num}&regroup=${dto.regroup }&restep=${dto.restep }&relevel=${dto.relevel }&currentPage=${currentPage }'">답글</button>&nbsp;
+		<button type="button" class="btn btn-sm btn-info" onclick="location.href=''">삭제</button>&nbsp;
+		<button type="button" class="btn btn-sm btn-info" onclick="location.href=''">수정</button>&nbsp;
+		<button type="button" class="btn btn-sm btn-info" onclick="history.back()">목록</button></td>
 	</tr>
 	</c:if>
 	
 	<c:if test="${sessionScope.loginok != 'yes' or sessionScope.loginid != dto.myid }">
 	<tr>
-		<td><button type="button" class="btn btn-sm btn-info">답글</button>&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="history.back()">목록</button></td>
+		<td><button type="button" class="btn btn-sm btn-info" onclick="location.href='./form?num=${dto.num}
+		&regroup=${dto.regroup }&restep=${dto.restep }&relevel=${dto.relevel }&currentPage=${currentPage }'">답글</button>
+		&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="history.back()">목록</button></td>
 	</tr>
 	</c:if>
 </table>
