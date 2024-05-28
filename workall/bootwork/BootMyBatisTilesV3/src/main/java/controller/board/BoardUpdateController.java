@@ -1,5 +1,9 @@
 package controller.board;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -45,6 +49,18 @@ public class BoardUpdateController {
 			HttpServletRequest request)
 	{
 		String saveFolder = request.getSession().getServletContext().getRealPath("/save");
+		String uploadphoto = null;
+		if(!upload.getOriginalFilename().equals("")) {
+			String ext = upload.getOriginalFilename().split("\\.")[1];
+			uploadphoto = UUID.randomUUID()+"."+ext;
+			try {
+				upload.transferTo(new File(saveFolder + "/" + uploadphoto));
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+		}
+		dto.setUploadphoto(uploadphoto);
+		boardService.updateReboard(dto);
 		return "redirect:./detail?num="+dto.getNum()+"&currentPage="+currentPage;
 	}
 	

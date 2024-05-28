@@ -69,4 +69,8 @@ public class ReBoardService {
 		return boardMapper.getData(num);
 	}
 	
+	public void updateReboard(ReBoardDto dto) {
+		boardMapper.updateBoard(dto);
+	}
+	
 }
