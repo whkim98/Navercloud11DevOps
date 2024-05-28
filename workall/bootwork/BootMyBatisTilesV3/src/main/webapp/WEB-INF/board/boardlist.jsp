@@ -53,7 +53,7 @@
 					</c:if>
 					${dto.subject }
 					<c:if test="${dto.uploadphoto != 'no' }">
-						<i class="bi bi-image" style="color: gray;'"></i>
+						<i class="bi bi-image" style="color: gray;"></i>
 					</c:if>
 				</a>
 			</td>

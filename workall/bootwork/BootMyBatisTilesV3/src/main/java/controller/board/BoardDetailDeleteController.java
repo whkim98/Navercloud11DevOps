@@ -22,6 +22,8 @@ public class BoardDetailDeleteController {
 	@GetMapping("/board/detail")
 	public String detail(@RequestParam int num, @RequestParam int currentPage, Model model) {
 		
+		boardService.updateReadCount(num);
+		
 		ReBoardDto dto = boardService.getData(num);
 		
 		String profile_photo = memberService.getDataById(dto.getMyid()).getPhoto();
