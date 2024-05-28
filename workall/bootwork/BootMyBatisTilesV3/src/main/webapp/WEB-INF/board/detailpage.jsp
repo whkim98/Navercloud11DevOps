@@ -41,7 +41,7 @@
 		<td><button type="button" class="btn btn-sm btn-info" onclick="location.href='${root}/board/form'">글쓰기</button>
 		&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="location.href='${root }/board/form?num=${dto.num}&regroup=${dto.regroup }&restep=${dto.restep }&relevel=${dto.relevel }&currentPage=${currentPage }'">답글</button>&nbsp;
 		<button type="button" class="btn btn-sm btn-info" onclick="location.href=''">삭제</button>&nbsp;
-		<button type="button" class="btn btn-sm btn-info" onclick="location.href=''">수정</button>&nbsp;
+		<button type="button" class="btn btn-sm btn-info" onclick="location.href='${root}/board/updateform?num=${dto.num }&currentPage=${currentPage }'">수정</button>&nbsp;
 		<button type="button" class="btn btn-sm btn-info" onclick="history.back()">목록</button></td>
 	</tr>
 	</c:if>

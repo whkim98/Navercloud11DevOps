@@ -85,7 +85,8 @@ public class BoardWriteController {
 		System.out.println("num: " + dto.getNum());
 		
 		
-		return "redirect:./list?currentPage=" + currentPage;
+//		return "redirect:./list?currentPage=" + currentPage;
+		return "redirect:./detail?num=" + dto.getNum() + "&currentPage=" + currentPage;
 	}
 	
 }
