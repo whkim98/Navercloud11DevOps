@@ -42,4 +42,8 @@
 		</if>
 		where num=#{num}
 	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from reboard where num=#{num}
+	</delete>
 </mapper>

@@ -24,7 +24,7 @@
 	<caption align="top">
 		<h2><b>${dto.subject }</b></h2>
 		<c:if test="${dto.uploadphoto != 'no' }">
-		<h4><img src="${root }/save/${dto.uploadphoto}" width="30">${dto.myid }</h5>
+		<h4><img src="${root }/save/${profile_photo}" width="30">${dto.myid }</h5>
 		</c:if>
 		<c:if test="${dto.uploadphoto == 'no' }">
 		<h4><img src="../image/noimage1.png" width="30">${dto.myid }</h4>
@@ -34,13 +34,13 @@
 		<hr>
 	</caption>
 	<tr>
-		<td><img src="${root }/save/${profile_photo}" width="100"><br>${dto.content }</td>
+		<td><img src="${root }/save/${dto.uploadphoto}" width="100" onerror="this.src='../image/noimage2.png'"><br>${dto.content }</td>
 	</tr>
 	<c:if test="${dto.myid == sessionScope.loginid and loginok == 'yes' }">
 	<tr>
 		<td><button type="button" class="btn btn-sm btn-info" onclick="location.href='${root}/board/form'">글쓰기</button>
 		&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="location.href='${root }/board/form?num=${dto.num}&regroup=${dto.regroup }&restep=${dto.restep }&relevel=${dto.relevel }&currentPage=${currentPage }'">답글</button>&nbsp;
-		<button type="button" class="btn btn-sm btn-info" onclick="location.href=''">삭제</button>&nbsp;
+		<button type="button" class="btn btn-sm btn-info" onclick="del()">삭제</button>&nbsp;
 		<button type="button" class="btn btn-sm btn-info" onclick="location.href='${root}/board/updateform?num=${dto.num }&currentPage=${currentPage }'">수정</button>&nbsp;
 		<button type="button" class="btn btn-sm btn-info" onclick="history.back()">목록</button></td>
 	</tr>
@@ -54,5 +54,16 @@
 	</tr>
 	</c:if>
 </table>
+<script>
+	function del(){
+		let num = ${dto.num};
+		let currentPage = ${currentPage};
+		
+		let a = confirm("정말 삭제하시겠습니까?");
+		if(a){
+			location.href="./delete?num=" + num + "&currentPage=" + currentPage;
+		}
+	}
+</script>
 </body>
 </html>

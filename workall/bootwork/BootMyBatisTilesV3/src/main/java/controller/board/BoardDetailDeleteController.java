@@ -34,5 +34,11 @@ public class BoardDetailDeleteController {
 		
 		return "board/detailpage";
 	}
+	
+	@GetMapping("/board/delete")
+	public String delete(int num, int currentPage) {
+		boardService.deleteBoard(num);
+		return "redirect:./list?currentPage="+currentPage;
+	}
 
 }
