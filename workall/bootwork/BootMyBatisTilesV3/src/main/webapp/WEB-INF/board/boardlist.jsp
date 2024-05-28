@@ -44,7 +44,7 @@
 				<c:set var="no" value="${no-1 }"/>
 			</td>
 			<td>
-				<a href="./detail?num=${dto.num }">
+				<a href="./detail?num=${dto.num }&currentPage=${currentPage}">
 					<c:forEach begin="1" end="${dto.relevel }">
 						&nbsp;&nbsp;
 					</c:forEach>
@@ -52,6 +52,9 @@
 						<img src="../image/re.png">
 					</c:if>
 					${dto.subject }
+					<c:if test="${dto.uploadphoto != 'no' }">
+						<i class="bi bi-image" style="color: gray;'"></i>
+					</c:if>
 				</a>
 			</td>
 			<td>
