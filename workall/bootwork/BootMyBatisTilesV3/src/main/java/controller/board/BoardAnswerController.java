@@ -1,8 +1,11 @@
 package controller.board;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +42,11 @@ public class BoardAnswerController {
 		System.out.println(num);
 		answerService.insertAnswer(dto);
 		
+	}
+	
+	@GetMapping("/board/alist")
+	public List<BoardAnswerDto> alist(int num){
+		return answerService.getAnswerData(num);
 	}
 	
 }

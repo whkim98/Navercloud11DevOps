@@ -64,7 +64,7 @@
 		<h4><img src="../image/noimage1.png" width="30">${dto.myid }</h4>
 		</c:if>
 		<h5><fmt:formatDate value="${dto.writeday }" pattern="yyyy-MM-dd HH:mm"/>&nbsp;조회: ${dto.readcount }</h5>
-		<h6 align="right"><i class="bi bi-send" style="color: gray;"></i>&nbsp;댓글&nbsp;&nbsp;URL 복사</h6>
+		<h6 align="right"><i class="bi bi-send" style="color: gray;"></i>&nbsp;댓글<span class="answercount">0</span>&nbsp;&nbsp;URL 복사</h6>
 		<hr>
 	</caption>
 	<tr>
@@ -89,7 +89,9 @@
 	</c:if>
 	<tr>
 		<td>
-			<div class="answerlist"></div>
+			<div class="answerlist">
+				
+			</div>
 		</td>
 	</tr>
 	<c:if test="${sessionScope.loginok!=null}">
