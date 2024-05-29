@@ -12225,3 +12225,99 @@ java.lang.InterruptedException
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 12:23:52.078
 !MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.eclipse.jface 2 0 2024-05-29 15:40:04.931
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-05-29 15:40:04.936
+!MESSAGE A conflict occurred for COMMAND+SHIFT+C:
+Binding(COMMAND+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.toggleLineCommentCommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.tm4e.languageconfiguration.toggleLineCommentCommand"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(COMMAND+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		WorkbenchHandlerServiceHandler("org.springframework.tooling.boot.ls.ToggleComment"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 15:52:19.889
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2024-05-29 15:54:44.960
+!MESSAGE The given URI https://jakarta.ee/xml/ns/jakartaee/application-client_9.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2024-05-29 15:54:44.963
+!MESSAGE The given URI https://jakarta.ee/xml/ns/jakartaee/jobXML_2_0.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2024-05-29 15:54:44.964
+!MESSAGE The given URI https://jakarta.ee/xml/ns/jakartaee/beans_3_0.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2024-05-29 15:54:44.964
+!MESSAGE The given URI https://jakarta.ee/xml/ns/jaxb/bindingschema_3_0.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2024-05-29 15:54:44.974
+!MESSAGE The given URI https://jakarta.ee/xml/ns/validation/validation-configuration-3.0.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2024-05-29 15:54:44.978
+!MESSAGE The given URI http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_1.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 15:55:04.607
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 15:55:05.059
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 15:55:10.178
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 15:55:14.921
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 15:56:45.778
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 15:56:47.896
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 15:56:54.983
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 15:59:45.393
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 16:00:39.394
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 16:02:20.065
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 16:03:40.854
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 16:04:21.693
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 16:05:39.631
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-29 16:05:45.845
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-05-29 16:06:10.631
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)

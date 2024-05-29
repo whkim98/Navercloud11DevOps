@@ -8,10 +8,14 @@ spring:
 #      suffix: .jsp
 
   datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/bit801?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+#    username: root
+#    password: dnehd1008@
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/bit801?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
-    username: root
-    password: dnehd1008@
+    url: jdbc:mysql://db-n8650-kr.vpc-pub-cdb.ntruss.com:3306/studydb?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: study
+    password: bitcamp!@#123
     
 mybatis:
   type-aliases-package: data.dto
