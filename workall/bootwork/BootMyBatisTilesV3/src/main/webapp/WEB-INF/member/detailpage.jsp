@@ -40,13 +40,14 @@
 			success:function(data){				
 				//스프링에서 {"photoname":"파일명"} 이렇게 보낼것임
 				//프로필 사진 변경(db 변경후 업로드된 사진파일명을 반환받은것으로 변경)
-				$("#photo").attr("src","../save/"+data.photoname);
+				$("#photo").attr("src","${stpath}/"+data.photoname);
 			}
 		 });
 	  });
    });
    </script>
 </head>
+<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"/>
 <body>
 <table class="table" style="width: 500px;margin:20px;">
 	<caption align="top">
@@ -54,7 +55,7 @@
 	</caption>
 	<tr>
 		<td width="200" align="center">
-			<img src="../save/${dto.photo}" id="photo"
+			<img src="${stpath }/${dto.photo}" id="photo"
 			class="rounded-circle" 
 			style="width:150px;border:1px solid black;"
 			onerror="this.src='../image/noimage1.png'">

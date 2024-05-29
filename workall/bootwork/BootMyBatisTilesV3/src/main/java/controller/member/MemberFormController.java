@@ -19,11 +19,18 @@ import org.springframework.web.multipart.MultipartFile;
 
 import data.dto.MemberDto;
 import data.service.MemberService;
+import naver.cloud.NcpObjectStorageService;
 
 @Controller
 public class MemberFormController {
 	@Autowired
 	private MemberService memberService;
+	
+	private String bucketName = "bitcamp-bucket-56";
+	private String folderName = "photocommon";
+	
+	@Autowired
+	private NcpObjectStorageService storageService;
 	
 	@GetMapping("/member/form")
 	public String form()
@@ -46,15 +53,19 @@ public class MemberFormController {
 	public String saveData(@ModelAttribute MemberDto dto, @RequestParam("myfile") MultipartFile myfile,
 			HttpServletRequest request) {
 		
-		String savePath = request.getSession().getServletContext().getRealPath("/save");
-		String ext = myfile.getOriginalFilename().split("\\.")[1];
-		String photo = UUID.randomUUID()+"."+ext;
+//		String savePath = request.getSession().getServletContext().getRealPath("/save");
+//		String ext = myfile.getOriginalFilename().split("\\.")[1];
+//		String photo = UUID.randomUUID()+"."+ext;
+//		dto.setPhoto(photo);
+//		try {
+//			myfile.transferTo(new File(savePath+"/"+photo));
+//		} catch (IllegalStateException | IOException e) {
+//			e.printStackTrace();
+//		}
+		
+		String photo = storageService.uploadFile(bucketName, folderName, myfile);
 		dto.setPhoto(photo);
-		try {
-			myfile.transferTo(new File(savePath+"/"+photo));
-		} catch (IllegalStateException | IOException e) {
-			e.printStackTrace();
-		}
+		
 		memberService.insertMember(dto);
 		return "redirect:./list";
 	}
