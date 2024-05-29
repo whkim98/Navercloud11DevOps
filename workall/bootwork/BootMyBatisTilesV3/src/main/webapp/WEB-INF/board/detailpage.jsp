@@ -16,44 +16,70 @@
        body *{
            font-family: 'Jua';
        }
+       
+       pre.adata{
+       		margin-left: 10px;
+       		color: gray;
+       }
    </style>
 </head>
 <body>
 <c:set var="root" value="<%=request.getContextPath() %>"/>
 <script type="text/javascript">
-	$(function(){
-		   //처음 로딩시 댓글 목록 출력
-		   answer_list();
+   $(function(){
+	   //처음 로딩시 댓글 목록 출력
+	   answer_list();
+	  
+	   //댓글 추가 버튼
+	  $("#btnansweradd").click(function(){
+		  let num=${dto.num};
+		  let content=$("#acontent").val();
+		  if(content==''){
+			  alert("댓글을 입력후 등록해주세요");
+			  return;
+		  }
 		  
-		   //댓글 추가 버튼
-		  $("#btnansweradd").click(function(){
-			  let num=${dto.num};
-			  let content=$("#acontent").val();
-			  if(content==''){
-				  alert("댓글을 입력후 등록해주세요");
-				  return;
+		  $.ajax({
+			  type:'post',
+			  dataType:'text',
+			  url:"./ainsert",
+			  data:{"num":num,"content":content},
+			  success:function(){
+				  //댓글 목록 다시 출력
+				  answer_list();
+				  //초기화
+				  $("#acontent").val("");
 			  }
-			  
-			  $.ajax({
-				  type:'post',
-				  dataType:'text',
-				  url:"./ainsert",
-				  data:{"num":num,"content":content},
-				  success:function(){
-					  //댓글 목록 다시 출력
-					  answer_list();
-					  //초기화
-					  $("#acontent").val("");
-				  }
-			  });
 		  });
-	});
-	
-	function answer_list(){
-		
-	}
-	
-</script>
+	  });
+   });
+   
+   function answer_list(){
+	   let num=${dto.num};
+	   
+	   $.ajax({
+		   type:"get",
+		   dataType:"json",
+		   data:{"num":num},
+		   url:"./alist",
+		   success:function(data){
+			   //댓글 갯수 출력
+			   $(".answercount").text(data.length);
+			   //목록 출력
+			   let s="";
+			   $.each(data,function(idx,ele){
+				  s+=					  
+					  `
+					  \${ele.writer}(\${ele.myid})<br>
+					  <pre class="adata">\${ele.content}</pre>
+					  <br>
+					  `; 
+			   });
+			   $(".answerlist").html(s);
+		   }
+	   })
+   }
+   </script>
 <table class="table table-striped" style="width: 500px; margin: 20px;">
 	<caption align="top">
 		<h2><b>${dto.subject }</b></h2>
