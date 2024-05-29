@@ -20,6 +20,35 @@
 </head>
 <body>
 <c:set var="root" value="<%=request.getContextPath() %>"/>
+<script type="text/javascript">
+	$(function(){
+		answer_list();
+		
+		$("#btnansweradd").click(function(){
+			let num = ${dto.num};
+			let acontent = $("#acontent").val();
+			if(content == ''){
+				alert("댓글을 입력후 등록해 주세요");
+				return;
+			}
+			$.ajax({
+				type: 'get',
+				dataType: 'text',
+				url: "./ainsert",
+				data: {"num": num, "content": content},
+				success: function(){
+					answer_list();
+					$("#acontent").val("");
+				}
+			})
+		});
+	});
+	
+	function answer_list(){
+		
+	}
+	
+</script>
 <table class="table table-striped" style="width: 500px; margin: 20px;">
 	<caption align="top">
 		<h2><b>${dto.subject }</b></h2>
