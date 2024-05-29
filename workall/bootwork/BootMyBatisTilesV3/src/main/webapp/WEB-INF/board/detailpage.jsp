@@ -58,10 +58,32 @@
 			  }
 		  });
 	  });
+	   
+	   //댓글 삭제 이벤트
+	   $(document).on("click",".adel",function(){
+		  let aidx=$(this).attr("aidx");
+		  let a=confirm("해당 댓글을 삭제할까요?");
+		  if(a){
+			  $.ajax({
+				  type:"get",
+				  dataType:"text",
+				  data:{"aidx":aidx},
+				  url:"./adelete",
+				  success:function(){
+					  //댓글 삭제후 목록 다시 출력
+					  answer_list();
+				  }
+			  })
+		  }
+	   });
    });
    
    function answer_list(){
 	   let num=${dto.num};
+	   //로그인중인지 로그인중일경우 로그인 아이디 얻기
+	   let loginok='${sessionScope.loginok}';
+	   let loginid='${sessionScope.loginid}';
+	   console.log(loginok+","+loginid);
 	   
 	   $.ajax({
 		   type:"get",
@@ -76,8 +98,19 @@
 			   $.each(data,function(idx,ele){
 				  s+=					  
 					  `
-					  \${ele.writer}(\${ele.myid})<br>
+					  \${ele.writer}(\${ele.myid})
 					  <span class="aday">\${ele.writeday}</span>
+					  `;
+					//로그인중이면서 댓글 아이디와 로그인 아이디가 같을경우 삭제 아이콘 추가
+				   if(loginok=='yes' && loginid==ele.myid){
+					   s+=
+						   `
+						   <i class="bi bi-trash adel" aidx="\${ele.aidx}"
+						   style="cursor:pointer;"></i>
+						   `
+				   }	  
+					  
+				   s+=`
 					  <br>
 					  <pre class="adata">\${ele.content}</pre>
 					  <br>

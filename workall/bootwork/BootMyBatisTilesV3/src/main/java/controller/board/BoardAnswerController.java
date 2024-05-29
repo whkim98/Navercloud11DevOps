@@ -45,4 +45,9 @@ public class BoardAnswerController {
 		return answerService.getAnswerData(num);
 	}
 	
+	
+	@GetMapping("/board/adelete")
+	public void deleteAnswer(@RequestParam int aidx) {
+		answerService.deleteAnswer(aidx);
+	}
 }
