@@ -53,6 +53,22 @@
 		&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="history.back()">목록</button></td>
 	</tr>
 	</c:if>
+	<tr>
+		<td>
+			<div class="answerlist"></div>
+		</td>
+	</tr>
+	<c:if test="${sessionScope.loginok != null }">
+	<tr>
+		<td>
+			<b>댓글</b><br>
+			<textarea style="width: 80%; height: 60px;" id="acontent"></textarea>
+			<button type="button" class="btn btn-outline-success" 
+			style="height: 50px; position: relative; top: -25px;"
+			id="btnansweradd">등록</button>
+		</td>
+	</tr>
+	</c:if>
 </table>
 <script>
 	function del(){
