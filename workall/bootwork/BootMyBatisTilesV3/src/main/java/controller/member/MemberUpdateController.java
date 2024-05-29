@@ -57,6 +57,7 @@ public class MemberUpdateController {
 		
 		Map<String,String> map=new HashMap<>();
 		map.put("photoname", photo);
+		System.out.println(photo);
 		return map;
 	}
 	

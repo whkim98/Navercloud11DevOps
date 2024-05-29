@@ -29,6 +29,7 @@
        }
    </style>
 </head>
+<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"/>
 <body>
 <c:set var="root" value="<%=request.getContextPath() %>"/>
 <script type="text/javascript">
@@ -125,7 +126,7 @@
 	<caption align="top">
 		<h2><b>${dto.subject }</b></h2>
 		<c:if test="${dto.uploadphoto != 'no' }">
-		<h4><img src="${root }/save/${profile_photo}" width="30">${dto.myid }</h5>
+		<h4><img src="${stpath }/${profile_photo}" width="30">${dto.myid }</h5>
 		</c:if>
 		<c:if test="${dto.uploadphoto == 'no' }">
 		<h4><img src="../image/noimage1.png" width="30">${dto.myid }</h4>
@@ -135,7 +136,7 @@
 		<hr>
 	</caption>
 	<tr>
-		<td><img src="${root }/save/${dto.uploadphoto}" width="100" onerror="this.src='../image/noimage2.png'"><br>${dto.content }</td>
+		<td><img src="${stpath }/${dto.uploadphoto}" width="100" onerror="this.src='../image/noimage2.png'"><br>${dto.content }</td>
 	</tr>
 	<c:if test="${dto.myid == sessionScope.loginid and loginok == 'yes' }">
 	<tr>
