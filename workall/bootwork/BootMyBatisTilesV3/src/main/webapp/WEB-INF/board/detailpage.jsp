@@ -21,6 +21,12 @@
        		margin-left: 10px;
        		color: gray;
        }
+       
+       span.aday{
+       		margin-left: 100px;
+       		color: gray;
+       		font-size: 0.9em;
+       }
    </style>
 </head>
 <body>
@@ -71,6 +77,8 @@
 				  s+=					  
 					  `
 					  \${ele.writer}(\${ele.myid})<br>
+					  <span class="aday">\${ele.writeday}</span>
+					  <br>
 					  <pre class="adata">\${ele.content}</pre>
 					  <br>
 					  `; 

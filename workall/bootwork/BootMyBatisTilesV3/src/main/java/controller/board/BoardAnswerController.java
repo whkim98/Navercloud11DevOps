@@ -30,16 +30,12 @@ public class BoardAnswerController {
 		
 		String myid = (String) session.getAttribute("loginid");
 		String writer = memberService.getDataById(myid).getName();
-		System.out.println(content);
 		BoardAnswerDto dto = BoardAnswerDto.builder()
 				.myid(myid)
 				.writer(writer)
 				.content(content)
 				.num(num).build();
 		
-		System.out.println(myid);
-		System.out.println(writer);
-		System.out.println(num);
 		answerService.insertAnswer(dto);
 		
 	}
