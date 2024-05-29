@@ -22,26 +22,31 @@
 <c:set var="root" value="<%=request.getContextPath() %>"/>
 <script type="text/javascript">
 	$(function(){
-		answer_list();
-		
-		$("#btnansweradd").click(function(){
-			let num = ${dto.num};
-			let acontent = $("#acontent").val();
-			if(content == ''){
-				alert("댓글을 입력후 등록해 주세요");
-				return;
-			}
-			$.ajax({
-				type: 'get',
-				dataType: 'text',
-				url: "./ainsert",
-				data: {"num": num, "content": content},
-				success: function(){
-					answer_list();
-					$("#acontent").val("");
-				}
-			})
-		});
+		   //처음 로딩시 댓글 목록 출력
+		   answer_list();
+		  
+		   //댓글 추가 버튼
+		  $("#btnansweradd").click(function(){
+			  let num=${dto.num};
+			  let content=$("#acontent").val();
+			  if(content==''){
+				  alert("댓글을 입력후 등록해주세요");
+				  return;
+			  }
+			  
+			  $.ajax({
+				  type:'post',
+				  dataType:'text',
+				  url:"./ainsert",
+				  data:{"num":num,"content":content},
+				  success:function(){
+					  //댓글 목록 다시 출력
+					  answer_list();
+					  //초기화
+					  $("#acontent").val("");
+				  }
+			  });
+		  });
 	});
 	
 	function answer_list(){
@@ -87,16 +92,16 @@
 			<div class="answerlist"></div>
 		</td>
 	</tr>
-	<c:if test="${sessionScope.loginok != null }">
-	<tr>
-		<td>
-			<b>댓글</b><br>
-			<textarea style="width: 80%; height: 60px;" id="acontent"></textarea>
-			<button type="button" class="btn btn-outline-success" 
-			style="height: 50px; position: relative; top: -25px;"
-			id="btnansweradd">등록</button>
-		</td>
-	</tr>
+	<c:if test="${sessionScope.loginok!=null}">
+		<tr>
+			<td>			   
+				<b>댓글</b><br>
+				<textarea style="width: 80%;height: 60px;" id="acontent"></textarea>
+				<button type="button" class="btn btn-outline-success"
+				style="height: 65px;position: relative;top:-25px;"
+				id="btnansweradd">등록</button>
+			</td>
+		</tr>
 	</c:if>
 </table>
 <script>

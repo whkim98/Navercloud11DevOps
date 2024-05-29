@@ -9,18 +9,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@NoArgsConstructor
+@Data
 @Alias("badto")
 public class BoardAnswerDto {
-
 	private int aidx;
 	private int num;
 	private String writer;
 	private String myid;
 	private String content;
-	private Timestamp writeday;
-	
+	private Timestamp writeday;	
 }
