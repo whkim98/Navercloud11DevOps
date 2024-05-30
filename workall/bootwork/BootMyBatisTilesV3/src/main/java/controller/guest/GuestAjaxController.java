@@ -48,7 +48,10 @@ public class GuestAjaxController {
 		
 		guestService.insertGuest(dto);
 		int guestidx = dto.getGuestidx();
-		if(upload.get(0).getOriginalFilename().equals("")) {
+//		if(upload.get(0).getOriginalFilename().equals("")) {
+//			return;
+//		}
+		if(upload == null) {
 			return;
 		}
 		for(MultipartFile mfile: upload) {
