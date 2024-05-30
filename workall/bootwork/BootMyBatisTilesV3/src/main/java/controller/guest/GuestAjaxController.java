@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,7 +36,7 @@ public class GuestAjaxController {
 	@PostMapping("/addguest")
 	public void guestInsert(
 			@RequestParam String gcontent,
-			@RequestParam("upload") List<MultipartFile> upload,
+			@RequestParam(value="upload", required = false) List<MultipartFile> upload,
 			HttpSession session
 			)
 	{
@@ -76,6 +77,15 @@ public class GuestAjaxController {
 			//db 에 insert
 			guestService.insertGuestPhoto(pdto);
 		}
+	}
+	
+	@GetMapping("/datas")
+	public List<GuestDto> guestList(){
+		List<GuestDto> glist = guestService.getAllGuest();
+		for(GuestDto dto: glist) {
+			dto.setPhotos(guestService.getGuestPhoto(dto.getGuestidx()));
+		}
+		return glist;
 	}
 
 }

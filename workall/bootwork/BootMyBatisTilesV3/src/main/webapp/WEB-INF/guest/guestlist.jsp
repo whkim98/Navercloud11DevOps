@@ -16,9 +16,33 @@
        body *{
            font-family: 'Jua';
        }
+       
+       img.small{
+       		border: 3px solid pink;
+       		border-radius: 20px;
+       		margin-right: 10px;
+       		width: 70px;
+       		height: 70px;
+       		cursor: pointer;
+       }
+       
+       span.day{
+       		margin-left: 100px;
+       		color: gray;
+       		font-size: 16px;
+       }
+       
+       div.guest_box{
+       		width: 500px;
+       		border: 2px solid gray;
+       		padding: 10px;
+       		margin-bottom: 10px;
+       }
    </style>
+   <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/guestphoto"/>
 <script type="text/javascript">
    $(function(){
+	   guest_list();
 	  //방명록 등록 버튼 
 	  $("#btnaddguest").click(function(){
 		 let gcontent= $("#gcontent").val();
@@ -55,7 +79,35 @@
    //목록 출력하는 일반 함수
    function guest_list()
    {
-	   
+	   $.ajax({
+		  type: "get",
+		  url: "./datas",
+		  dataType: "json",
+		  success: function(data){
+			  let s = `<b>총 \${data.length}개의 글이 있습니다</b><br>`;
+			  $.each(data, function(idx,ele){
+				  s+=`
+				  	<div class="guest_box">
+				  		<div>
+				  		<span>\${ele.writer}(\${ele.myid})</span>
+				  		<span class="day">\${ele.writeday}</span>
+				  		</div>
+				  		<pre>\${ele.gcontent}</pre>
+						  `;
+						  if(ele.photos.length>0){
+							  $.each(ele.photos, function(i, sphoto){
+								 s+=`
+								 <img class="small" src="${stpath}/\${sphoto}">
+								 `
+							  });
+						  }
+						  s+=`
+				  	</div>
+				  	`;
+			  });
+			  $("div.guestlistarea").html(s);
+		  }
+	   });
    }
    </script>
 </head>
@@ -72,7 +124,7 @@
 	<hr>
 </c:if>
 <div class="guestlistarea">
-	방명록 목록이 나올 영역
+	
 </div>
 </body>
 </html>

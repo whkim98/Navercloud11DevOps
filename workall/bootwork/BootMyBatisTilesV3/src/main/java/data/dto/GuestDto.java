@@ -1,6 +1,7 @@
 package data.dto;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 
@@ -24,5 +25,7 @@ public class GuestDto {
 	private String gcontent;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
 	private Timestamp writeday;
+	
+	List<String> photos;
 
 }
