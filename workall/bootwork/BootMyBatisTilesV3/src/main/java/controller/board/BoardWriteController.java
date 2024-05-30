@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import data.dto.ReBoardDto;
 import data.service.MemberService;
 import data.service.ReBoardService;
+import naver.cloud.NcpObjectStorageService;
 
 @Controller
 public class BoardWriteController {
@@ -28,6 +29,12 @@ public class BoardWriteController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	private String bucketName = "bitcamp-bucket-56";
+	private String folderName = "photocommon";
+	
+	@Autowired
+	private NcpObjectStorageService storageService;
 	
 	@GetMapping("/board/form")
 	public String form(@RequestParam(defaultValue = "0") int num,
@@ -56,21 +63,23 @@ public class BoardWriteController {
 	public String insert(@ModelAttribute ReBoardDto dto, @RequestParam("upload") MultipartFile upload, 
 			@RequestParam int currentPage, HttpServletRequest request, HttpSession session) {
 		
-		String saveFolder = request.getSession().getServletContext().getRealPath("/save");
+//		String saveFolder = request.getSession().getServletContext().getRealPath("/save");
+//		
+//		String photo = upload.getOriginalFilename();
+//		if(photo.equals("")) {
+//			photo = "no";
+//		}else {
+//			String ext = photo.split("\\.")[1];
+//			photo = UUID.randomUUID() + "." + ext;
+//			
+//			try {
+//				upload.transferTo(new File(saveFolder + "/" + photo));
+//			} catch (IllegalStateException | IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
 		
-		String photo = upload.getOriginalFilename();
-		if(photo.equals("")) {
-			photo = "no";
-		}else {
-			String ext = photo.split("\\.")[1];
-			photo = UUID.randomUUID() + "." + ext;
-			
-			try {
-				upload.transferTo(new File(saveFolder + "/" + photo));
-			} catch (IllegalStateException | IOException e) {
-				e.printStackTrace();
-			}
-		}
+		String photo = storageService.uploadFile(bucketName, folderName, upload);
 		
 		dto.setUploadphoto(photo);
 		

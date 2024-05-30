@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import data.dto.MemberDto;
 import data.service.MemberService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import naver.cloud.NcpObjectStorageService;
 
 @Controller
 @RequiredArgsConstructor
@@ -29,6 +31,12 @@ public class MemberUpdateController {
 
 	@NonNull
 	private MemberService memberService;
+	
+	private String bucketName = "bitcamp-bucket-56";
+	private String folderName = "photocommon";
+	
+	@Autowired
+	private NcpObjectStorageService storageService;
 
 	@ResponseBody
 	@PostMapping("/upload")
@@ -38,19 +46,21 @@ public class MemberUpdateController {
 			HttpServletRequest request
 			)
 	{
-		String savePath=request.getSession().getServletContext().getRealPath("/save");
-		//업로드한 파일의 확장자 분리
-		String ext=upload.getOriginalFilename().split("\\.")[1];
-		//업로드할 파일명
-		String photo=UUID.randomUUID()+"."+ext;
+//		String savePath=request.getSession().getServletContext().getRealPath("/save");
+//		//업로드한 파일의 확장자 분리
+//		String ext=upload.getOriginalFilename().split("\\.")[1];
+//		//업로드할 파일명
+//		String photo=UUID.randomUUID()+"."+ext;
+//		
+//		//실제 업로드
+//		try {
+//			upload.transferTo(new File(savePath+"/"+photo));
+//		} catch (IllegalStateException | IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
-		//실제 업로드
-		try {
-			upload.transferTo(new File(savePath+"/"+photo));
-		} catch (IllegalStateException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String photo = storageService.uploadFile(bucketName, folderName, upload);
 		
 		//db 에서 photo 수정
 		memberService.updatePhoto(num, photo);

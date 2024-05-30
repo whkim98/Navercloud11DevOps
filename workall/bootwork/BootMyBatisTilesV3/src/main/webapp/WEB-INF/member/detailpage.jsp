@@ -65,7 +65,6 @@
 			<button type="button" class="btn btn-success btn-sm"
 			onclick="$('#photoupload').trigger('click')">
 			사진수정</button>
-			
 		</td>
 		<td valign="middle">
 			아이디 : ${dto.myid}<br>

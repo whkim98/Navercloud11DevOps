@@ -10,13 +10,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class test {
-    private static final String API_KEY = "0e1ee7035c024df991b91a5917050506";
+    private static final String API_KEY = "your_key";
     private static final String BASE_URL = "http://api.football-data.org/v4/competitions/";
 
     public static void main(String[] args) {
         try {
-            // Construct the URL with the filter values
-            String competitionId = "2002"; // Example competition ID
+            String competitionId = "2002"; 
             String dateFrom = "2021-08-01";
             String dateTo = "2022-05-31";
             String stage = "REGULAR_SEASON";
@@ -32,7 +31,6 @@ public class test {
                 "matchday=" + URLEncoder.encode(String.valueOf(matchday), StandardCharsets.UTF_8) + "&" +
                 "season=" + URLEncoder.encode(season, StandardCharsets.UTF_8);
 
-            // Create the HTTP client and request
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
@@ -40,25 +38,20 @@ public class test {
                     .header("X-Unfold-Goals", "true")
                     .build();
 
-            // Send the request and get the response
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             String responseBody = response.body();
 
-            // Print the response body for debugging
             System.out.println("Response Body: " + responseBody);
 
-            // Parse the response body using Jackson
             ObjectMapper mapper = new ObjectMapper();
             JsonNode matchData = mapper.readTree(responseBody);
 
-            // Process the JSON data as required
             JsonNode matches = matchData.get("matches");
             if (matches != null && matches.isArray()) {
                 for (JsonNode match : matches) {
                     System.out.println("Match Information:");
                     System.out.println("Date: " + match.get("utcDate").asText());
 
-                    // Check if venue exists
                     JsonNode venue = match.get("venue");
                     if (venue != null) {
                         System.out.println("Venue: " + venue.asText());

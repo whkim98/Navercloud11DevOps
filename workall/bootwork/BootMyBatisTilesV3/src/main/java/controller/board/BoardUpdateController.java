@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import data.dto.ReBoardDto;
 import data.service.ReBoardService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import naver.cloud.NcpObjectStorageService;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,6 +28,12 @@ public class BoardUpdateController {
 	
 	@NonNull
 	private ReBoardService boardService;
+	
+	private String bucketName = "bitcamp-bucket-56";
+	private String folderName = "photocommon";
+	
+	@Autowired
+	private NcpObjectStorageService storageService;
 	
 	@GetMapping("/board/updateform")
 	public String updateForm(
@@ -48,17 +56,19 @@ public class BoardUpdateController {
 			@RequestParam int currentPage,
 			HttpServletRequest request)
 	{
-		String saveFolder = request.getSession().getServletContext().getRealPath("/save");
-		String uploadphoto = null;
-		if(!upload.getOriginalFilename().equals("")) {
-			String ext = upload.getOriginalFilename().split("\\.")[1];
-			uploadphoto = UUID.randomUUID()+"."+ext;
-			try {
-				upload.transferTo(new File(saveFolder + "/" + uploadphoto));
-			} catch (IllegalStateException | IOException e) {
-				e.printStackTrace();
-			}
-		}
+//		String saveFolder = request.getSession().getServletContext().getRealPath("/save");
+//		String uploadphoto = null;
+//		if(!upload.getOriginalFilename().equals("")) {
+//			String ext = upload.getOriginalFilename().split("\\.")[1];
+//			uploadphoto = UUID.randomUUID()+"."+ext;
+//			try {
+//				upload.transferTo(new File(saveFolder + "/" + uploadphoto));
+//			} catch (IllegalStateException | IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+		
+		String uploadphoto = storageService.uploadFile(bucketName, folderName, upload);
 		dto.setUploadphoto(uploadphoto);
 		boardService.updateReboard(dto);
 		return "redirect:./detail?num="+dto.getNum()+"&currentPage="+currentPage;

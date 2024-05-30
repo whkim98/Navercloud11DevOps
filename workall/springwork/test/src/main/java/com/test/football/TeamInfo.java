@@ -10,7 +10,6 @@ public class TeamInfo {
     private int goalsAgainst;
     private String teamId;
 
-    // Constructors, getters and setters
     public TeamInfo() {}
 
     public TeamInfo(String teamName, int playedGames, int wins, int losses, int draws, int goalsFor, int goalsAgainst) {
