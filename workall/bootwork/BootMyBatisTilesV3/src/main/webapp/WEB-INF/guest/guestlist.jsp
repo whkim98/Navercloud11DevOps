@@ -17,6 +17,40 @@
            font-family: 'Jua';
        }
    </style>
+   <script type="text/javascript">
+   	$(function(){
+   		$("#btnaddguest").click(function(){
+   			let gcontent = $("#gcontent").val();
+   			if(gcontent == ''){
+   				alert("방명록 글을 작성 후 등록해 주세요");
+   				return;
+   			}
+   			let formData = new FormData();
+   			for(let i = 0; i < $("#photoupload")[0].files.length; i++){
+   				formData.append("upload", $("#photoupload")[0].files[i]);
+   			}
+   			formData.append("gcontent", gcontent);
+   			$.ajax({
+   				type: "post",
+   				dataType: "text",
+   				url: "./addguest",
+   				data: formData,
+   				processData: false,
+   				contentType: false,
+   				success: function(){
+   					guest_list();
+   					$("#gcontent").val("");
+   					$("#photoupload").val("");
+   				}
+   			});
+   		});
+   	});
+   	
+   	function guest_list(){
+   		
+   	}
+   	
+   </script>
 </head>
 <body>
 <c:if test="${sessionScope.loginok != null }">

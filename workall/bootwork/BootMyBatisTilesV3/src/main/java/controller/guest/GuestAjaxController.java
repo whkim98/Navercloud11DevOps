@@ -34,7 +34,7 @@ public class GuestAjaxController {
 	private String folderName = "guestphoto";
 	
 	@PostMapping("/addguest")
-	public void guestInsert(@RequestParam String gcontent, @RequestParam List<MultipartFile> upload,
+	public void guestInsert(@RequestParam String gcontent, @RequestParam("upload") List<MultipartFile> upload,
 			HttpSession session) {
 		
 		String myid = (String) session.getAttribute("loginid");
