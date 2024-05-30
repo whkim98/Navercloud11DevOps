@@ -19,6 +19,17 @@
    </style>
 </head>
 <body>
-방명록리스트
+<c:if test="${sessionScope.loginok != null }">
+	<div class="guestformarea" style="width: 400px;">
+		<textarea style="width: 100%; height: 120px;" id="gcontent" class="form-control"></textarea>
+		<br>
+		<input type="file" id="photoupload" multiple="multiple">
+		<button type="button" id="btnaddguest" class="btn btn-sm btn-info">등록</button> 
+	</div>
+	<hr>
+</c:if>
+<div class="guestlistarea">
+	방목나영
+</div>
 </body>
 </html>
