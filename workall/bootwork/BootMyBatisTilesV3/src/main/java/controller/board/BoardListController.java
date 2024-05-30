@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import data.dto.ReBoardDto;
+import data.service.BoardAnswerService;
 import data.service.ReBoardService;
 
 @Controller
@@ -17,13 +18,16 @@ public class BoardListController {
 	@Autowired
 	private ReBoardService boardService;
 	
+	@Autowired
+	private BoardAnswerService answerService;
+	
 	@GetMapping("/board/list")
 	public String list(@RequestParam(defaultValue = "1") int currentPage,
 			Model model) {
 		
 		int totalCount = boardService.getTotalCount();
-		int perPage = 5;
-		int perBlock = 3;
+		int perPage = 10;
+		int perBlock = 5;
 		
 		int start;
 		int startPage;
@@ -44,6 +48,10 @@ public class BoardListController {
 		no = totalCount - (currentPage - 1) * perPage;
 		
 		List<ReBoardDto> list = boardService.getPagingList(start, perPage);
+		
+		for(ReBoardDto dto: list) {
+			dto.setRecount(answerService.getAnswerData(dto.getNum()).size());
+		}
 		
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("list", list);
