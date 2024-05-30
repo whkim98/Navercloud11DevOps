@@ -60,7 +60,7 @@
 			style="width:150px;border:1px solid black;"
 			onerror="this.src='../image/noimage1.png'">
 			<br><br>
-			<input type="file" id="photoupload" style="display: none;">
+			<input type="file" name="photoname" id="photoupload" style="display: none;">
 			
 			<button type="button" class="btn btn-success btn-sm"
 			onclick="$('#photoupload').trigger('click')">
