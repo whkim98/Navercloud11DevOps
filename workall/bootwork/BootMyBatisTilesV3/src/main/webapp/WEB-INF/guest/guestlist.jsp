@@ -98,7 +98,9 @@
 						  if(ele.photos.length>0){
 							  $.each(ele.photos, function(i, sphoto){
 								 s+=`
-								 <img class="small" src="${stpath}/\${sphoto}">
+								 <img class="small" src="${stpath}/\${sphoto}"
+									 data-bs-toggle="modal" data-bs-target="#myPhotoLargeModal"
+									 onclick="large_photo('\${ele.writer}', '\${sphoto}')">
 								 `
 							  });
 						  }
@@ -109,6 +111,11 @@
 			  $("div.guestlistarea").html(s);
 		  }
 	   });
+   }
+   
+   function large_photo(writer, photoname){
+	   $(".phototitle").text("[" + writer + "]님이 올린 사진");
+	   $(".largephoto").attr("src", `${stpath}/\${photoname}`);
    }
    </script>
 </head>
@@ -126,6 +133,31 @@
 </c:if>
 <div class="guestlistarea">
 	
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myPhotoLargeModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title phototitle">제목</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <img src="" class="largephoto">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
 </div>
 </body>
 </html>
