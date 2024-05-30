@@ -1,0 +1,28 @@
+package data.dto;
+
+import java.sql.Timestamp;
+
+import org.apache.ibatis.type.Alias;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Builder
+@Alias("GuestDto")
+public class GuestDto {
+	
+	private int guestidx;
+	private String writer;
+	private String myid;
+	private String gcontent;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
+	private Timestamp writeday;
+
+}
