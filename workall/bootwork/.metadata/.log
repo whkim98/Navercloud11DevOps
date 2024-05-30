@@ -13077,3 +13077,12 @@ java.lang.InterruptedException
 
 !ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2024-05-30 11:23:21.812
 !MESSAGE The given URI http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_1.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-30 11:40:25.013
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-30 11:42:20.407
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-05-30 11:43:43.199
+!MESSAGE Classpath changed for project: BootMyBatisTilesV3

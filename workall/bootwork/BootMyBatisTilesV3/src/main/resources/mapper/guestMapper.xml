@@ -9,4 +9,8 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+	
+	<insert id="insertGuestPhoto" parameterType="GuestPhotoDto">
+		insert into guestphoto(guestidx, photoname) values(#{guestidx}, #{photoname})
+	</insert>
 </mapper>
