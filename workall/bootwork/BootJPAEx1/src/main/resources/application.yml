@@ -1,0 +1,24 @@
+server:
+  port: 9000
+
+#mysql setting
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db-n9jkl-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul
+    username: study
+    password: bitcamp!@#123
+
+  #jpa setting
+  #ddl-auto: create(\uAE30\uC874 \uD14C\uC774\uBE14\uC744 \uC81C\uAC70\uD6C4 \uB2E4\uC2DC \uC0DD\uC131:\uC808\uB300 \uC8FC\uC758\uD574\uC11C \uC0AC\uC6A9)  , update(\uBCC0\uACBD\uB41C \uBD80\uBD84\uB9CC \uBC18\uC601)
+  jpa:
+    hibernate:
+      ddl-auto: update
+    #ddl \uC0DD\uC131\uC2DC \uB370\uC774\uD0C0\uBCA0\uC774\uC2A4 \uACE0\uC720\uC758 \uAE30\uB2A5\uC744 \uC0AC\uC6A9\uD560 \uAC83\uC778\uAC00
+    generate-ddl: true
+    #api \uD638\uCD9C\uC2DC \uC2E4\uD589\uB418\uB294 sql \uBB38\uC744 \uCF58\uC194\uC5D0 \uBCF4\uC5EC\uC904\uAC83\uC778\uAC00
+    show-sql: true
+    #\uC0AC\uC6A9\uD560 \uB370\uC774\uD0C0\uBCA0\uC774\uC2A4 \uC885\uB958
+    database: mysql
+    #Mysql \uC0C1\uC138\uC9C0\uC815
+    database-platform: org.hibernate.dialect.MySQLDialect

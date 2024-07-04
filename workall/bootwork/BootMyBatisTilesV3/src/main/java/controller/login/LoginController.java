@@ -37,7 +37,7 @@ public class LoginController {
 		}
 		return map;
 	}
-	
+
 	@ResponseBody
 	@GetMapping("/member/logout")
 	public void memberLogout(HttpSession session) {
