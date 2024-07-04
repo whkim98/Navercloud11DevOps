@@ -3,6 +3,10 @@ package mycar.controller;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,9 +37,20 @@ public class MycarController {
         return "redirect:./mycar/list";
     }
 
+    int pageSize;
     @GetMapping("/mycar/list")
-    public String list(Model model)
+    public String list(Model model, @RequestParam(value = "more", defaultValue = "0") int more)
     {
+        if(more == 0){
+            pageSize = 3;
+        }else{
+            pageSize += more;
+        }
+
+        Pageable pageable = PageRequest.of(0, pageSize, Sort.by("num").ascending());
+
+        Page<MycarDto> result = myCarDao.getAllCars(pageable);
+
         List<MycarDto> list=myCarDao.getAllCars();
         model.addAttribute("list", list);
         model.addAttribute("count", list.size());
@@ -89,5 +104,13 @@ public class MycarController {
         MycarDto dto = myCarDao.getData(num);
         model.addAttribute("dto", dto);
         return "mycar/mycarupdateform";
+    }
+
+    @GetMapping("/mycar/delete")
+    public String delete(@RequestParam("num") Long num, Model model){
+        String photoname = myCarDao.getData(num).getCarphoto();
+        storageService.deleteFile(bucketName, folderName, photoname);
+        myCarDao.deleteCar(num);
+        return "redirect:./list";
     }
 }

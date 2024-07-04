@@ -2,6 +2,8 @@ package mycar.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
@@ -39,6 +41,18 @@ public class MyCarDao{
         }else{
             daoInter.save(dto);
         }
+    }
+
+    public void deleteCar(Long num){
+        daoInter.deleteById(num);
+    }
+
+    public Long getTotalCount(){
+        return daoInter.count();
+    }
+
+    public Page<MycarDto> getAllCars(Pageable pageable){
+        return daoInter.findAll(pageable);
     }
 
 }
