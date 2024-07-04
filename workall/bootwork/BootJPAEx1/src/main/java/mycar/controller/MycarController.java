@@ -51,9 +51,10 @@ public class MycarController {
 
         Page<MycarDto> result = myCarDao.getAllCars(pageable);
 
-        List<MycarDto> list=myCarDao.getAllCars();
-        model.addAttribute("list", list);
-        model.addAttribute("count", list.size());
+        model.addAttribute("totalCount", result.getTotalElements());
+        model.addAttribute("totalPage", result.getTotalPages());
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("list", result.getContent());
         return "mycar/mycarlist";
     }
 

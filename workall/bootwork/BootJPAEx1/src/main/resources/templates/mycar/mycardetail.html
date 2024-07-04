@@ -38,5 +38,36 @@
     <h3>등록날짜:
     <span th:text="${#calendars.format(dto.writeday, 'yyyy-MM-dd HH:mm')}"></span></h3>
 </div>
+<hr>
+<div class="comment-list" style="margin-left: 10px; color: blue;">
+    코멘트 목록
+</div>
+<div class="input-group" style="width: 400px;">
+    <h5>댓글</h5>
+    <input type="text" class="form-control" id="comment" style="margin-left: 10px; border: 1px solid black;">
+    <button type="button" class="btn btn-success btn-sm" id="btncomment">저장</button>
+</div>
+<script type="text/javascript">
+    function list(){
+
+    }
+    $("#btncomment").click(function(){
+       let num = [[${dto.num}]];
+       let comment = $("#comment").val();
+       if(comment == ''){
+           return;
+       }
+       $.ajax({
+           type: "get",
+           dataType: "text",
+           url: "./addcomment",
+           data: {"num": num, "comment": comment},
+           success: function(){
+               list();
+               $("#comment").val("");
+           }
+       })
+    });
+</script>
 </body>
 </html>
