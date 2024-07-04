@@ -74,9 +74,14 @@ public class MycarController {
         if(carupload.getOriginalFilename().equals("")){
             dto.setCarphoto("no");
         }else{
-            
+            String oldPhotoname = myCarDao.getData(dto.getNum()).getCarphoto();
+            storageService.deleteFile(bucketName, folderName, oldPhotoname);
+            String photo = storageService.uploadFile(bucketName, folderName, carupload);
+            dto.setCarphoto(photo);
         }
-        return "redirect:mycar/detail?num=" + dto.getNum();
+
+        myCarDao.updateCar(dto);
+        return "redirect:./detail?num=" + dto.getNum();
     }
 
     @GetMapping("mycar/carupdate")
