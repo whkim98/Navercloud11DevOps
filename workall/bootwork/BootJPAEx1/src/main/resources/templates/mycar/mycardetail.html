@@ -22,6 +22,13 @@
     </style>
 </head>
 <body>
-
+    <h1>상세보기</h1>
+    <h3>자동차명: [[${dto.carname}]]</h3>
+<div th:object="${dto}">
+    <img th:src="@{'https://kr.object.ncloudstorage.com/bitcamp-whkim-123/mycar/'+*{carphoto}}" style="max-width: 400px; border: 5px solid pink;">
+    <br>
+    <h4>가격: [[*{carprice}]]만원</h4>
+    <h4>색상: <span th:style="'background-color:'+ *{carcolor}">[[*{carcolor}]]</span></h4>
+</div>
 </body>
 </html>

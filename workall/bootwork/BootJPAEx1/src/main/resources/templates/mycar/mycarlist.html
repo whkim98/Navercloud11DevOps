@@ -40,11 +40,13 @@
     <tr th:each="dto,iter:${list}">
         <td>[[${iter.count}]]</td>
         <td>
+            <a th:href="@{./detail(num=${dto.num})}" style="cursor: pointer; color: black; text-decoration:none;">
             <!-- 썸네일 이미지 넣기(40x40) -->
             <img th:src="@{https://ph9dc3ti3779.edge.naverncp.com/PxOjfBhSlM/mycar/{photo}?type=f&w=40&h=40&faceopt=true&ttype=jpg(photo=${dto.carphoto})}"
                  hspace="10" border="1">
 
             [[${dto.carname}]]
+            </a>
         </td>
         <td align="right">
             <span th:text="${#numbers.formatInteger(dto.carprice,0,'COMMA')}"></span>
