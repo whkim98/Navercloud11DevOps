@@ -24,7 +24,13 @@ public class MyCarDao{
     public List<MycarDto> getAllCars()
     {
 //        return daoInter.findAll(); //추가된 순서로 반환
-        return daoInter.findAll(Sort.by(Sort.Direction.DESC,"carprice"));//가격이 비싼거부터 출력
-        //return daoInter.findAll(Sort.by(Sort.Direction.ASC,"carname"));//자동차명의 오름차순
+//        return daoInter.findAll(Sort.by(Sort.Direction.DESC,"carprice"));//가격이 비싼거부터 출력
+//        return daoInter.findAll(Sort.by(Sort.Direction.ASC,"carname"));//자동차명의 오름차순
+        return daoInter.findAll(Sort.by(Sort.Direction.DESC,"num"));
     }
+
+    public MycarDto getData(Long num){
+        return daoInter.getReferenceById(num);
+    }
+
 }
