@@ -69,9 +69,14 @@ public class MycarController {
         return "mycar/mycardetail";
     }
 
-    @GetMapping("/mycar/update")
-    public String update(){
-        return "mycar/mycarupdateform";
+    @PostMapping("/mycar/update")
+    public String update(@ModelAttribute("dto") MycarDto dto, @RequestParam("carupload") MultipartFile carupload){
+        if(carupload.getOriginalFilename().equals("")){
+            dto.setCarphoto("no");
+        }else{
+            
+        }
+        return "redirect:mycar/detail?num=" + dto.getNum();
     }
 
     @GetMapping("mycar/carupdate")
