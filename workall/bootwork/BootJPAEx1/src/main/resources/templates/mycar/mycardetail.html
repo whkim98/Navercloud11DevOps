@@ -29,6 +29,9 @@
     <br>
     <h4>가격: [[*{carprice}]]만원</h4>
     <h4>색상: <span th:style="'background-color:'+ *{carcolor}">[[*{carcolor}]]</span></h4>
+    <h3>구입일: [[*{carguip}]]</h3>
+    <h3>등록날짜:
+    <span th:text="${#calendars.format(dto.writeday, 'yyyy-MM-dd HH:mm')}"></span></h3>
 </div>
 </body>
 </html>
