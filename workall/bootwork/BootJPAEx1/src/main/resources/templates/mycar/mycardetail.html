@@ -20,6 +20,33 @@
             border-radius: 100px;
         }
     </style>
+    <script type="text/javascript">
+        $(function(){
+            list();
+        })
+        function list(){
+            let num = [[${dto.num}]];
+            $.ajax({
+                type: "get",
+                dataType: "json",
+                url: "./commentlist",
+                data: {"num": num},
+                success: function(data){
+                    let s = `댓글 &nbsp;${data.length}개`;
+                    $.each(data, function(idx, item){
+                        s+=
+                            `
+                            <div style="margin-left: 20px;">
+                                ${item.comment}
+                                <span style="color: gray; font-size: 0.9em;">${item.writeday}</span>
+                            </div>
+                            `;
+                    });
+                    $(".comment-list").html(s);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <h1>상세보기</h1>
@@ -48,9 +75,7 @@
     <button type="button" class="btn btn-success btn-sm" id="btncomment">저장</button>
 </div>
 <script type="text/javascript">
-    function list(){
 
-    }
     $("#btncomment").click(function(){
        let num = [[${dto.num}]];
        let comment = $("#comment").val();
