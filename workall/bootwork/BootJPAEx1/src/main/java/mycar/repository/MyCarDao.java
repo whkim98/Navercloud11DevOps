@@ -33,4 +33,12 @@ public class MyCarDao{
         return daoInter.getReferenceById(num);
     }
 
+    public void updateCar(MycarDto dto){
+        if(dto.getCarphoto().equals("no")){
+            daoInter.updateMycarNoPhoto(dto.getNum(), dto.getCarname(), dto.getCarprice(), dto.getCarcolor());
+        }else{
+            daoInter.save(dto);
+        }
+    }
+
 }

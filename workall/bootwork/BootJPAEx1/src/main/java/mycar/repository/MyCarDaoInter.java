@@ -17,4 +17,12 @@ public interface MyCarDaoInter extends JpaRepository<MycarDto, Long>{
     @Transactional
     public void updateMycarNoPhoto(@Param("num") Long num, @Param("carname") String carname, @Param("carprice") int carprice,
     @Param("carcolor") String carcolor);
+
+    @Query(value= """
+    update mycar set carname=:#{#dto.carname}, carprice=:#{#dto.carprice}, carcolor=:#{#dto.carcolor}
+    where num=:#{#dto.num}
+""", nativeQuery=true)
+    @Modifying
+    @Transactional
+    public void updateMycarNoPhoto(@Param("dto") MycarDto dto);
 }

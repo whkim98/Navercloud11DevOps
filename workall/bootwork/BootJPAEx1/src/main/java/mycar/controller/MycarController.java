@@ -69,4 +69,15 @@ public class MycarController {
         return "mycar/mycardetail";
     }
 
+    @GetMapping("/mycar/update")
+    public String update(){
+        return "mycar/mycarupdateform";
+    }
+
+    @GetMapping("mycar/carupdate")
+    public String updateForm(@RequestParam("num") Long num, Model model){
+        MycarDto dto = myCarDao.getData(num);
+        model.addAttribute("dto", dto);
+        return "mycar/mycarupdateform";
+    }
 }
