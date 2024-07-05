@@ -21,3 +21,8 @@ console.log(sum);
 let [a, ...b] = [1, 2, 3, 4, 5, 6, 7, 8];
 console.log(a);
 console.log(b);
+
+let [x, y, z] = [23, 45];
+console.log(x);
+console.log(y);
+console.log(z);
