@@ -23,3 +23,5 @@ console.log("a1 = " + Number.isNaN(a1));
 console.log("b1 = " + Number.isNaN(b1));
 console.log("c1 = " + Number.isNaN(c1));
 console.log("d1 = " + Number.isNaN(d1));
+
+console.log("=".repeat(30));
