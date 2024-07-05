@@ -3,6 +3,7 @@ package mycar.controller;
 
 import java.util.List;
 
+import mycar.repository.MycarCommentDao;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -25,6 +26,7 @@ import naver.storage.NcpObjectStorageService;
 public class MycarController {
     private final MyCarDao myCarDao;
     private final NcpObjectStorageService storageService;
+    private final MycarCommentDao commentDao;
 
     //bucket 명
     String bucketName="bitcamp-whkim-123";
@@ -54,7 +56,14 @@ public class MycarController {
         model.addAttribute("totalCount", result.getTotalElements());
         model.addAttribute("totalPage", result.getTotalPages());
         model.addAttribute("pageSize", pageSize);
-        model.addAttribute("list", result.getContent());
+
+        List<MycarDto> list = result.getContent();
+        for(MycarDto dto : list){
+            int commcount = commentDao.getAllComments(dto.getNum()).size();
+            dto.setCommentcount(commcount);
+        }
+
+        model.addAttribute("list", list);
         return "mycar/mycarlist";
     }
 
