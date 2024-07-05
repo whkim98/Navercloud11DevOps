@@ -12,3 +12,13 @@ const pp = {
 
 console.log("이름: " + pp.name);
 console.log("주소: " + pp.addr);
+
+pp.name = "강호동";
+console.log("이름: " + pp.name);
+
+// pp = {
+//     "name" : "홍길동2",
+//     "addr": "서울2"
+// }
+
+// console.log("이름: " + pp.name);
