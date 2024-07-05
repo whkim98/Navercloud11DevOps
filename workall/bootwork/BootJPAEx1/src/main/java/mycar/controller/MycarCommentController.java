@@ -35,4 +35,9 @@ public class MycarCommentController {
     public List<MyCarCommentDto> commentList(@RequestParam("num") Long num){
         return commentDao.getAllComments(num);
     }
+
+    @GetMapping("/commdel")
+    public void commentDelete(@RequestParam("idx") int idx){
+        commentDao.deleteComment(idx);
+    }
 }

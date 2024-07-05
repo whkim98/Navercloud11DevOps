@@ -23,6 +23,21 @@
     <script type="text/javascript">
         $(function(){
             list();
+            $(document).on("click", ".commentdel", function(){
+                let idx=$(this).attr("idx");
+                let a = confirm("해당 댓글을 삭제하시겠습니까?");
+                if(a){
+                    $.ajax({
+                        type: "get",
+                        dataType: "text",
+                        data: {"idx": idx},
+                        url: "./commdel",
+                        success: function(){
+                            list();
+                        }
+                    })
+                }
+            })
         })
         function list(){
             let num = [[${dto.num}]];
@@ -38,7 +53,10 @@
                             `
                             <div style="margin-left: 20px;">
                                 ${item.comment}
-                                <span style="color: gray; font-size: 0.9em;">${item.writeday}</span>
+                                <span style="color: gray; font-size: 0.9em;">${item.writeday}
+                                &nbsp;&nbsp;&nbsp;
+                                <i class="bi bi-trash commentdel" style="cursor: pointer;" idx="${item.idx}"></i>
+                                </span>
                             </div>
                             `;
                     });
