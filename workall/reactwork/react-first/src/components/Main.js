@@ -4,9 +4,9 @@ import TwoApp from "./TwoApp";
 const Main =()=>{
     return (
         <div>
-            <OneApp/>
-            <hr/>
             <TwoApp/>
+            <hr/>
+            <OneApp/>
             <hr/>
         </div>
     )
