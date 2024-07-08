@@ -5,6 +5,7 @@ const FiveApp = () => {
     const [show, setShow] = useState(true);
     const [fname, setFname] = useState('Gamja Flower');
     const [fcolor, setFcolor] = useState('red');
+    const [bcolor,setBcolor]=useState('#afeeee');
 
     let message = "안녕ㅋ";
     return (
@@ -17,7 +18,8 @@ const FiveApp = () => {
                 <img alt="car" src={car1} style={{width: '200px'}}/>
             }
             <hr/>
-            <div style={{fontFamily: fname, color: fcolor, fontSize: '30px'}}>
+            <div style={{fontSize:'30px',color:fcolor,
+                fontFamily:fname,backgroundColor:bcolor}}>
                 {message}
             </div>
             <h5>select 이벤트 활용 글꼴 변경</h5>
@@ -39,6 +41,25 @@ const FiveApp = () => {
                     <option>black</option>
                     <option>pink</option>
                 </select>
+                <br/>
+                &nbsp;&nbsp;
+                <label>
+                    <input type='radio' defaultValue='#afeeee'
+                    name="bcolor" defaultChecked
+                    onClick={(e)=>setBcolor(e.target.value)}/>하늘색
+                </label>
+                &nbsp;&nbsp;
+                <label>
+                    <input type='radio' defaultValue='#fffacd'
+                    name="bcolor"
+                    onClick={(e)=>setBcolor(e.target.value)}/>노랑색
+                </label>
+                &nbsp;&nbsp;
+                <label>
+                    <input type='radio' defaultValue='#90ee90'
+                    name="bcolor"
+                    onClick={(e)=>setBcolor(e.target.value)}/>그린색
+                </label>
             </div>
         </div>
     );
