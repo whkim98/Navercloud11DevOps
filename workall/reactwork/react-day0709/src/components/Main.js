@@ -7,7 +7,7 @@ import FiveApp from './FiveApp';
 import SixApp from './SixApp';
 
 const Main = () => {
-    const [idx, setIdx] = useState(1);
+    const [idx, setIdx] = useState(2);
     return (
         <div>
             <h3>2024-07-09</h3>
@@ -15,7 +15,7 @@ const Main = () => {
             <select className='form-select' style={{width: '300px'}}
             onChange={(e)=>setIdx(Number(e.target.value))}>
                 <option value={1}>OneApp-styled-components</option>
-                <option value={2}>TwoApp</option>
+                <option value={2} selected>TwoApp</option>
                 <option value={3}>ThreeApp</option>
                 <option value={4}>FourApp</option>
                 <option value={5}>FiveApp</option>
