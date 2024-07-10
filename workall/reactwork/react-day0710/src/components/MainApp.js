@@ -7,7 +7,7 @@ import FiveApp from './FiveApp';
 import SixApp from './SixApp';
 
 const MainApp = () => {
-    const [idx, setidx] = useState(1);
+    const [idx, setidx] = useState(6);
     const changeApp = (e) => {
         setidx(Number(e.target.value));
     }
