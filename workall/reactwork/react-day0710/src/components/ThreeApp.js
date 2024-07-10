@@ -4,7 +4,7 @@ import React from 'react';
 const ThreeApp = () => {
     return (
         <div>
-            <Alert>ThreeApp</Alert>
+            <Alert>ThreeApp - ㄴ</Alert>
         </div>
     );
 };
