@@ -1,9 +1,10 @@
 import React from 'react';
 
-const FiveChild2App = () => {
+const FiveChild2App = ({photo, msg}) => {
     return (
-        <div>
-            
+        <div className='box1'>
+            <img alt="phjoto" src={require(`../mycar/${photo}`)} className='small'/>
+            {msg}
         </div>
     );
 };

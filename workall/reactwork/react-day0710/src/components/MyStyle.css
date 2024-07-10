@@ -7,3 +7,10 @@
     margin-bottom: 10px;
     text-align: center;
 }
+
+.small{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-right: 20px;
+}
