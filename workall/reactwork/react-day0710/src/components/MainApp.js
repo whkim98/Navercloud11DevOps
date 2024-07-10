@@ -13,7 +13,8 @@ const MainApp = () => {
     }
     return (
         <div>
-            <div>
+            <h2>2024-07-10</h2>
+            <div style={{fontSize: '16px'}}>
                 <label>
                     <input type="radio" name="app" defaultValue={1}
                     onClick={changeApp}/>OneApp - 배열 추가, 삭제
@@ -21,7 +22,7 @@ const MainApp = () => {
                 <br/>
                 <label>
                     <input type="radio" name="app" defaultValue={2}
-                    onClick={changeApp}/>TwoApp - 배열 추가, 삭제
+                    onClick={changeApp}/>TwoApp - 배열 추가, 삭제 문제
                 </label>
                 <br/>
                 <label>
