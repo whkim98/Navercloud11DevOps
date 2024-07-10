@@ -25,6 +25,7 @@ const FourApp = () => {
         nameRef.current.value = "";
         korRef.current.value = "";
         engRef.current.value = "";
+        nameRef.current.focus();
     }
     return (
         <div>
