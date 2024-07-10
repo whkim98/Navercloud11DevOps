@@ -1,4 +1,4 @@
-import { Alert } from '@mui/material';
+import { Alert, Button } from '@mui/material';
 import React, { useRef, useState } from 'react';
 
 const FourApp = () => {
@@ -9,6 +9,40 @@ const FourApp = () => {
     return (
         <div>
             <Alert>FourApp - useRef 응용</Alert>
+            <table className='table table-bordered' style={{width: '300px'}}>
+                <tbody>
+                    <tr>
+                        <th style={{width: '100px'}} className='table-info'>이름</th>
+                        <td>
+                            <input type='text' className='form-control' ref={nameRef}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style={{width: '100px'}} className='table-info'>국어점수</th>
+                        <td>
+                            <input type='text' className='form-control' ref={korRef}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style={{width: '100px'}} className='table-info'>영어점수</th>
+                        <td>
+                            <input type='text' className='form-control' ref={engRef}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={2} align='center'>
+                            <Button variant='contained' color='error'>
+                                결과 출력
+                            </Button>
+                        </td>
+                    </tr>
+                    <tr style={{height: '100px'}}>
+                        <td colSpan={2} style={{fontSize: '16px', whiteSpace: 'pre-line', backgroundColor: '#ffc'}}>
+                            {result}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 };
