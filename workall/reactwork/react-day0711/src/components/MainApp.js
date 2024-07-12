@@ -3,9 +3,10 @@ import OneApp from './OneApp';
 import TwoApp from './TwoApp';
 import ThreeApp from './ThreeApp';
 import FourApp from './FourApp';
+import Root from '../context/Root';
 
 const MainApp = () => {
-    const [idx,setIdx]=useState(2);
+    const [idx,setIdx]=useState(5);
 
     const changeApp=(e)=>{
         setIdx(Number(e.target.value));
@@ -26,18 +27,23 @@ const MainApp = () => {
                 <br/>
                 <label>
                     <input type='radio' name='app' defaultValue={3}
-                    onClick={changeApp}/>ThreeApp
+                    onClick={changeApp}/>ThreeApp-json 데이타 출력
                 </label>
                 <br/>
                 <label>
                     <input type='radio' name='app' defaultValue={4}
-                    onClick={changeApp}/>FourApp-문제
+                    onClick={changeApp}/>FourApp-json 데이타 읽기 문제
+                </label> 
+                <br/> 
+                <label>
+                    <input type='radio' name='app' defaultValue={5}
+                    onClick={changeApp}/>Root-useContext 공부
                 </label>                         
             </div>
             <hr/>
             {
                 idx===1?<OneApp/>:idx===2?<TwoApp/>:
-                idx===3?<ThreeApp/>:<FourApp/>
+                idx===3?<ThreeApp/>:idx===4?<FourApp/>:<Root/>
             }
         </div>
     );
