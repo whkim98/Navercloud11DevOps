@@ -1,5 +1,6 @@
 package bit.mycar.data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,6 +37,7 @@ public class MycarDto {
 
     @CreationTimestamp  //현재시간으로 세팅
     @Column(updatable = false) //수정시 컬럼 제외
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
     private Timestamp writeday;
 
     //@Transient: 테이블의 컬럼으로는 생성되지 않고 객체에서만 사용가능한 멤버변수
