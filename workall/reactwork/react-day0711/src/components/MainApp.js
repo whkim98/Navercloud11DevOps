@@ -4,6 +4,7 @@ import TwoApp from './TwoApp';
 import ThreeApp from './ThreeApp';
 import FourApp from './FourApp';
 import Root from '../context/Root';
+import FiveApp from './FiveApp';
 
 const MainApp = () => {
     const [idx,setIdx]=useState(5);
@@ -38,12 +39,18 @@ const MainApp = () => {
                 <label>
                     <input type='radio' name='app' defaultValue={5}
                     onClick={changeApp}/>Root-useContext 공부
-                </label>                         
+                </label> 
+                <br/>
+                <label>
+                    <input type="radio" name='app' defaultValue={6}
+                    onClick={changeApp}/>FiveApp-Axios db데이터 가져오기    
+                </label>                        
             </div>
             <hr/>
             {
                 idx===1?<OneApp/>:idx===2?<TwoApp/>:
-                idx===3?<ThreeApp/>:idx===4?<FourApp/>:<Root/>
+                idx===3?<ThreeApp/>:idx===4?<FourApp/>:
+                idx===5?<Root/>:<FiveApp/>
             }
         </div>
     );
