@@ -33,3 +33,14 @@
     border-radius: 30px;
     float: left;
 }
+
+.tbstyle{
+    border: 3px solid gray;
+    width: 400px;
+    border-collapse: collapse;
+}
+
+.tbstyle tr, .tbstyle th, .tbstyle td{
+    border: 1px solid gray;
+    font-size: 15px;
+}
