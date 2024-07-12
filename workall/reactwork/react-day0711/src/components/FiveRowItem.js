@@ -22,7 +22,7 @@ const FiveRowItem = ({mycar}) => {
                 <td>구입날짜: {mycar.carguip}</td>
             </tr>
             <tr>
-                <td></td>
+                <td>등록일: {mycar.writeday}</td>
             </tr>
         </>
     );
