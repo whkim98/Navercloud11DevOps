@@ -8,13 +8,14 @@ const MyCarWriteForm = () => {
     const [carcolor, setCarcolor] = useState('#ccffaa');
     const [carguip, setCarguip] = useState('');
     const [carphoto, setCarphoto] = useState('');
+
     const photopath = "https://kr.object.ncloudstorage.com/bitcamp-whkim-123/mycar";
 
     const photoUploadEvent = (e) => {
         const uploadFilename = e.target.files[0];
         const uploadForm = new FormData();
         uploadForm.append("upload", uploadFilename);
-        axios.post({
+        axios({
             method: "post",
             url: "/mycar/upload",
             data: uploadForm,

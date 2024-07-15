@@ -34,6 +34,7 @@ public class MyCarListController {
         return map;
     }
 
+    @PostMapping("/mycar/insert")
     public void insert(@RequestBody MycarDto dto){
         System.out.println("insert dto >>" + dto);
         myCarService.insertMycar(dto);
