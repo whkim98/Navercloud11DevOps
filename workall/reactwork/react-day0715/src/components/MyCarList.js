@@ -1,7 +1,8 @@
-import { Alert } from '@mui/material';
+import { Alert, Button } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import MyCarRowItem from './MyCarRowItem';
+import MyCarWriteForm from './MyCarWriteForm';
 
 
 const MyCarList = () => {
@@ -21,6 +22,11 @@ const MyCarList = () => {
 
     return (
         <div>
+            <Button variant='contained' color='info' onClick={() => setShow(!show)}>자동차 등록 show/hide</Button>
+            {
+                show &&
+                <MyCarWriteForm/>
+            }
             <Alert severity='success' style={{fontSize: '15px', width: '500px'}}>
                 <b>총 {list.length}개의 정보가 있습니다</b>
             </Alert>
