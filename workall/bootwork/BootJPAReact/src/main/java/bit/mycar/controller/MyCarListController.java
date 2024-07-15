@@ -4,12 +4,10 @@ import bit.mycar.data.MycarDto;
 import bit.mycar.service.MyCarService;
 import lombok.RequiredArgsConstructor;
 import naver.storage.NcpObjectStorageService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +27,16 @@ public class MyCarListController {
 
     @PostMapping("/mycar/upload")
     public Map<String, String> uploadPhoto(@RequestParam("upload") MultipartFile upload){
+        System.out.println("photo upload>>" + upload.getOriginalFilename());
+        String carphoto = storageService.uploadFile(bucketName, folderName, upload);
+        Map<String, String> map = new HashMap<>();
+        map.put("carphoto", carphoto);
+        return map;
+    }
 
+    public void insert(@RequestBody MycarDto dto){
+        System.out.println("insert dto >>" + dto);
+        myCarService.insertMycar(dto);
     }
 
 }

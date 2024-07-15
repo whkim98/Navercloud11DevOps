@@ -15,4 +15,8 @@ public class MyCarService {
     public List<MycarDto> getAllDatas(){
         return myCarDao.getAllDatas();
     }
+
+    public void insertMycar(MycarDto dto){
+        myCarDao.insertMycar(dto);
+    }
 }

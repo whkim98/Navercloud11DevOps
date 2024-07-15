@@ -17,4 +17,8 @@ public class MyCarDao {
         return myCarDaoInter.findAll(Sort.by(Sort.Direction.DESC, "num"));
     }
 
+    public void insertMycar(MycarDto dto){
+        myCarDaoInter.save(dto);
+    }
+
 }
