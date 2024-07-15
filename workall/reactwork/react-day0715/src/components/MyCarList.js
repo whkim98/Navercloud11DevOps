@@ -20,12 +20,28 @@ const MyCarList = () => {
         myCarList();
     }, []);
 
+    const addMycarEvent = (data) => {
+        console.log(data);
+        axios.post("/mycar/insert", data)
+        .then(res => {
+            myCarList();
+        });
+    }
+
+    const deleteMycarEvent = (data) => {
+        console.log(data);
+        axios.delete("/mycar/delete?num=" + data)
+        .then(res => {
+            myCarList();
+        });
+    }
+
     return (
         <div>
             <Button variant='contained' color='info' onClick={() => setShow(!show)}>자동차 등록 show/hide</Button>
             {
                 show &&
-                <MyCarWriteForm/>
+                <MyCarWriteForm onSave={addMycarEvent}/>
             }
             <Alert severity='success' style={{fontSize: '15px', width: '500px'}}>
                 <b>총 {list.length}개의 정보가 있습니다</b>
@@ -43,7 +59,7 @@ const MyCarList = () => {
                 <tbody>
                     {
                         list.map((row, idx) =>
-                            <MyCarRowItem key={idx} idx={idx} row={row}/>)
+                            <MyCarRowItem key={idx} idx={idx} row={row} onDelete={deleteMycarEvent}/>)
                     }
                 </tbody>
             </table>

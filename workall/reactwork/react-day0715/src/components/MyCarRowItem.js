@@ -1,9 +1,20 @@
 import { DeleteForeverOutlined } from '@mui/icons-material';
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import MyCarList from './MyCarList';
 
-const MyCarRowItem = ({idx, row}) => {
+const MyCarRowItem = ({idx, row, onDelete}) => {
     const photopath1 = "https://ph9dc3ti3779.edge.naverncp.com/PxOjfBhSlM/mycar";
     const photopath2 = "?type=f&w=40&h=40&faceopt=true&ttype=jpg";
+
+    // const [num, setNum] = useState(0);
+    const deleteDataEvent = (num) => {
+        let a = window.confirm("해당 상품을 삭제할까요?");
+        if(a){
+            onDelete(num);
+        }
+    }
+
     return (
         <tr style={{fontSize: '14px'}}>
             <td>
@@ -21,7 +32,8 @@ const MyCarRowItem = ({idx, row}) => {
                 <span style={{color: 'gray', fontSize: '13px'}}>
                     {row.writeday}
                     &nbsp;
-                    <DeleteForeverOutlined style={{cursor: 'pointer'}}/>
+                    <DeleteForeverOutlined style={{cursor: 'pointer'}} 
+                    onClick={() => deleteDataEvent(row.num)}/>
                 </span>
             </td>
         </tr>

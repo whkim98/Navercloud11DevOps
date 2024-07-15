@@ -2,7 +2,7 @@ import { Alert, Button } from '@mui/material';
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const MyCarWriteForm = () => {
+const MyCarWriteForm = ({onSave}) => {
     const [carname, setCarname] = useState('');
     const [carprice, setCarprice] = useState('');
     const [carcolor, setCarcolor] = useState('#ccffaa');
@@ -23,6 +23,15 @@ const MyCarWriteForm = () => {
         }).then(res => {
             setCarphoto(res.data.carphoto);
         });
+    }
+
+    const addDataEvent = () => {
+        onSave({carname, carphoto, carprice, carguip, carcolor});
+        setCarcolor("#ccffaa");
+        setCarguip("");
+        setCarname("");
+        setCarphoto("");
+        setCarprice("");
     }
 
     return (
@@ -79,7 +88,7 @@ const MyCarWriteForm = () => {
                     </tr>
                     <tr>
                         <td colSpan={3} align='center'>
-                            <Button variant='contained' color='success'>등록</Button>
+                            <Button variant='contained' color='success' onClick={addDataEvent}>등록</Button>
                         </td>
                     </tr>
                 </tbody>

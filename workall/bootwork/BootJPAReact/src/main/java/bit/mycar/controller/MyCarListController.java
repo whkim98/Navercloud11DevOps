@@ -40,4 +40,10 @@ public class MyCarListController {
         myCarService.insertMycar(dto);
     }
 
+    @DeleteMapping("/mycar/delete")
+    public void delete(@RequestParam("num") Long num){
+        System.out.println("delete dto >>" + num);
+        myCarService.deleteMycar(num);
+    }
+
 }

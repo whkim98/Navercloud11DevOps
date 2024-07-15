@@ -21,4 +21,8 @@ public class MyCarDao {
         myCarDaoInter.save(dto);
     }
 
+    public void deleteMycar(Long num){
+        myCarDaoInter.deleteById(num);
+    }
+
 }
