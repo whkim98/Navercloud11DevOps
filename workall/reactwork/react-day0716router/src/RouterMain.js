@@ -5,6 +5,7 @@ import { About, Food, Home } from './pages';
 import photo1 from './image/s5.JPG';
 import photo2 from './image/s2.JPG';
 import './components/MyStyle.css';
+import Member from './pages/Member';
 
 const RouterMain = () => {
     return (
@@ -24,6 +25,8 @@ const RouterMain = () => {
                 <Route path='/about' element={<About/>}>
                     <Route path=':emp' element={<About/>}/>
                 </Route>
+
+                <Route path='/member/*' element={<Member/>}/>
 
                 {/* 직접 태그를 이용해서 페이지를 구현해도 된다 */}
                 <Route path='/login/*' element={

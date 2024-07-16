@@ -27,6 +27,9 @@ const Menu = () => {
                 <li>
                     <NavLink to={'/about/Naver'}>About #3</NavLink>
                 </li>
+                <li>
+                    <NavLink to={'/member'}>Member</NavLink>
+                </li>
             </ul>
         </div>
     );
