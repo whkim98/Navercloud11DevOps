@@ -23,4 +23,9 @@ public class MyCarService {
     public void deleteMycar(Long num){
         myCarDao.deleteMycar(num);
     }
+
+    public void updateMycar(MycarDto dto){
+        myCarDao.updateMycar(dto);
+    }
+
 }

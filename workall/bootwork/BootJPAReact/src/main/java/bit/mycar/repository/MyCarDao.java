@@ -25,4 +25,8 @@ public class MyCarDao {
         myCarDaoInter.deleteById(num);
     }
 
+    public void updateMycar(MycarDto dto){
+        myCarDaoInter.save(dto);
+    }
+
 }

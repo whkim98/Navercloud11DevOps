@@ -46,4 +46,9 @@ public class MyCarListController {
         myCarService.deleteMycar(num);
     }
 
+    @PostMapping("/mycar/update")
+    public void update(@RequestBody MycarDto dto){
+        myCarService.updateMycar(dto);
+    }
+
 }

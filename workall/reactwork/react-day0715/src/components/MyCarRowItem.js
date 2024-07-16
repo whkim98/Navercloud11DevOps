@@ -1,4 +1,4 @@
-import { DeleteForeverOutlined } from '@mui/icons-material';
+import { DeleteForeverOutlined, EditNote } from '@mui/icons-material';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
@@ -12,6 +12,11 @@ import Slide from '@mui/material/Slide';
 
 
 const MyCarRowItem = ({idx, row, onDelete}) => {
+
+    const [carname, setCarname] = useState(row.carname);
+    const [carprice, setCarprice] = useState(row.carprice);
+    const [carcolor, setCarcolor] = useState(row.carcolor);
+
     const photopath1 = "https://ph9dc3ti3779.edge.naverncp.com/PxOjfBhSlM/mycar";
     const photopath2 = "?type=f&w=40&h=40&faceopt=true&ttype=jpg";
 
@@ -37,6 +42,16 @@ const MyCarRowItem = ({idx, row, onDelete}) => {
 
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const [open2, setOpen2] = React.useState(false);
+
+    const handleClickOpen2 = () => {
+        setOpen2(true);
+    };
+
+    const handleClose2 = () => {
+        setOpen2(false);
     };
 
     return (
@@ -80,6 +95,64 @@ const MyCarRowItem = ({idx, row, onDelete}) => {
                     &nbsp;
                     <DeleteForeverOutlined style={{cursor: 'pointer'}} 
                     onClick={() => deleteDataEvent(row.num)}/>
+
+                    &nbsp;
+                    <EditNote style={{cursor: 'pointer'}}
+                    onClick={handleClickOpen2}/>
+
+                    <Dialog
+                    open={open}
+                    // TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClose2}
+                    aria-describedby="alert-dialog-slide-description"
+                >
+                    <DialogTitle>자동차정보수정</DialogTitle>
+                    <DialogContent>
+                    <DialogContentText id="alert-dialog-slide-description">
+                    <table className='table table-bordered' style={{width: '500px'}}>
+                <tbody>
+                    <tr>
+                        <td className='table-success' style={{width: '100px'}}>
+                            자동차명
+                        </td>
+                        <td style={{width: '200px'}}>
+                            <input type='text' className='form-control' 
+                            style={{width: '200px'}} value={carname}
+                            onChange={(e) => setCarname(e.target.value)}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className='table-success' style={{width: '100px'}}>
+                            가격
+                        </td>
+                        <td>
+                            <input type='text' className='form-control' 
+                            style={{width: '200px'}} value={carprice}
+                            onChange={(e) => setCarprice(e.target.value)}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className='table-success' style={{width: '100px'}}>색상</td>
+                        <td>
+                            <input type='color' className='form-control' style={{width: '200px'}} value={carcolor}
+                            onChange={(e) => setCarcolor(e.target.value)}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={3} align='center'>
+                            <Button variant='contained' color='success'>등록</Button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                    </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                    <Button onClick={handleClose2}>닫기</Button>
+                    </DialogActions>
+                </Dialog>
+
                 </span>
             </td>
         </tr>
