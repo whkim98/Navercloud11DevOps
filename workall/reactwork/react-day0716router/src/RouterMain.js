@@ -20,7 +20,10 @@ const RouterMain = () => {
                     <Route path=':food1/:food2' element={<Food/>}/>
                 </Route>
 
-                <Route path='/about' element={<About/>}/>
+                {/* <Route path='/about' element={<About/>}/> */}
+                <Route path='/about' element={<About/>}>
+                    <Route path=':emp' element={<About/>}/>
+                </Route>
 
                 {/* 직접 태그를 이용해서 페이지를 구현해도 된다 */}
                 <Route path='/login/*' element={
