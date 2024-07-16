@@ -30,6 +30,9 @@ const Menu = () => {
                 <li>
                     <NavLink to={'/member'}>Member</NavLink>
                 </li>
+                <li>
+                    <NavLink to={'/mycar'}>MyCar</NavLink>
+                </li>
             </ul>
         </div>
     );
