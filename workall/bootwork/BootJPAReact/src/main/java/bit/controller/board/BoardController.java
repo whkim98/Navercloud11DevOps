@@ -56,7 +56,27 @@ public class BoardController {
         }else{
             map.put("result", "fail");
         }
+        return map;
+    }
 
+    @PostMapping("/update")
+    public void update(@RequestBody BoardDto dto){
+        boardService.updateBoard(dto);
+    }
+
+    @GetMapping("/deletecheckpass")
+    public Map<String, Object> deletecheckPass(@RequestParam("boardNum") Long boardNum, @RequestParam String pass){
+        Map<String, Object> map = new HashMap<>();
+        boolean flag = boardService.isEqualPass(boardNum, pass);
+
+        if(flag){
+            String oldPhotoName = boardService.getData(boardNum).getPhoto();
+            storageService.deleteFile(bucketName, folderName, oldPhotoName);
+            boardService.deleteBoard(boardNum);
+            map.put("result", "success");
+        }else{
+            map.put("result", "fail");
+        }
         return map;
     }
 
