@@ -6,7 +6,7 @@ import photo1 from './image/s5.JPG';
 import photo2 from './image/s2.JPG';
 import './components/MyStyle.css';
 import Member from './pages/Member';
-import Mycar from './pages/Mycar';
+import MyCar from './pages/MyCar';
 
 const RouterMain = () => {
     return (
@@ -29,8 +29,8 @@ const RouterMain = () => {
 
                 <Route path='/member/*' element={<Member/>}/>
 
-                <Route path='/mycar/*' element={<Mycar/>}/>
-
+                <Route path='/mycar/*' element={<MyCar/>}/>
+                
                 {/* 직접 태그를 이용해서 페이지를 구현해도 된다 */}
                 <Route path='/login/*' element={
                     <div>
@@ -47,6 +47,7 @@ const RouterMain = () => {
                         <img alt='' src={photo2}/>
                     </div>
                 }/>
+
             </Routes>
         </div>
     );

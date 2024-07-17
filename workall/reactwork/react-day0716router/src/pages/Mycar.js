@@ -3,7 +3,7 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import MyCarList from './MyCarList';
 import MyCarPhoto from './MyCarPhoto';
 
-const Mycar = () => {
+const MyCar = () => {
     
     return (
         <div>
@@ -26,4 +26,4 @@ const Mycar = () => {
     );
 };
 
-export default Mycar;
+export default MyCar;

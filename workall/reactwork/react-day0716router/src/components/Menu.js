@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import "./MyStyle.css";
 
 const Menu = () => {
     return (
@@ -31,7 +30,7 @@ const Menu = () => {
                     <NavLink to={'/member'}>Member</NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/mycar'}>MyCar</NavLink>
+                    <NavLink to={'/mycar/photo'}>MyCar</NavLink>
                 </li>
             </ul>
         </div>
