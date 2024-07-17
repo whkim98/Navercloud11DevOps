@@ -39,18 +39,18 @@ public class BoardController {
     }
 
     @GetMapping("/detail")
-    public BoardDto detail(@RequestParam("boardNum") Long boardNum){
-        boardService.updateReadCount(boardNum);
-        return boardService.getData(boardNum);
+    public BoardDto detail(@RequestParam("boardnum") Long boardnum){
+        boardService.updateReadCount(boardnum);
+        return boardService.getData(boardnum);
     }
 
     @GetMapping("/checkpass")
-    public Map<String, Object> checkPass(@RequestParam("boardNum") Long boardNum, @RequestParam String pass){
+    public Map<String, Object> checkPass(@RequestParam("boardnum") Long boardnum, @RequestParam String pass){
         Map<String, Object> map = new HashMap<>();
-        boolean flag = boardService.isEqualPass(boardNum, pass);
+        boolean flag = boardService.isEqualPass(boardnum, pass);
 
         if(flag){
-            BoardDto dto = boardService.getData(boardNum);
+            BoardDto dto = boardService.getData(boardnum);
             map.put("dto", dto);
             map.put("result", "success");
         }else{
@@ -65,14 +65,14 @@ public class BoardController {
     }
 
     @GetMapping("/deletecheckpass")
-    public Map<String, Object> deletecheckPass(@RequestParam("boardNum") Long boardNum, @RequestParam String pass){
+    public Map<String, Object> deletecheckPass(@RequestParam("boardnum") Long boardnum, @RequestParam String pass){
         Map<String, Object> map = new HashMap<>();
-        boolean flag = boardService.isEqualPass(boardNum, pass);
+        boolean flag = boardService.isEqualPass(boardnum, pass);
 
         if(flag){
-            String oldPhotoName = boardService.getData(boardNum).getPhoto();
+            String oldPhotoName = boardService.getData(boardnum).getPhoto();
             storageService.deleteFile(bucketName, folderName, oldPhotoName);
-            boardService.deleteBoard(boardNum);
+            boardService.deleteBoard(boardnum);
             map.put("result", "success");
         }else{
             map.put("result", "fail");

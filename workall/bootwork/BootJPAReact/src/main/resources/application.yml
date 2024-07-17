@@ -10,7 +10,7 @@ spring:
     password: bitcamp!@#123
 
   #jpa setting
-  #ddl-auto: create(\uAE30\uC874 \uD14C\uC774\uBE14\uC744 \uC81C\uAC70\uD6C4 \uB2E4\uC2DC \uC0DD\uC131:\uC808\uB300 \uC8FC\uC758\uD574\uC11C \uC0AC\uC6A9)  , update(\uBCC0\uACBD\uB41C \uBD80\uBD84\uB9CC \uBC18\uC601)
+#  ddl-auto: create(\uAE30\uC874 \uD14C\uC774\uBE14\uC744 \uC81C\uAC70\uD6C4 \uB2E4\uC2DC \uC0DD\uC131:\uC808\uB300 \uC8FC\uC758\uD574\uC11C \uC0AC\uC6A9)  , update(\uBCC0\uACBD\uB41C \uBD80\uBD84\uB9CC \uBC18\uC601)
   jpa:
     hibernate:
       ddl-auto: update
@@ -22,3 +22,8 @@ spring:
     database: mysql
     #Mysql \uC0C1\uC138\uC9C0\uC815
     database-platform: org.hibernate.dialect.MySQLDialect
+
+
+
+
+
