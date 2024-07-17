@@ -1,9 +1,10 @@
 import { CameraAltOutlined} from '@mui/icons-material';
 import { Alert } from '@mui/material';
-import React from 'react';
+import React, { useRef } from 'react';
 import InputEmojiWithRef from 'react-input-emoji';
 
 const BoardForm = () => {
+    const fileRef = useRef(null);
     return (
         <div>
             <Alert>게시판 글쓰기</Alert>
@@ -33,10 +34,12 @@ const BoardForm = () => {
                     </tr>
                     <tr>
                         <td colSpan={2}>
-                            <input type='file' style={{display: 'none'}}/>
-                            <CameraAltOutlined/>
+                            <input type='file' style={{display: 'none'}} ref={fileRef}/>
+                            <CameraAltOutlined onClick={()=>fileRef.current.click()} 
+                            style={{cursor: 'pointer', fontSize: '30px'}}/>
                             <textarea style={{width: '100%', height: '150px'}} 
-                            placeholder='내용을 입력해 주세요' className='form-control'></textarea>
+                            placeholder='내용을 입력해 주세요' className='form-control'>
+                            </textarea>
                         </td>
                     </tr>
                 </tbody>
