@@ -1,10 +1,29 @@
 import { CameraAltOutlined} from '@mui/icons-material';
 import { Alert, Button } from '@mui/material';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import InputEmojiWithRef from 'react-input-emoji';
 
 const BoardForm = () => {
+
+    const [writer, serWriter] = useState('');
+    const [pass, setPass] = useState('');
+    const [subject, setSubject] = useState('');
+    const [photo, setPhoto] = useState("no");
+
     const fileRef = useRef(null);
+    const contentRef = useRef(null);
+
+    const storage = process.env.REACT_APP_STORAGE;
+    console.log(storage);
+
+    const uploadPhoto = (e) => {
+
+    }
+
+    const dataSaveEvent = () => {
+        
+    }
+
     return (
         <div>
             <Alert>게시판 글쓰기</Alert>
