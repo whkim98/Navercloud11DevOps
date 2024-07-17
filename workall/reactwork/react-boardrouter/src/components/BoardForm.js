@@ -1,5 +1,5 @@
 import { CameraAltOutlined} from '@mui/icons-material';
-import { Alert } from '@mui/material';
+import { Alert, Button } from '@mui/material';
 import React, { useRef } from 'react';
 import InputEmojiWithRef from 'react-input-emoji';
 
@@ -40,6 +40,12 @@ const BoardForm = () => {
                             <textarea style={{width: '100%', height: '150px'}} 
                             placeholder='내용을 입력해 주세요' className='form-control'>
                             </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={2} align='center'>
+                            <Button variant='contained' color='success'
+                            style={{width: '100px'}}>저장</Button>
                         </td>
                     </tr>
                 </tbody>
