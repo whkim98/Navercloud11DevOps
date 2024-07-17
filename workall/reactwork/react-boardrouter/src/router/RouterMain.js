@@ -11,6 +11,7 @@ const RouterMain = () => {
     return (
         <div>
             <Menu/>
+            <br style={{clear:'both'}}/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/board'>
