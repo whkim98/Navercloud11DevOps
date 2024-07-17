@@ -1,7 +1,7 @@
-package bit.mycar.controller;
+package bit.controller.mycar;
 
-import bit.mycar.data.MycarDto;
-import bit.mycar.service.MyCarService;
+import bit.data.mycar.MycarDto;
+import bit.service.mycar.MyCarService;
 import lombok.RequiredArgsConstructor;
 import naver.storage.NcpObjectStorageService;
 import org.springframework.web.bind.annotation.*;

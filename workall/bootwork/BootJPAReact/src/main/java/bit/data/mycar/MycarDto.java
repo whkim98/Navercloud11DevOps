@@ -1,4 +1,4 @@
-package bit.mycar.data;
+package bit.data.mycar;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
